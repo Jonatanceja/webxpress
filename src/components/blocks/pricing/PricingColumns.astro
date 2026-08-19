@@ -10,7 +10,6 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 // - UI
 import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
-import Toggle from '../../ui/forms/form-elements/Toggle.astro'
 
 // Content
 import pricingTablesData from '../../../data/json-files/pricingTablesdata.json'
@@ -46,16 +45,16 @@ const pricingData: PricingTableData[] = pricingTablesData as PricingTableData[]
 
 <Section>
 	<Row>
-		<Col span="12" align="center" classes="flex items-center justify-center gap-4 mb-12">
+		<!--- <Col span="12" align="center" classes="flex items-center justify-center gap-4 mb-12">
 			<span id="monthlyLabel" class="font-semibold text-neutral-400 transition-colors"
-				>Bill monthly</span
+				>Mensual</span
 			>
 			<Toggle id="pricingType" label="pricing" showLabel={false} checked={true} />
 			<span
 				class="font-semibold text-neutral-400 text-primary-500 transition-colors"
-				id="annualLabel">Bill annually</span
+				id="annualLabel">Anual</span
 			>
-		</Col>
+		</Col>--->
 		{
 			pricingData.map((item, key) => (
 				<Col span="4">

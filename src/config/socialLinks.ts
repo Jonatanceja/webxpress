@@ -11,17 +11,12 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
 	{
 		name: 'facebook',
-		link: '/',
+		link: '/https://www.facebook.com/webxpress.website/',
 		icon: 'fb-icon'
 	},
 	{
-		name: 'twitter',
-		link: '/',
-		icon: 'twitter-icon'
-	},
-	{
-		name: 'discord',
-		link: '/',
-		icon: 'discord-icon'
+		name: 'instagram',
+		link: '/https://www.instagram.com/webxpress.web/',
+		icon: 'instagram-icon'
 	}
 ]

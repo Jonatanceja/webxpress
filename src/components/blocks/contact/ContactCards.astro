@@ -1,7 +1,7 @@
 ---
 // Basic Cards grid Section
 // ------------
-// Description: A grid of cards with basic contact information in a 4 column layout.
+// Description: A grid of cards with basic contacto information in a 4 column layout.
 // Properties:
 // - classes: Additional classes to be added to the Section
 
@@ -23,49 +23,50 @@ const { classes } = Astro.props
 <Section id="requests" classes={classes}>
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-balance">Have a Special Request? We’re Here to <strong>Help!</strong></h2>
+			<h2 class="text-balance">¿Tienes una solicitud especial? ¡Estamos aquí para <strong>ayudarte!</strong></h2>
 			<p class="pb-0 text-lg">
-				Choose from one of the options below to get the specific help you need. Whether it's
-				customer support, sales inquiries, feature requests, or general feedback, we're here to
-				provide you with the best assistance possible.
+				Elige una de las opciones a continuación para recibir la ayuda específica que necesitas. 
+				Ya sea soporte al cliente, consultas de ventas, solicitudes de funciones o comentarios generales, 
+				estamos aquí para ofrecerte la mejor asistencia posible.
+
 			</p>
 		</Col>
 	</Row>
 	<Row>
 		<Col span="3">
 			<Card
-				title="Customer Support"
-				subtitle="Need help with Foxi? Our support team is available 24/7 to assist you with any issues or questions you might have."
+				title="Soporte al cliente"
+				subtitle="Necesitas ayuda con algún proyecto con nosotros. No dudes en ponerte en contactoo."
 				icon="rocket"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
+				link="/contacto"
 			/>
 		</Col>
 		<Col span="3">
 			<Card
-				title="Sales Inquiries "
-				subtitle="Interested in our plans or want a custom solution? Get in touch with our sales team to find the perfect fit. "
+				title="Ventas"
+				subtitle="¿Interesado en nuestros planes o deseas una solución personalizada? "
 				icon="document-text"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
+				link="/contacto"
 			/>
 		</Col>
 		<Col span="3">
 			<Card
-				title="Feature Requests"
-				subtitle="Have an idea to make Foxi even better? We’d love to hear from you! Share your feature requests and help us improve "
+				title="Solicitudes de funciones"
+				subtitle="Quieres agregar alguna función a tu sitio web? Nosotros podemos ayudarte a hacerlo."
 				icon="bolt"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
+				link="/contacto"
 			/>
 		</Col>
 		<Col span="3" classes="flex flex-col gap-6">
 			<Card
-				title="General Feedback"
-				subtitle="Your feedback is invaluable to us. Let us know how we’re doing and how we can improve. "
+				title="Retroalimentación General"
+				subtitle="Tus comentarios son muy valiosos. Cuéntanos cómo podemos mejorar. "
 				icon="chat-bubble-left-ellipsis"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
+				link="/contacto"
 			/>
 		</Col>
 	</Row>

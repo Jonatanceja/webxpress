@@ -11,6 +11,8 @@ import { Icon } from 'astro-icon/components'
 // Data
 import { socialLinks } from '../../config/socialLinks'
 import { footerNavigationData } from '../../config/footerNavigation'
+import { navigationBarData } from '../../config/navigationBar'
+const { logo, navItems, navActions } = navigationBarData
 
 const { footerAbout, footerColumns, subFooter } = footerNavigationData
 ---
@@ -21,11 +23,11 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		<div class="footer__container">
 			<div class="footer__cols">
 				<div class="footer__col">
-					<a aria-label="webiste logo" aria-current="page" class="footer__main-brand" href="/">
-						<img src={footerAbout.logo.src} alt={footerAbout.logo.alt} width="32" height="32" />
-						{footerAbout.logo.text}
+					<a href="/" class="header__logo">
+						<img class="hidden dark:block" src={logo.light.src} alt={logo.light.alt} width="150" height="48" />
+						<img class="block dark:hidden" src={logo.dark.src} alt={logo.dark.alt} width="150" height="48" />
 					</a>
-					<p>
+					<p class="mt-2">
 						{footerAbout.aboutText}
 					</p>
 				</div>

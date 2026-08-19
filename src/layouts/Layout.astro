@@ -6,10 +6,9 @@ import Main from '../components/ui/Main.astro'
 import Footer from '../components/ui/Footer.astro'
 import Modal from '../components/blocks/modal/SignUp.astro'
 import Header from '../components/blocks/head/Header.astro'
-import Toast from '../components/ui/Toast.astro'
 // Scripts
 import Scriprs from '../components/scripts/LocalScripts.astro'
-import GoogleTagManagerBody from '../components/scripts/googleTagManagerBody.astro'
+import MailChimp from '../components/scripts/mailChimp.astro'
 // Styles
 import '../styles/global.css'
 // Fonts
@@ -40,14 +39,17 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 			{ [`${classes}`]: classes }
 		]}
 	>
-		<GoogleTagManagerBody />
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH7SNGXJ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<MailChimp />
 		<NavigationBar />
 		<Main>
 			<slot />
 		</Main>
 		<Footer />
 		<Modal />
-		<Toast />
 		<Scriprs />
 	</body>
 </html>

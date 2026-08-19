@@ -13,7 +13,6 @@ import CardBody from '../../ui/cards/partials/CardBody.astro'
 import Form from '../../ui/forms/Form.astro'
 import FormField from '../../ui/forms/partials/FormField.astro'
 import InputField from '../../ui/forms/form-elements/InputField.astro'
-import TextArea from '../../ui/forms/form-elements/TextArea.astro'
 import Button from '../../ui/Button.astro'
 
 // Props
@@ -25,20 +24,49 @@ const { classes } = Astro.props
 
 <Card classes={classes}>
 	<CardBody>
-		<Form>
-			<h2 class="text-2xl">Get in Touch</h2>
-			<FormField>
-				<InputField type="text" id="firstName" label="First Name" />
-				<InputField type="text" id="lastName" label="Last Name" />
-			</FormField>
-			<FormField>
-				<InputField type="email" id="email" label="Email" required value="name@youremail.com" />
-			</FormField>
-			<FormField>
-				<InputField type="tel" id="phone" label="phone number" />
-			</FormField>
-			<FormField><TextArea id="message" label="Your Message" /></FormField>
-			<Button style="primary" type="submit">Submit</Button>
-		</Form>
+		<Form 
+    action="https://website.us22.list-manage.com/subscribe/post?u=2af389eb99f58a1cb65fda16a&amp;id=bd02499e98&amp;f_id=0081c2e1f0" 
+    method="post" 
+    target="_self" 
+    novalidate
+  >
+  <h2 class="text-2xl">Contáctanos</h2>
+  
+  <FormField>
+    <InputField type="text" id="mce-FNAME" name="FNAME" label="Nombre" />
+    <InputField type="text" id="mce-LNAME" name="LNAME" label="Apellido" />
+  </FormField>
+
+  <FormField>
+    <InputField type="email" id="mce-EMAIL" name="EMAIL" label="Email" required value="nombre@tucorreo.com" />
+  </FormField>
+
+  <FormField>
+    <InputField type="tel" id="mce-PHONE" name="PHONE" label="Teléfono" />
+  </FormField>
+
+  <FormField>
+    <InputField type="text" id="mce-COMPANY" name="COMPANY" label="Compañía" />
+  </FormField>
+
+  <FormField>
+    <label class="block w-full" for="mce-PLAN">Tipo de plan que necesitas</label>
+    <select 
+	class="block relative h-12 w-full rounded border border-neutral-200 px-4 text-neutral-500 placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-red-500 invalid:text-red-500 focus:border-primary-500 focus:outline-none invalid:focus:border-red-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600" id="mce-PLAN" name="PLAN">
+      <option value=""></option>
+      <option value="Starter">Starter</option>
+      <option value="Profesional">Profesional</option>
+      <option value="Shopify">Shopify</option>
+    </select>
+  </FormField>
+
+  {/* Campo oculto anti-bots que pide Mailchimp */}
+  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+    <input type="text" name="b_2af389eb99f58a1cb65fda16a_bd02499e98" tabindex="-1" value="" />
+  </div>
+
+  <Button style="primary" type="submit">Enviar</Button>
+</Form>
+
 	</CardBody>
 </Card>

@@ -40,7 +40,8 @@ const savedNavActions = navActions.map((action) => ({
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
-				<img src={logo.src} alt={logo.alt} width="48" height="48" />
+				<img class="hidden dark:block" src={logo.light.src} alt={logo.light.alt} width="200" height="68" />
+				<img class="block dark:hidden" src={logo.dark.src} alt={logo.dark.alt} width="200" height="68" />
 				<span>{logo.text}</span>
 			</a>
 
@@ -107,7 +108,7 @@ const savedNavActions = navActions.map((action) => ({
 			<div class="header__actions">
 				{
 					savedNavActions.map((action) => (
-						<Button classes="flex-auto" size={action.size} style={action.style} modal="signup">
+						<Button classes="flex-auto" size={action.size} style={action.style} link="/contacto">
 							{action.name}
 						</Button>
 					))

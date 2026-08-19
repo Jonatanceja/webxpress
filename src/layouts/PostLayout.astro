@@ -21,12 +21,12 @@ const SEO = {
 		tags={frontmatter.tags}
 		title={frontmatter.title}
 		author={frontmatter.author}
-		publishDate={frontmatter.pubDate.toLocaleDateString('en-US', {
+		publishDate={new Date(frontmatter.pubDate).toLocaleDateString('es-MX', {
 			year: 'numeric',
 			month: 'long',
 			day: 'numeric'
 		})}
-	/>
+		/>
 
 	<div class="post-body basic-text basic-text--lg">
 		<slot />

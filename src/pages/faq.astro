@@ -13,32 +13,33 @@ import faqData from '../data/json-files/faqData.json'
 // - FAQ Categories
 const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
 const faqIntegrations = faqData.filter((faq) => faq.category === 'integrations')
+const faqDesign = faqData.filter((faq) => faq.category === 'design')
 
 // Content
 import faqImage1 from '../assets/faq/faq-01.png'
 // - SEO
 const SEO = {
-	title: 'Foxi | Get Your Questions Answered with a Smile',
+	title: 'Webxpress | Resolvemos tus dudas antes de que las tengas',
 	description:
-		'Dive into the Foxi FAQ Funhouse to get answers to all your questions about pricing, integrations, features, and more. Discover how Foxi can make your work life more productive and enjoyable.'
+		'Encuentra respuestas claras sobre precios, diseño, cancelación e integraciones.'
 }
 // - Page Header
 const header = {
-	title: 'Get Answers to Your <strong>Foxi</strong> Questions.',
-	text: 'Find answers to common questions about Foxi '
+	title: 'Resolvemos <strong>tus dudas</strong> antes de que las tengas',
+	text: 'Encuentra respuestas claras sobre precios, diseño, cancelación e integraciones.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<FAQ
-		title="Understanding Our Pricing Plans"
-		text="Get all the details on Foxi’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
+		title="Precios, pagos y cancelaciones."
+		text="Conoce cómo funcionan nuestros costos, métodos de pago, el setup inicial y qué sucede si decides cancelar tu servicio."
 		data={faqPricing}
 	/>
 	<TextImage
-		title="Why Foxi’s Pricing Plans Offer Great Value"
-		text="At Foxi, we believe in providing exceptional value at every price point. Our pricing plans are designed to cater to a variety of needs, from individuals and small teams to large enterprises. Each plan includes access to our powerful features, seamless integrations, and top-notch customer support. "
+		title="Más valor por cada peso invertido"
+		text="Con Webxpress obtienes un sitio rápido, seguro y siempre optimizado, sin gastos ocultos ni mantenimientos costosos. Pagas una tarifa mensual fija que incluye diseño, desarrollo, soporte y actualizaciones constantes. Esto significa que tu inversión se traduce en resultados medibles: mejor SEO, más conversiones y menos preocupaciones técnicas. "
 		image={faqImage1}
 		mobileImage={faqImage1}
 		imagePosition="left"
@@ -46,8 +47,22 @@ const header = {
 		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
 	/>
 	<FAQ
-		title="Integrations Made Easy"
-		text="Discover how Foxi seamlessly integrates with your favorite tools and platforms. From Google Calendar to Slack, find out how to connect and enhance your productivity with powerful integrations."
+		title="Diseño pensado para ti"
+		text="Desde el primer día trabajamos en un diseño que refleje tu marca y conecte con tus clientes. Comenzamos con un splash screen rápido para que tu sitio esté visible en 48 horas"
+		data={faqDesign}
+	/>
+	<TextImage
+		title="Diseño que impulsa resultados"
+		text="Un buen diseño no solo hace que tu sitio se vea bien, sino que impulsa ventas, mejora la experiencia del usuario y refuerza la identidad de tu marca. En Webxpress entendemos que el diseño es una herramienta estratégica para atraer, convencer y retener clientes, maximizando el valor de cada visita. "
+		image={faqImage1}
+		mobileImage={faqImage1}
+		imagePosition="right"
+		offsetImage
+		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
+	/>
+	<FAQ
+		title="Conexiones que potencian tu sitio"
+		text="Explora cómo integramos tu sitio con las herramientas y plataformas que necesitas para vender, comunicar y crecer sin límites."
 		data={faqIntegrations}
 	/>
 	<CTA />

@@ -8,49 +8,41 @@
 import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
+
 // - UI
-import ChipNotification from '../../ui/ChipNotification.astro'
 import { Image } from 'astro:assets'
 import Button from '../../ui/Button.astro'
-import AvatarGroup from '../../ui/AvatarGroup.astro'
 
 // Content
 // - Hero Image
-import heroImage from '../../../assets/hero-01.png'
-// - Avatars
-import user1 from '../../../assets/avatars/avatar-01.webp'
-import user2 from '../../../assets/avatars/avatar-02.webp'
-import user3 from '../../../assets/avatars/avatar-03.webp'
-const avatars = [
-	{ image: { src: user1.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user2.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user3.src, alt: 'user name' }, link: '/' }
-]
+import heroImage from '../../../assets/monkey.webp'
 ---
 
-<Section id="intro" padding="top" classes="bg-neutral-50 dark:bg-neutral-900">
+<Section
+  id="intro"
+  padding="top"
+  classes="bg-neutral-50 dark:bg-neutral-900 bg-top bg-cover relative md:dark:bg-[url(/planet.webp)] md:bg-[url(/planet-light.webp)] bg-fixed bg-opacity-20"
+>
 	<Row>
 		<Col span="2" />
 		<Col span="8" align="center">
-			<ChipNotification radius="rounded-full" classes="mb-6">
-				<strong>30K+</strong> satisfied customers
-				<AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
-			</ChipNotification>
-			<h1>Enhance team <strong>performance</strong> with seamless integration</h1>
+			<h1>Tu <strong>sitio web</strong> en órbita</h1>
 
-			<p class="pb-0 text-lg">Work smarter, not harder, with our innovative platform</p>
-			<Button size="lg" link="/">Get started for free</Button>
+			<p class="pb-0 text-lg"><strong>Sitios web listos para despegar:</strong> rápidos, bien estructurados y hechos para escalar.</p>
+			<Button size="lg" link="/precios">¡Comienza ahora!</Button>
 		</Col>
 		<Col span="2" />
 		<Col span="2" />
-		<Col span="8">
+		<Col span="8" classes='-mt-8 lg:-mt-20'>
 			<Image
 				src={heroImage}
-				alt="Foxi. The tailwind astro theme"
-				class="translate-y-8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
+				alt="Tu sitio web en órbita"
+				class=""
 				format="webp"
-			/></Col
+			/>
+		</Col
 		>
 		<Col span="2" />
 	</Row>
+	<!--{heroBackground && <Image src={heroBackground} alt="Planeta" class="absolute top-0 left-0 w-full h-full object-cover opacity-10" format="webp" />}-->
 </Section>

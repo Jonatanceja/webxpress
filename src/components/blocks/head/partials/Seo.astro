@@ -18,23 +18,53 @@ type Props = {
 	noindex?: boolean
 }
 
-const { title, description, ogImage, canonical, noindex } = Astro.props
+const { title, description, ogImage, canonical = true, noindex = false } = Astro.props
+
+// Construir URL absoluta para ogImage
+const imageUrl = ogImage 
+	? new URL(ogImage, Astro.site || Astro.url.origin).toString()
+	: undefined
+
+// Datos de Facebook (puedes moverlos a tu config)
+const fbAppId = '' // Tu Facebook App ID (opcional)
+const siteName = 'Mayoristas de Integración Electrónica'
 ---
 
 <Fragment>
-	<title>{title}</title>
-	<meta name="description" content={description} />
+	<!-- Title -->
+	{title && <title>{title}</title>}
+	
+	<!-- Meta Description -->
+	{description && <meta name="description" content={description} />}
+	
+	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={Astro.url} />
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={description} />
-	<meta property="og:image" content={ogImage} />
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content={Astro.url} />
-	<meta property="twitter:title" content={title} />
-	<meta property="twitter:description" content={description} />
-	<meta property="twitter:image" content={ogImage} />
-	<link rel="canonical" href={Astro.url} />
-	{canonical && <link rel="canonical" href={Astro.url} item-prop="url" />}
+	{title && <meta property="og:title" content={title} />}
+	{description && <meta property="og:description" content={description} />}
+	{imageUrl && <meta property="og:image" content={imageUrl} />}
+	{imageUrl && <meta property="og:image:secure_url" content={imageUrl} />}
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={title || siteName} />
+	<meta property="og:site_name" content={siteName} />
+	<meta property="og:locale" content="es_MX" />
+	{fbAppId && <meta property="fb:app_id" content={fbAppId} />}
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	{title && <meta name="twitter:title" content={title} />}
+	{description && <meta name="twitter:description" content={description} />}
+	{imageUrl && <meta name="twitter:image" content={imageUrl} />}
+	{imageUrl && <meta name="twitter:image:alt" content={title || siteName} />}
+	<!-- Opcional: Tu usuario de Twitter -->
+	<!-- <meta name="twitter:site" content="@tuusuario" /> -->
+	<!-- <meta name="twitter:creator" content="@tuusuario" /> -->
+	
+	<!-- Canonical -->
+	{canonical && <link rel="canonical" href={Astro.url} />}
+	
+	<!-- Robots -->
 	{noindex && <meta name="robots" content="noindex,nofollow" />}
 </Fragment>

@@ -35,77 +35,53 @@ export interface FooterData {
 
 export const footerNavigationData: FooterData = {
 	footerAbout: {
-		title: 'Foxi.',
+		title: 'Webxpress.',
 		aboutText:
-			'Expertly made, responsive, accessible components in React and HTML ready to be used on your website or app. Just copy and paste them on your Tailwind CSS project.',
+			'Webxpress es tu plataforma para tener un sitio web moderno, rápido y sin complicaciones. Paga una suscripción mensual y nosotros nos encargamos del diseño, cambios, soporte y actualizaciones.',
 		logo: {
 			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
-			text: 'Foxi.'
+			alt: 'Webxpress Logo',
+			text: 'Webxpress.'
 		}
 	},
 	footerColumns: [
 		{
-			category: 'Product',
+			category: 'Producto',
 			subCategories: [
 				{
-					subCategory: 'Features',
-					subCategoryLink: '/features'
+					subCategory: 'Funciones',
+					subCategoryLink: '/funciones'
 				},
 				{
-					subCategory: 'FAQ',
+					subCategory: 'Precios',
+					subCategoryLink: '/precios'
+				}
+			]
+		},
+		{
+			category: 'Ayuda',
+			subCategories: [
+				{
+					subCategory: 'Preguntas Frecuentes',
 					subCategoryLink: '/faq'
 				},
 				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
+					subCategory: 'Términos y condiciones',
+					subCategoryLink: '/terminos'
 				}
 			]
 		},
 		{
-			category: 'About us',
+			category: 'Contáctanos',
 			subCategories: [
 				{
-					subCategory: 'About us',
-					subCategoryLink: '/'
-				},
-				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
-				},
-				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
-				}
-			]
-		},
-		{
-			category: 'Get in touch',
-			subCategories: [
-				{
-					subCategory: 'Contact',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Support',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Join us',
-					subCategoryLink: '/contact'
+					subCategory: 'Contacto',
+					subCategoryLink: '/contacto'
 				}
 			]
 		}
 	],
 	subFooter: {
-		copywriteText: '© Foxi 2024.'
+		copywriteText: '© Webxpress 2025.'
 	}
 }

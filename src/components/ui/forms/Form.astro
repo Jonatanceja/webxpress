@@ -3,24 +3,38 @@
 // ------------
 // Description: The form component
 // Properties:
+// - action: URL to which the form will submit
 // - method: The method of the form (post, get, dialog)
+// - target: Where to open the submitted form (e.g., _self, _blank)
+// - novalidate: Disable HTML validation
 // - classes: Additional classes to be added to the form
 // - id: To set the specific ID of the form
 // - name: sets the form's name
 
 type Props = {
+  action?: string
   method?: 'post' | 'get' | 'dialog'
+  target?: string
+  novalidate?: boolean
   classes?: string
   id?: string
   name?: string
 }
 
-const { method = 'post', classes, id, name } = Astro.props
+const { action, method = 'post', target, novalidate = true, classes, id, name } = Astro.props
 
 // Use id as name if name is not set but id is set
-const formName = name || id || undefined;
+const formName = name || id || undefined
 ---
 
-<form method={method} novalidate class:list={[{ [`${classes}`]: classes }]} id={id} name={formName}>
-	<slot />
+<form
+  action={action}
+  method={method}
+  target={target}
+  novalidate={novalidate}
+  class:list={[{ [`${classes}`]: classes }]}
+  id={id}
+  name={formName}
+>
+  <slot />
 </form>

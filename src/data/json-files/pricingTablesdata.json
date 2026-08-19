@@ -1,77 +1,88 @@
 [
 	{
 		"header": {
-			"title": "Basic",
-			"subtitle": "Ideal for individual developers.",
+			"title": "Sitio estático",
+			"subtitle": "Ideal para sitios pequeños, personales o informativos.",
 			"currency": "$",
-			"price": "19",
-			"priceLabel": "month, billed anually",
-			"priceMontly": "25",
-			"priceLabelMontly": "month",
-			"buttonName": "Try for free",
-			"buttonLink": "/"
+			"price": "6,490",
+			"priceLabel": "desde",
+			"priceMontly": "650",
+			"priceLabelMontly": "mensual",
+			"buttonName": "Hasta 12 meses sin intereses",
+			"buttonLink": "/contactoo"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "Join forces with fellow architects" },
-				{ "listItem": "Present your projects with flair and captivate your audience." },
-				{ "listItem": "Immerse yourself in the dynamic realm of architecture." }
+				{ "listItem": "1 a 3 secciones (Inicio, Nosotros, contactoo, etc.)" },
+				{ "listItem": "Diseño responsivo y optimizado" },
+				{ "listItem": "Hosting y dominio incluidos" },
+				{ "listItem": "Certificado SSL" },
+				{ "listItem": "1 correo personalizado" },
+				{ "listItem": "Soporte técnico básico" },
+				{ "listItem": "Tiempo de entrega: 10 días hábiles" }
 			]
 		},
 		"footer": {
-			"buttonName": "See all features",
-			"buttonLink": "/"
+			"buttonName": "Contratar ahora",
+			"buttonLink": "https://api.whatsapp.com/send?phone=523312166260&text=Me%20interesa%20mas%20saber%20sobre%20tu%20paquete%20Starter"
 		},
 		"type": "basic"
 	},
 	{
 		"header": {
-			"title": "Team",
-			"subtitle": "Ideal for small teams",
+			"title": "Gestor de contenido",
+			"subtitle": "Para negocios con más necesidades.",
 			"currency": "$",
-			"price": "29",
-			"priceLabel": "month, billed anually",
-			"priceMontly": "35",
-			"priceLabelMontly": "month",
-			"buttonName": "Try for free",
-			"buttonLink": "/"
+			"price": "9,490",
+			"priceLabel": "desde",
+			"priceMontly": "950",
+			"priceLabelMontly": "mensual",
+			"buttonName": "Hasta 12 meses sin intereses",
+			"buttonLink": "/contacto"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "Join forces with fellow architects" },
-				{ "listItem": "Present your projects with flair and captivate your audience." },
-				{ "listItem": "Immerse yourself in the dynamic realm of architecture." },
-				{ "listItem": "Unlock endless inspiration" }
+				{ "listItem": "Hasta 7 secciones" },
+				{ "listItem": "Integración con formularios, mapas, calendarios, etc." },
+				{ "listItem": "Blog o portafolio autogestionable" },
+				{ "listItem": "Diseño personalizado con animaciones" },
+				{ "listItem": "Optimización SEO básica" },
+				{ "listItem": "Tiempo de entrega: 15 días hábiles" },
+				{ "listItem": "Soporte técnico prioritario" }
 			]
 		},
 		"footer": {
-			"buttonName": "See all features",
-			"buttonLink": "/"
+			"buttonName": "Contratar ahora",
+			"buttonLink": "https://api.whatsapp.com/send?phone=523312166260&text=Me%20interesa%20mas%20saber%20sobre%20tu%20paquete%20Profesional"
 		},
 		"type": "featured"
 	},
 	{
 		"header": {
-			"title": "Enterprise",
-			"subtitle": "Ideal for companies",
+			"title": "eCommerce",
+			"subtitle": "Tu tienda en línea en Shopify.",
 			"currency": "$",
-			"price": "49",
-			"priceLabel": "month, billed anually",
-			"priceMontly": "65",
-			"priceLabelMontly": "month",
-			"buttonName": "Try for free",
-			"buttonLink": "/"
+			"price": "11,490",
+			"priceLabel": "desde",
+			"priceMontly": "1500",
+			"priceLabelMontly": "mes",
+			"buttonName": "Hasta 12 meses sin intereses",
+			"buttonLink": "/contacto"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "Join forces with fellow architects" },
-				{ "listItem": "Present your projects with flair and captivate your audience." },
-				{ "listItem": "Immerse yourself in the dynamic realm of architecture." }
+				{ "listItem": "Catálogo de productos (hasta 50)" },
+				{ "listItem": "Pasarelas de pago (Stripe, PayPal, Mercado Pago, etc.)" },
+				{ "listItem": "SEO para productos" },
+				{ "listItem": "Estadísticas de ventas" },
+				{ "listItem": "Capacitación para que administres tu tienda" },
+				{ "listItem": "Soporte técnico prioritario" },
+				{ "listItem": "Tiempo de entrega: 21 días hábiles" }
 			]
 		},
 		"footer": {
-			"buttonName": "See all features",
-			"buttonLink": "/"
+			"buttonName": "Contratar ahora",
+			"buttonLink": "https://api.whatsapp.com/send?phone=523312166260&text=Me%20interesa%20mas%20saber%20sobre%20tu%20paquete%20Shopify"
 		},
 		"type": "basic"
 	}

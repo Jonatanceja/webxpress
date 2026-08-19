@@ -21,13 +21,13 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Foxi. Tailwind CSS Astro Starter Kit by Oxygenna',
+	siteTitle: 'Webxpress. Sitios web rápidos y listos para crecer',
 	siteDescription:
-		'Foxi is a design and development agency that specializes in creating beautiful and functional websites.',
+		'Tu sitio web rápido, optimizado y siempre actualizado. Con Webxpress obtienes diseño profesional, soporte continuo y actualizaciones sin complicaciones, todo en un solo servicio.',
 	ogImage: '/og.jpg',
 	logo: {
-		src: '/logo.svg',
-		alt: 'Foxi. logo'
+		src: '/favicon.svg',
+		alt: 'Webxpress. Logo'
 	},
 	canonical: true,
 	noindex: false,

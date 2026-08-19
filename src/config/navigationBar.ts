@@ -2,8 +2,14 @@
 // ------------
 // Description: The navigation bar data for the website.
 export interface Logo {
-	src: string
-	alt: string
+	dark: {
+		src: string
+		alt: string
+	}
+	light: {
+		src: string
+		alt: string
+	}
 	text: string
 }
 
@@ -33,25 +39,29 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '/logo.svg',
-		alt: 'The tailwind astro theme',
-		text: 'Foxi.'
+		dark: {
+			src: '/logo-light.svg',
+			alt: 'Webxpress logo'
+		},
+		light: {
+			src: '/logo-dark.svg',
+			alt: 'Webxpress logo'
+		},
+		text: ''
 	},
 	navItems: [
-		{ name: 'Home', link: '/' },
-		{ name: 'Pricing', link: '/pricing' },
-		{ name: 'Features', link: '/features' },
+		{ name: 'Inicio', link: '/' },
+		{ name: 'Precios', link: '/precios' },
+		{ name: 'Funciones', link: '/funciones' },
+		{ name: 'Blog', link: '/blog' },
 		{
-			name: 'Resources',
+			name: 'Ayuda',
 			link: '#',
 			submenu: [
-				{ name: 'Blog', link: '/blog' },
-				{ name: 'Changelog', link: '/changelog' },
-				{ name: 'FAQ', link: '/faq' },
-				{ name: 'Terms', link: '/terms' }
+				{ name: 'Preguntas frecuentes', link: '/faq' },
+				{ name: 'Terminos y condiciones', link: '/terminos' }
 			]
-		},
-		{ name: 'Contact', link: '/contact' }
+		}
 	],
-	navActions: [{ name: 'Try it now', link: '/', style: 'primary', size: 'lg' }]
+	navActions: [{ name: 'Comienza ya', link: '/contacto', style: 'primary', size: 'lg' }]
 }
