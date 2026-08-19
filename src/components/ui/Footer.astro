@@ -73,6 +73,8 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 </footer>
 
 <style>
+	@reference '../../styles/theme.css';
+
 	.footer {
 		@apply text-neutral-500 dark:text-neutral-300;
 	}
@@ -86,7 +88,7 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		@apply mb-6 text-base font-medium leading-8 text-neutral-700 dark:text-neutral-50;
 	}
 	.footer__main-brand {
-		@apply mb-6 flex items-center gap-2 whitespace-nowrap font-headings text-xl font-bold leading-6 text-neutral-700 focus:outline-none dark:text-neutral-50;
+		@apply mb-6 flex items-center gap-2 whitespace-nowrap font-headings text-xl font-bold leading-6 text-neutral-700 focus:outline-hidden dark:text-neutral-50;
 	}
 	.footer__container {
 		@apply container mx-auto px-6;

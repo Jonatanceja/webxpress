@@ -33,6 +33,8 @@ const hasContent = Astro.slots.default
 </div>
 
 <style>
+	@reference '../../styles/theme.css';
+
 	.col {
 		@apply has-[.col\_\_placeholder]:hidden lg:has-[.col\_\_placeholder]:block;
 	}

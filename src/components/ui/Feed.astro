@@ -42,6 +42,8 @@ const { data, classes } = Astro.props
 </ul>
 
 <style>
+	@reference '../../styles/theme.css';
+
 	.feed {
 		@apply relative flex flex-col gap-24 py-12 pl-6 before:absolute before:left-6 before:top-0 before:h-full before:-translate-x-1/2 before:border before:border-dashed before:border-neutral-100 after:absolute after:bottom-6 after:left-6 after:top-6 after:-translate-x-1/2 after:border after:border-neutral-100 lg:before:left-44 lg:after:left-44 dark:before:border-neutral-800 dark:after:border-neutral-800;
 	}
@@ -61,6 +63,6 @@ const { data, classes } = Astro.props
 		@apply max-w-5xl;
 	}
 	.feed__item-image {
-		@apply mb-6 overflow-hidden rounded border border-neutral-100 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900;
+		@apply mb-6 overflow-hidden rounded-sm border border-neutral-100 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900;
 	}
 </style>

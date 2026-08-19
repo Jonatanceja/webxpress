@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+
+/* Dark mode por clase `.dark` en <html> (equivale a `darkMode: ['selector']` de v3) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Clases generadas dinámicamente en runtime (equivale al `safelist` de v3) */
+@source inline("{lg:,}col-span-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("{lg:,}h-{0,2,3,4,6,8,12,16,24,32}");
+@source inline("{lg:,}text-{xs,sm,base,lg,xl,2xl,3xl,4xl,5xl,6xl,7xl,8xl,9xl}");
+@source inline("font-{thin,extralight,light,normal,medium,semibold,bold,extrabold,black}");
+@source inline("text-{left,center,right}");
+
+@theme {
+	--color-primary-50: #f0fdfb;
+	--color-primary-100: #cdfaf5;
+	--color-primary-200: #9bf4eb;
+	--color-primary-300: #61e7de;
+	--color-primary-400: #30d1cc;
+	--color-primary-500: #18bdba;
+	--color-primary-600: #0f9292;
+	--color-primary-700: #117374;
+	--color-primary-800: #125b5d;
+	--color-primary-900: #144c4d;
+	--color-primary-950: #052b2e;
+
+	--color-neutral-50: #f8fafc;
+	--color-neutral-100: #f1f5f9;
+	--color-neutral-200: #e2e8f0;
+	--color-neutral-300: #cbd5e1;
+	--color-neutral-400: #94a3b8;
+	--color-neutral-500: #64748b;
+	--color-neutral-600: #475569;
+	--color-neutral-700: #334155;
+	--color-neutral-800: #1e293b;
+	--color-neutral-900: #0f172a;
+	--color-neutral-950: #020617;
+
+	--font-sans:
+		'Inter Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-headings:
+		'Outfit Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
+
+	--animate-dropdown: dropdown 300ms ease-in-out forwards;
+	--animate-fadeInShadowLight: fadeInShadowLight 500ms ease-in-out forwards;
+	--animate-fadeInShadowDark: fadeInShadowDark 500ms ease-in-out forwards;
+	--animate-fadeUp: fadeUp 500ms ease-in-out forwards;
+
+	@keyframes dropdown {
+		0% {
+			transform: translateY(-1rem);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	@keyframes fadeInShadowLight {
+		100% {
+			box-shadow:
+				0 20px 25px -5px rgba(15, 23, 42, 0.025),
+				0 8px 10px -6px rgba(15, 23, 42, 0.025);
+		}
+	}
+	@keyframes fadeInShadowDark {
+		100% {
+			box-shadow:
+				0 20px 25px -5px rgba(2, 6, 23, 0.25),
+				0 8px 10px -6px rgba(2, 6, 23, 0.25);
+		}
+	}
+	@keyframes fadeUp {
+		0% {
+			transform: translateY(1rem);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}
+

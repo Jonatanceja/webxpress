@@ -40,7 +40,7 @@ const { type = 'top-icon', title, icon = 'rocket', iconStyle, align, classes } =
 		class:list={[
 			'shrink-0',
 			{ [`size-6 text-primary-500`]: iconStyle != 'square' },
-			{ [`size-10 rounded bg-primary-500 p-2 text-white`]: iconStyle === 'square' }
+			{ [`size-10 rounded-sm bg-primary-500 p-2 text-white`]: iconStyle === 'square' }
 		]}
 	/>
 	<div class="feature__body">
@@ -60,6 +60,8 @@ const { type = 'top-icon', title, icon = 'rocket', iconStyle, align, classes } =
 	</div>
 
 	<style>
+	@reference '../../styles/theme.css';
+
 		.feature {
 			@apply flex flex-col gap-4;
 		}

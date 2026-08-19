@@ -20,7 +20,7 @@ type Props = {
 	radius?: string
 	classes?: string
 }
-const { size = 'base', avatars, radius = 'rounded', classes } = Astro.props
+const { size = 'base', avatars, radius = 'rounded-sm', classes } = Astro.props
 ---
 
 <span class:list={['avatar-group', { [`${classes}`]: classes }]}>
@@ -38,6 +38,8 @@ const { size = 'base', avatars, radius = 'rounded', classes } = Astro.props
 </span>
 
 <style>
+	@reference '../../styles/theme.css';
+
 	.avatar-group {
 		@apply flex -space-x-2;
 	}

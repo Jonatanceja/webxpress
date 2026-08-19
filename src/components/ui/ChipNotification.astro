@@ -14,7 +14,7 @@ type Props = {
 	radius?: string
 	classes?: string
 }
-const { elevated, radius = 'rounded', classes } = Astro.props
+const { elevated, radius = 'rounded-sm', classes } = Astro.props
 ---
 
 <div class:list={['chip', { ['chip--elevated']: elevated }, { [`${classes}`]: classes }, radius]}>
@@ -25,11 +25,13 @@ const { elevated, radius = 'rounded', classes } = Astro.props
 </div>
 
 <style>
+	@reference '../../styles/theme.css';
+
 	.chip {
 		@apply inline-flex items-center border border-neutral-200 bg-white/50 px-0.5 py-0.5 text-neutral-500 dark:border-neutral-800 dark:bg-neutral-800/50 dark:text-neutral-300 [&_p]:m-0;
 	}
 	.chip--elevated {
-		@apply shadow-sm shadow-slate-700/10;
+		@apply shadow-xs shadow-slate-700/10;
 	}
 	.chip--body {
 		@apply inline-flex items-center px-4 [&_strong]:pr-1 [&_strong]:font-bold;
