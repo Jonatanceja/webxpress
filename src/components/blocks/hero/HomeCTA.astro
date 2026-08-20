@@ -24,9 +24,17 @@ const t = useTranslations(lang)
 const heroAnimation = '/hero.lottie'
 ---
 
-<Section id="intro" padding="none" classes="hero relative isolate overflow-hidden">
+{/* mode="dark" fuerza el estilo sobre fondo oscuro pase lo que pase con el tema:
+    la animación es siempre oscura, así que en modo claro el texto quedaría negro
+    sobre negro. bg-transparent evita que la sección pinte su propio fondo encima. */}
+<Section
+	id="intro"
+	padding="none"
+	mode="dark"
+	classes="relative isolate min-h-[28rem] overflow-hidden bg-transparent"
+>
 	<LottieBackground slot="background" src={heroAnimation} />
-	<Row classes="hero__content">
+	<Row classes="relative z-10 py-32 lg:py-56">
 		<Col span="2" />
 		<Col span="8" align="center">
 			<h1 set:html={t.home.heroTitle} />
@@ -37,17 +45,3 @@ const heroAnimation = '/hero.lottie'
 		<Col span="2" />
 	</Row>
 </Section>
-
-<style>
-	@reference '../../../styles/theme.css';
-
-	/* La altura la marca el contenido más su padding, no una relación de
-	   aspecto fija: con aspect-ratio el alto salía del ancho y comprimía el
-	   titular contra los bordes. La animación cubre igual, porque usa `cover`. */
-	.hero {
-		@apply min-h-[28rem];
-	}
-	.hero__content {
-		@apply relative z-10 py-24 lg:py-40;
-	}
-</style>
