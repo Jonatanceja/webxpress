@@ -20,10 +20,12 @@ type Props = {
 	fit?: 'contain' | 'cover' | 'fill'
 	/** Proporción del lienzo. Solo se usa en la variante en línea */
 	ratio?: string
+	/** Ancho respecto a su contenedor, p. ej. "70%". Solo en la variante en línea */
+	width?: string
 	classes?: string
 }
 
-const { src, variant = 'background', fit, ratio = '1 / 1', classes } = Astro.props
+const { src, variant = 'background', fit, ratio = '1 / 1', width, classes } = Astro.props
 
 // En un fondo interesa llenar; en línea, que se vea la animación entera
 const resolvedFit = fit ?? (variant === 'background' ? 'cover' : 'contain')
@@ -31,7 +33,7 @@ const resolvedFit = fit ?? (variant === 'background' ? 'cover' : 'contain')
 
 <div
 	class:list={[variant === 'background' ? 'lottie-bg' : 'lottie-inline', classes]}
-	style={variant === 'inline' ? `aspect-ratio:${ratio}` : undefined}
+	style={variant === 'inline' ? `aspect-ratio:${ratio}${width ? `;width:${width}` : ''}` : undefined}
 	aria-hidden="true"
 >
 	<canvas class="lottie__canvas" data-lottie-src={src} data-lottie-fit={resolvedFit}></canvas>
@@ -112,7 +114,7 @@ const resolvedFit = fit ?? (variant === 'background' ? 'cover' : 'contain')
 		@apply pointer-events-none absolute inset-0 -z-10 overflow-hidden;
 	}
 	.lottie-inline {
-		@apply pointer-events-none w-full;
+		@apply pointer-events-none mx-auto w-full;
 	}
 	.lottie__canvas {
 		@apply h-full w-full;

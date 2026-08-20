@@ -32,6 +32,10 @@ type Props = {
 	imagePosition?: 'left' | 'right'
 	/** Ruta de una animación .lottie; si se indica, sustituye a la imagen */
 	lottie?: string
+	/** Proporción del lienzo de la animación, p. ej. "185 / 243" */
+	lottieRatio?: string
+	/** Ancho de la animación respecto a su columna, p. ej. "70%" */
+	lottieWidth?: string
 	text?: string
 	classes?: string
 	offsetImage?: boolean
@@ -45,6 +49,8 @@ const {
 	mobileImage,
 	imagePosition = 'right',
 	lottie,
+	lottieRatio = '1 / 1',
+	lottieWidth,
 	text ,
 	classes ,
 	offsetImage = false
@@ -56,7 +62,7 @@ const {
 		<Col span="6" classes="relative">
 			{
 				lottie ? (
-					<Lottie src={lottie} variant="inline" classes="text-image__lottie" />
+					<Lottie src={lottie} variant="inline" ratio={lottieRatio} width={lottieWidth} classes="text-image__lottie" />
 				) : (
 					<picture
 						class={`text-image__picture ${offsetImage ? 'text-image__picture--offset' : ''} ${imagePosition === 'right' ? 'text-image__picture--offset-right' : ''}`}

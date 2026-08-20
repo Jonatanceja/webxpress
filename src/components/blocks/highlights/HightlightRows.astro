@@ -10,8 +10,6 @@ import TextImage from '../basic/TextImage.astro'
 // Content
 import highlight02 from '../../../assets/highlights/highlight-02.svg'
 import highlight02mobile from '../../../assets/highlights/highlight-02-mobile.svg'
-import highlight03 from '../../../assets/highlights/highlight-03.svg'
-import highlight03mobile from '../../../assets/highlights/highlight-03-mobile.svg'
 import highlight04 from '../../../assets/highlights/highlight-04.svg'
 import highlight04mobile from '../../../assets/highlights/highlight-04-mobile.svg'
 
@@ -27,6 +25,8 @@ type HighlightBlock = {
 	text: string
 	/** Si se indica, sustituye a la imagen del bloque */
 	lottie?: string
+	lottieRatio?: string
+	lottieWidth?: string
 	image?: any
 	mobileImage?: any
 	imageWidth?: number
@@ -37,7 +37,9 @@ const highlightBlocks: HighlightBlock[] = [
 	{
 		title: t.steps[0].title,
 		text: t.steps[0].text,
-		lottie: '/web-development.lottie',
+		lottie: '/rocket.lottie',
+		lottieRatio: '185 / 243',
+		lottieWidth: '70%',
 		imagePosition: 'right'
 	},
 	{
@@ -52,10 +54,8 @@ const highlightBlocks: HighlightBlock[] = [
 	{
 		title: t.steps[2].title,
 		text: t.steps[2].text,
-		image: highlight03,
-		mobileImage: highlight03mobile,
-		imageWidth: highlight03.width,
-		imageHeight: highlight03.height,
+		lottie: '/web-development.lottie',
+		lottieRatio: '1 / 1',
 		imagePosition: 'right'
 	},
 	{
@@ -81,6 +81,8 @@ const highlightBlocks: HighlightBlock[] = [
 			imageHeight={highlight.imageHeight}
 			mobileImage={highlight.mobileImage}
 			lottie={highlight.lottie}
+			lottieRatio={highlight.lottieRatio}
+			lottieWidth={highlight.lottieWidth}
 			imagePosition={highlight.imagePosition}
 			classes={key === 0 ? '!pb-0' : key === highlightBlocks.length - 1 ? '!pt-0' : '!py-0'}
 		/>
