@@ -1,0 +1,122 @@
+[
+	{
+		"question": "What does the price include?",
+		"reply": "Everything needed to get your site live and running: planning, custom design, development, testing and launch. It also covers domain and email setup, plus hosting, SSL and support for the first 12 months.",
+		"category": "pricing",
+		"open": true
+	},
+	{
+		"question": "Are there monthly fees or recurring payments?",
+		"reply": "No. The published price is a single, fixed payment: that is what your site costs. We do not charge monthly fees or subscriptions.",
+		"category": "pricing",
+		"open": true
+	},
+	{
+		"question": "What happens after the first 12 months?",
+		"reply": "Your site stays yours and keeps running. At the end of the year you can renew hosting and support if you want us to keep looking after it, or take the site to another provider. Renewal is optional and we tell you the cost in advance.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "Which payment methods do you accept?",
+		"reply": "We accept credit and debit cards, bank transfers and payments through platforms such as Stripe or MercadoPago, depending on the country. You can also spread the payment over up to 12 months interest-free.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "Can I pay in instalments?",
+		"reply": "Yes. You can spread the payment over up to 12 months interest-free with a participating card, or agree on two instalments: one when the project starts and one on delivery.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "Is the site mine?",
+		"reply": "Yes. When we hand the site over, we hand over the code and files too. Nothing is held back, and it does not depend on you keeping any contract with us.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "Can I expand my site later on?",
+		"reply": "Of course. You can add sections, integrations or features whenever you need them. We quote the extra work separately, also at a fixed price agreed before we start.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "Does the price include tax?",
+		"reply": "Published prices do not include VAT or other applicable taxes. We break it down in the quote so you know the exact total from the start.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "Can I migrate the site to another provider?",
+		"reply": "Yes. Since we give you the code, you can host it yourself with any compatible hosting service whenever you want.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "What kind of integrations do you offer?",
+		"reply": "We connect your site with messaging apps (WhatsApp, Messenger), marketing and mailing tools, CRMs, ERPs and payment gateways.",
+		"category": "integrations",
+		"open": true
+	},
+	{
+		"question": "Are all integrations included in every package?",
+		"reply": "No. Some advanced integrations are only available in the mid and advanced packages, due to compatibility or technical requirements.",
+		"category": "integrations",
+		"open": true
+	},
+	{
+		"question": "Can you integrate my own CRM or payment system?",
+		"reply": "Yes, but we will assess compatibility first. In some cases it may involve an extra cost if custom development is required.",
+		"category": "integrations",
+		"open": false
+	},
+	{
+		"question": "What if an integration stops working?",
+		"reply": "During the first 12 months we look into it at no cost if it is part of your package. If the problem is external (for example, changes to the provider's API), we will explain your options.",
+		"category": "integrations",
+		"open": false
+	},
+	{
+		"question": "How long does it take to build the site?",
+		"reply": "Between 5 and 20 business days depending on the package: 5 days for the static site, 10 for the content manager and 20 for eCommerce, which takes longer because it involves catalogue, payments and shipping. The clock starts when we receive your content and sign off the brief.",
+		"category": "design",
+		"open": true
+	},
+	{
+		"question": "How do you manage to deliver so quickly?",
+		"reply": "We build on our own tried and tested foundation instead of starting every site from scratch or wrestling with plugins. That removes weeks of setup and lets us focus on your design and your content.",
+		"category": "design",
+		"open": true
+	},
+	{
+		"question": "What do you need from me to hit the deadline?",
+		"reply": "Your copy, logo and images, and quick answers at the review points. The clock starts once we have the complete material: that is the part that most often delays a project.",
+		"category": "design",
+		"open": false
+	},
+	{
+		"question": "How does the initial splash screen work?",
+		"reply": "Within 48 hours we publish a temporary page with your logo, contact details and social media, so you have an online presence from the very start while we build your site.",
+		"category": "design",
+		"open": false
+	},
+	{
+		"question": "Is the design fully custom?",
+		"reply": "Yes. Every site we build is designed from scratch to fit your brand's visual identity and needs.",
+		"category": "design",
+		"open": false
+	},
+	{
+		"question": "Can I review progress before launch?",
+		"reply": "Absolutely. We share progress throughout the process and you get the chance to request changes before the final launch.",
+		"category": "design",
+		"open": false
+	},
+	{
+		"question": "Will the site work on mobile?",
+		"reply": "Yes. Every site we build is responsive, meaning it works perfectly on phones, tablets and desktops.",
+		"category": "design",
+		"open": false
+	}
+]

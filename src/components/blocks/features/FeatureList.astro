@@ -12,7 +12,10 @@ import Col from '../../ui/Col.astro'
 import Feature from '../../ui/Feature.astro'
 
 // Data
-import features from '../../../data/json-files/featuresData.json'
+import { getFeatures } from '../../../data'
+import { getLangFromUrl } from '../../../i18n/routes'
+
+const features = getFeatures(getLangFromUrl(Astro.url))
 ---
 
 <Section id="features">

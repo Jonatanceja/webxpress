@@ -1,0 +1,164 @@
+[
+	{
+		"title": "Custom, strategic design",
+		"icon": "chart-pie",
+		"description": "We create a visual experience aligned with your brand identity, designed to catch attention and guide your visitors towards taking action.",
+		"category": "Analytics"
+	},
+	{
+		"title": "Modern web development",
+		"icon": "squares-plus",
+		"description": "We use fast, secure, modern technologies that cut out unnecessary dependencies and give you a solid, scalable site from the ground up.",
+		"category": "Analytics"
+	},
+	{
+		"title": "An intuitive content manager",
+		"icon": "cliboard-document-check",
+		"description": "Manage your site easily: edit copy, add images or create new sections without needing any technical knowledge.",
+		"category": "Analytics"
+	},
+	{
+		"title": "Professional hosting and SSL included",
+		"icon": "rocket",
+		"description": "We make sure your site is always available, secure and encrypted, with no extra costs and no hassle.",
+		"category": "Productivity"
+	},
+	{
+		"title": "Fully optimised for speed and performance",
+		"icon": "device-phone-mobile",
+		"description": "From the code structure to images and server, everything is tuned for ultra-fast loading that improves both user experience and your search ranking.",
+		"category": "Security"
+	},
+	{
+		"title": "Responsive design for every device",
+		"icon": "trophy",
+		"description": "Your site will look flawless on desktops, tablets and smartphones, with smooth navigation whatever the screen size.",
+		"category": "Analytics"
+	},
+	{
+		"title": "Technical SEO built in from the start",
+		"icon": "shield-check",
+		"description": "Site architecture, speed and best practices are all designed to give your site a solid foundation for ranking on Google.",
+		"category": "Analytics"
+	},
+	{
+		"title": "Ongoing support and preventive maintenance",
+		"icon": "arrow-treding-up",
+		"description": "We take care of the technical side of your site so you can focus on your business, with updates and help always available.",
+		"category": "Support"
+	},
+	{
+		"title": "Speed and quality, no compromises",
+		"icon": "bell-alert",
+		"description": "Optimised images that load instantly without losing quality. Better SEO, more retained visits and better conversion from the very first second.",
+		"category": "Security"
+	},
+	{
+		"title": "Code hardened from the core",
+		"icon": "user-group",
+		"description": "We build with security best practices: no insecure plugins, no open access, no unnecessary risks. Your site is protected from the code up.",
+		"category": "Productivity"
+	},
+	{
+		"title": "Reach your customers where they are",
+		"icon": "chat-bubble-left-right",
+		"description": "We integrate WhatsApp, Messenger, Telegram and more so you can support, inform and sell directly from the platforms your users already use every day.",
+		"category": "Integrations"
+	},
+	{
+		"title": "Ongoing guidance",
+		"icon": "computer-desktop",
+		"description": "You are not on your own. We stay with you after launch to answer questions, help with updates or improvements, and make sure everything works as you expect.",
+		"category": "Support"
+	},
+	{
+		"title": "Active monitoring",
+		"icon": "bell",
+		"description": "Your business grows, and so does your site. We make adjustments and improvements as your needs, integrations or technology change.",
+		"category": "Support"
+	},
+	{
+		"title": "Power up your campaigns and relationships",
+		"icon": "arrow-path-rounded-square",
+		"description": "Connect your site with tools like Mailchimp, HubSpot, ActiveCampaign and leading CRMs to automate communications, segment audiences and improve customer management.",
+		"category": "Integrations"
+	},
+	{
+		"title": "Scripts under control",
+		"icon": "user",
+		"description": "We avoid script bloat and load only what is needed. That cuts loading time, improves the user experience and keeps your site lean and clean.",
+		"category": "Security"
+	},
+	{
+		"title": "No dead weight",
+		"icon": "circle-stack",
+		"description": "We strip out unnecessary styles and load only what your site actually needs. Faster loading, better performance and no design issues from redundant code.",
+		"category": "Security"
+	},
+	{
+		"title": "Fast response",
+		"icon": "document-chart-bar",
+		"description": "We keep response times short for technical incidents or urgent requests. Because we know every minute counts when your site is critical to the business.",
+		"category": "Support"
+	},
+	{
+		"title": "Ultra-fast sites",
+		"icon": "eye",
+		"description": "Instant loading for better SEO, experience and conversions. No waiting.",
+		"category": "Security"
+	},
+	{
+		"title": "Your whole business in one place",
+		"icon": "shopping-cart",
+		"description": "Sync your site with ERP systems to keep inventory, invoicing and logistics up to date, improving efficiency and reducing manual errors.",
+		"category": "Integrations"
+	},
+	{
+		"title": "Evolving maintenance",
+		"icon": "user",
+		"description": "Your business grows, and so does your site. We make adjustments and improvements as your company's needs, integrations or technology change.",
+		"category": "Support"
+	},
+	{
+		"title": "Smart backups",
+		"icon": "cursor-arrow-ripple",
+		"description": "Every change to your site is recorded automatically through Git integration. We can restore earlier versions whenever you need, and we keep the full history of your project.",
+		"category": "Productivity"
+	},
+	{
+		"title": "Constant updates and maintenance",
+		"icon": "rectangle-stack",
+		"description": "We handle ongoing maintenance, applying improvements, security patches and new features without disrupting your operation. You focus on growing; we keep everything running.",
+		"category": "Productivity"
+	},
+	{
+		"title": "Designed for everyone",
+		"icon": "eye-slash",
+		"description": "Your site will be accessible to everyone, whatever their abilities. We follow design and development best practices to meet accessibility standards, improving the browsing experience and widening your reach.",
+		"category": "Analytics"
+	},
+	{
+		"title": "Mobile performance",
+		"icon": "mobile",
+		"description": "Your site loads instantly on smartphones, even on limited data. A snappy experience that improves SEO, reduces bounce and converts better.",
+		"category": "Security"
+	},
+	{
+		"title": "No errors, no interruptions",
+		"icon": "bug-ant",
+		"description": "We run thorough tests on every update and build to make sure your site works without errors. We detect and fix issues quickly so the experience stays smooth and reliable.",
+		"category": "Productivity"
+	},
+	{
+		"title": "Full control over who does what",
+		"icon": "identification",
+		"description": "Easily manage permissions and roles for every user on your site. Restrict access to only those who need to edit content or manage features, keeping your platform secure and orderly.",
+		"category": "Productivity"
+	},
+	{
+		"title": "Secure, hassle-free payments",
+		"icon": "credit-card",
+		"description": "We integrate trusted payment gateways like Stripe, PayPal and Mercado Pago so you can take fast, secure payments suited to your market.",
+		"category": "Integrations"
+	}
+]

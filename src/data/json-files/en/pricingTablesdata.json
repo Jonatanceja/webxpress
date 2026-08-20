@@ -1,0 +1,89 @@
+[
+	{
+		"header": {
+			"title": "Static site",
+			"subtitle": "Ideal for small, personal or informational sites.",
+			"currency": "$",
+			"price": "7,490",
+			"priceLabel": "One-time",
+			"buttonName": "I want it in 5 days",
+			"buttonLink": "/contact"
+		},
+		"body": {
+			"listItems": [
+				{ "listItem": "Delivered in 5 business days" },
+				{ "listItem": "Fixed price, no monthly fees" },
+				{ "listItem": "1 to 3 sections (Home, About, Contact, etc.)" },
+				{ "listItem": "Responsive, optimised design" },
+				{ "listItem": "Hosting, domain and SSL included for the first year" },
+				{ "listItem": "1 custom email address" },
+				{ "listItem": "Basic technical support for 12 months" },
+				{ "listItem": "Up to 12 months interest-free" }
+			]
+		},
+		"footer": {
+			"buttonName": "Get started",
+			"buttonLink": "https://api.whatsapp.com/send?phone=523312166260&text=I%20would%20like%20to%20know%20more%20about%20your%20Starter%20package"
+		},
+		"type": "basic"
+	},
+	{
+		"header": {
+			"title": "Content manager",
+			"subtitle": "For businesses with bigger needs.",
+			"currency": "$",
+			"price": "12,490",
+			"priceLabel": "One-time",
+			"buttonName": "I want it in 10 days",
+			"buttonLink": "/contact"
+		},
+		"body": {
+			"listItems": [
+				{ "listItem": "Delivered in 10 business days" },
+				{ "listItem": "Fixed price, no monthly fees" },
+				{ "listItem": "Up to 7 sections" },
+				{ "listItem": "Self-managed blog or portfolio" },
+				{ "listItem": "Forms, maps, calendars and more" },
+				{ "listItem": "Custom design with animations" },
+				{ "listItem": "Basic SEO optimisation" },
+				{ "listItem": "Hosting, domain and SSL included for the first year" },
+				{ "listItem": "Priority technical support for 12 months" },
+				{ "listItem": "Up to 12 months interest-free" }
+			]
+		},
+		"footer": {
+			"buttonName": "Get started",
+			"buttonLink": "https://api.whatsapp.com/send?phone=523312166260&text=I%20would%20like%20to%20know%20more%20about%20your%20Professional%20package"
+		},
+		"type": "featured"
+	},
+	{
+		"header": {
+			"title": "eCommerce",
+			"subtitle": "Your online store on Shopify.",
+			"currency": "$",
+			"price": "14,490",
+			"priceLabel": "One-time",
+			"buttonName": "I want it in 20 days",
+			"buttonLink": "/contact"
+		},
+		"body": {
+			"listItems": [
+				{ "listItem": "Delivered in 20 business days" },
+				{ "listItem": "Fixed price, no monthly fees" },
+				{ "listItem": "Product catalogue (up to 50)" },
+				{ "listItem": "Payment gateways (Stripe, PayPal, Mercado Pago, etc.)" },
+				{ "listItem": "Product SEO" },
+				{ "listItem": "Sales analytics" },
+				{ "listItem": "Training so you can run your own store" },
+				{ "listItem": "Priority technical support for 12 months" },
+				{ "listItem": "Up to 12 months interest-free" }
+			]
+		},
+		"footer": {
+			"buttonName": "Get started",
+			"buttonLink": "https://api.whatsapp.com/send?phone=523312166260&text=I%20would%20like%20to%20know%20more%20about%20your%20Shopify%20package"
+		},
+		"type": "basic"
+	}
+]

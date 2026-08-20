@@ -12,7 +12,10 @@ import Col from '../../ui/Col.astro'
 import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
 
 // Content
-import pricingTablesData from '../../../data/json-files/pricingTablesdata.json'
+import { getPricing } from '../../../data'
+import { getLangFromUrl } from '../../../i18n/routes'
+
+const pricingTablesData = getPricing(getLangFromUrl(Astro.url))
 
 // Script
 import PricingChange from '../../scripts/PricingPlanChange.astro'
