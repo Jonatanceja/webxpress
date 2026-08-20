@@ -1,7 +1,7 @@
 ---
 // Home page CTA Section
 // ------------
-// Description: A centered call to action section that contains: a title, text, a user review snippet, a button and a image.
+// Description: A centered call to action section with a Lottie animation as background.
 
 // Components
 // - Layout
@@ -10,12 +10,8 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 
 // - UI
-import { Image } from 'astro:assets'
 import Button from '../../ui/Button.astro'
-
-// Content
-// - Hero Image
-import heroImage from '../../../assets/monkey.webp'
+import LottieBackground from '../../ui/LottieBackground.astro'
 
 // i18n
 import { getLangFromUrl, getRoute } from '../../../i18n/routes'
@@ -23,13 +19,13 @@ import { useTranslations } from '../../../i18n/ui'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+// Animación de fondo del hero
+const heroAnimation = '/hero.lottie'
 ---
 
-<Section
-  id="intro"
-  padding="top"
-  classes="bg-neutral-50 dark:bg-neutral-900 bg-top bg-cover relative md:dark:bg-[url(/planet.webp)] md:bg-[url(/planet-light.webp)] bg-fixed bg-opacity-20"
->
+<Section id="intro" padding="both" classes="relative isolate overflow-hidden">
+	<LottieBackground src={heroAnimation} />
 	<Row>
 		<Col span="2" />
 		<Col span="8" align="center">
@@ -39,17 +35,5 @@ const t = useTranslations(lang)
 			<Button size="lg" link={getRoute('pricing', lang)}>{t.home.heroCta}</Button>
 		</Col>
 		<Col span="2" />
-		<Col span="2" />
-		<Col span="8" classes='-mt-8 lg:-mt-20'>
-			<Image
-				src={heroImage}
-				alt={t.home.heroImageAlt}
-				class=""
-				format="webp"
-			/>
-		</Col
-		>
-		<Col span="2" />
 	</Row>
-	<!--{heroBackground && <Image src={heroBackground} alt="Planeta" class="absolute top-0 left-0 w-full h-full object-cover opacity-10" format="webp" />}-->
 </Section>

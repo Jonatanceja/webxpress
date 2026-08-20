@@ -1,0 +1,94 @@
+---
+// Lottie Background
+// ------------
+// Description: reproduce una animación dotLottie (.lottie) o Lottie (.json) como
+// fondo de una sección.
+//
+// Decisiones que conviene conocer:
+// - El reproductor se carga de forma diferida y solo cuando la animación entra en
+//   pantalla, para no penalizar el arranque de la página.
+// - Si el visitante pide menos movimiento (prefers-reduced-motion), se muestra el
+//   primer fotograma congelado en lugar de la animación.
+// - Es decorativo: queda fuera del árbol de accesibilidad con aria-hidden.
+
+type Props = {
+	/** Ruta pública del archivo, p. ej. "/hero.lottie" */
+	src: string
+	/** Ajuste del lienzo dentro del contenedor */
+	fit?: 'contain' | 'cover' | 'fill'
+	classes?: string
+}
+
+const { src, fit = 'cover', classes } = Astro.props
+---
+
+<div class:list={['lottie-bg', classes]} aria-hidden="true">
+	<canvas class="lottie-bg__canvas" data-lottie-src={src} data-lottie-fit={fit}></canvas>
+</div>
+
+<script>
+	import type { DotLottie } from '@lottiefiles/dotlottie-web'
+
+	const players = new WeakMap<HTMLCanvasElement, DotLottie>()
+
+	const start = async (canvas: HTMLCanvasElement) => {
+		if (players.has(canvas)) return
+
+		const src = canvas.dataset.lottieSrc
+		if (!src) return
+
+		// El reproductor solo se descarga si de verdad hace falta
+		const { DotLottie } = await import('@lottiefiles/dotlottie-web')
+
+		const quiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+		const player = new DotLottie({
+			canvas,
+			src,
+			autoplay: !quiet,
+			loop: !quiet,
+			renderConfig: { autoResize: true }
+		})
+
+		// Con movimiento reducido, dejamos el primer fotograma visible y quieto
+		if (quiet) player.addEventListener('load', () => player.setFrame(0))
+
+		players.set(canvas, player)
+	}
+
+	const init = () => {
+		const canvases = document.querySelectorAll<HTMLCanvasElement>('.lottie-bg__canvas')
+		if (!canvases.length) return
+
+		if (!('IntersectionObserver' in window)) {
+			canvases.forEach(start)
+			return
+		}
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return
+					start(entry.target as HTMLCanvasElement)
+					observer.unobserve(entry.target)
+				})
+			},
+			{ rootMargin: '200px' }
+		)
+		canvases.forEach((canvas) => observer.observe(canvas))
+	}
+
+	init()
+	document.addEventListener('astro:page-load', init)
+</script>
+
+<style>
+	@reference '../../styles/theme.css';
+
+	.lottie-bg {
+		@apply pointer-events-none absolute inset-0 -z-10 overflow-hidden;
+	}
+	.lottie-bg__canvas {
+		@apply h-full w-full;
+	}
+</style>
