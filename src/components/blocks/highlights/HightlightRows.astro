@@ -8,8 +8,6 @@
 import TextImage from '../basic/TextImage.astro'
 
 // Content
-import highlight02 from '../../../assets/highlights/highlight-02.svg'
-import highlight02mobile from '../../../assets/highlights/highlight-02-mobile.svg'
 import highlight04 from '../../../assets/highlights/highlight-04.svg'
 import highlight04mobile from '../../../assets/highlights/highlight-04-mobile.svg'
 
@@ -45,10 +43,9 @@ const highlightBlocks: HighlightBlock[] = [
 	{
 		title: t.steps[1].title,
 		text: t.steps[1].text,
-		image: highlight02,
-		mobileImage: highlight02mobile,
-		imageWidth: highlight02.width,
-		imageHeight: highlight02.height,
+		lottie: '/uiux.lottie',
+		lottieRatio: '1 / 1',
+		lottieWidth: '70%',
 		imagePosition: 'left'
 	},
 	{
