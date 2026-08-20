@@ -8,8 +8,6 @@
 import TextImage from '../basic/TextImage.astro'
 
 // Content
-import highlight01 from '../../../assets/highlights/highlight-01.svg'
-import highlight01mobile from '../../../assets/highlights/highlight-01-mobile.svg'
 import highlight02 from '../../../assets/highlights/highlight-02.svg'
 import highlight02mobile from '../../../assets/highlights/highlight-02-mobile.svg'
 import highlight03 from '../../../assets/highlights/highlight-03.svg'
@@ -27,20 +25,19 @@ const t = useTranslations(lang)
 type HighlightBlock = {
 	title: string
 	text: string
-	image: any
+	/** Si se indica, sustituye a la imagen del bloque */
+	lottie?: string
+	image?: any
 	mobileImage?: any
-	imageWidth: number
-	imageHeight: number
+	imageWidth?: number
+	imageHeight?: number
 	imagePosition: 'left' | 'right'
 }
 const highlightBlocks: HighlightBlock[] = [
 	{
 		title: t.steps[0].title,
 		text: t.steps[0].text,
-		image: highlight01,
-		imageWidth: highlight01.width,
-		imageHeight: highlight01.height,
-		mobileImage: highlight01mobile,
+		lottie: '/web-development.lottie',
 		imagePosition: 'right'
 	},
 	{
@@ -83,6 +80,7 @@ const highlightBlocks: HighlightBlock[] = [
 			imageWidth={highlight.imageWidth}
 			imageHeight={highlight.imageHeight}
 			mobileImage={highlight.mobileImage}
+			lottie={highlight.lottie}
 			imagePosition={highlight.imagePosition}
 			classes={key === 0 ? '!pb-0' : key === highlightBlocks.length - 1 ? '!pt-0' : '!py-0'}
 		/>

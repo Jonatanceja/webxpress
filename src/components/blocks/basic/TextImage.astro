@@ -19,6 +19,7 @@
 import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
+import Lottie from '../../ui/Lottie.astro'
 
 // Props
 type Props = {
@@ -29,6 +30,8 @@ type Props = {
 	imageHeight?: number
 	mobileImage?: any
 	imagePosition?: 'left' | 'right'
+	/** Ruta de una animación .lottie; si se indica, sustituye a la imagen */
+	lottie?: string
 	text?: string
 	classes?: string
 	offsetImage?: boolean
@@ -41,6 +44,7 @@ const {
 	imageHeight,
 	mobileImage,
 	imagePosition = 'right',
+	lottie,
 	text ,
 	classes ,
 	offsetImage = false
@@ -50,12 +54,18 @@ const {
 <Section id={id} classes={classes}>
 	<Row>
 		<Col span="6" classes="relative">
-			<picture
-				class=`text-image__picture ${offsetImage  ? 'text-image__picture--offset' : ''} ${imagePosition === 'right' ? 'text-image__picture--offset-right' : ''}`
-			>
-				{mobileImage && <source srcset={mobileImage.src} media="(max-width: 1024px)" />}
-				<img src={image.src} alt={title} width={imageWidth} height={imageHeight} />
-			</picture>
+			{
+				lottie ? (
+					<Lottie src={lottie} variant="inline" classes="text-image__lottie" />
+				) : (
+					<picture
+						class={`text-image__picture ${offsetImage ? 'text-image__picture--offset' : ''} ${imagePosition === 'right' ? 'text-image__picture--offset-right' : ''}`}
+					>
+						{mobileImage && <source srcset={mobileImage.src} media="(max-width: 1024px)" />}
+						<img src={image.src} alt={title} width={imageWidth} height={imageHeight} />
+					</picture>
+				)
+			}
 		</Col>
 		<Col span="6" classes={`self-center ${imagePosition === 'right' ? 'lg:-order-1' : ''}`}>
 			<div class="text-image__content">

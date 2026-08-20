@@ -1,8 +1,8 @@
 ---
-// Lottie Background
+// Lottie
 // ------------
-// Description: reproduce una animación dotLottie (.lottie) o Lottie (.json) como
-// fondo de una sección.
+// Description: reproduce una animación dotLottie (.lottie) o Lottie (.json), como
+// fondo a sangre de una sección o como elemento en línea junto al contenido.
 //
 // Decisiones que conviene conocer:
 // - El reproductor se carga de forma diferida y solo cuando la animación entra en
@@ -14,16 +14,27 @@
 type Props = {
 	/** Ruta pública del archivo, p. ej. "/hero.lottie" */
 	src: string
+	/** `background` cubre la sección entera; `inline` ocupa su sitio en el flujo */
+	variant?: 'background' | 'inline'
 	/** Ajuste del lienzo dentro del contenedor */
 	fit?: 'contain' | 'cover' | 'fill'
+	/** Proporción del lienzo. Solo se usa en la variante en línea */
+	ratio?: string
 	classes?: string
 }
 
-const { src, fit = 'cover', classes } = Astro.props
+const { src, variant = 'background', fit, ratio = '1 / 1', classes } = Astro.props
+
+// En un fondo interesa llenar; en línea, que se vea la animación entera
+const resolvedFit = fit ?? (variant === 'background' ? 'cover' : 'contain')
 ---
 
-<div class:list={['lottie-bg', classes]} aria-hidden="true">
-	<canvas class="lottie-bg__canvas" data-lottie-src={src} data-lottie-fit={fit}></canvas>
+<div
+	class:list={[variant === 'background' ? 'lottie-bg' : 'lottie-inline', classes]}
+	style={variant === 'inline' ? `aspect-ratio:${ratio}` : undefined}
+	aria-hidden="true"
+>
+	<canvas class="lottie__canvas" data-lottie-src={src} data-lottie-fit={resolvedFit}></canvas>
 </div>
 
 <script>
@@ -69,7 +80,7 @@ const { src, fit = 'cover', classes } = Astro.props
 	}
 
 	const init = () => {
-		const canvases = document.querySelectorAll<HTMLCanvasElement>('.lottie-bg__canvas')
+		const canvases = document.querySelectorAll<HTMLCanvasElement>('.lottie__canvas')
 		if (!canvases.length) return
 
 		if (!('IntersectionObserver' in window)) {
@@ -100,7 +111,10 @@ const { src, fit = 'cover', classes } = Astro.props
 	.lottie-bg {
 		@apply pointer-events-none absolute inset-0 -z-10 overflow-hidden;
 	}
-	.lottie-bg__canvas {
+	.lottie-inline {
+		@apply pointer-events-none w-full;
+	}
+	.lottie__canvas {
 		@apply h-full w-full;
 	}
 </style>

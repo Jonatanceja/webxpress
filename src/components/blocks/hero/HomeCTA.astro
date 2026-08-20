@@ -11,7 +11,7 @@ import Col from '../../ui/Col.astro'
 
 // - UI
 import Button from '../../ui/Button.astro'
-import LottieBackground from '../../ui/LottieBackground.astro'
+import Lottie from '../../ui/Lottie.astro'
 
 // i18n
 import { getLangFromUrl, getRoute } from '../../../i18n/routes'
@@ -33,7 +33,7 @@ const heroAnimation = '/hero.lottie'
 	mode="dark"
 	classes="relative isolate min-h-[28rem] overflow-hidden bg-transparent"
 >
-	<LottieBackground slot="background" src={heroAnimation} />
+	<Lottie slot="background" src={heroAnimation} />
 	<Row classes="relative z-10 py-32 lg:py-56">
 		<Col span="2" />
 		<Col span="8" align="center">
