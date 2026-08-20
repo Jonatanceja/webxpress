@@ -53,7 +53,6 @@ export const navigationBarData: NavData = {
 		{ name: 'Inicio', link: '/' },
 		{ name: 'Precios', link: '/precios' },
 		{ name: 'Funciones', link: '/funciones' },
-		{ name: 'Blog', link: '/blog' },
 		{
 			name: 'Ayuda',
 			link: '#',
