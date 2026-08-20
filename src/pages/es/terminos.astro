@@ -2,16 +2,18 @@
 // i18n
 import { getLangFromUrl } from '../../i18n/routes'
 import { useTranslations } from '../../i18n/ui'
+import { getTerms } from '../../i18n/terms'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const sections = getTerms(lang)
+
 // Components
 // - Layout
 import Layout from '../../layouts/Layout.astro'
 // - UI
 import SidebarContent from '../../components/blocks/basic/StickySidebar.astro'
 import Hero from '../../components/blocks/hero/PageHeader.astro'
-
 
 // Content
 // - SEO
@@ -28,186 +30,33 @@ const header = {
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
-	<SidebarContent>
-		<div slot="sidebar">
-			<h3>Introducción</h3>
-			<p>
-				Por favor, tómate un momento para leer estos términos y comprender tus derechos y responsabilidades al utilizar nuestros servicios.
-			</p>
-		</div>
-		<div class="basic-text">
-			<h4>Webxpress</h4>
-			<p>
-				Webxpress ofrece diseño, desarrollo, mantenimiento y soporte técnico para sitios web en Shopify, sitios web estáticos y sitios con gestor de contenido (CMS), así como servicios adicionales de marketing digital según el paquete contratado.
-			</p>
-			<p>
-				Tu satisfacción es importante para nosotros. Si tienes alguna pregunta o inquietud sobre estos términos, no dudes en contactarnos. Nuestro equipo está aquí para ayudarte y asegurarse de que tengas una excelente experiencia con Webxpress.
-			</p>
 
-			<h4>Aceptación de los Términos</h4>
-			<p>
-				Al acceder o utilizar nuestros servicios, aceptas cumplir y estar sujeto a estos Términos de Servicio y a nuestra Política de Privacidad. Si no estás de acuerdo con alguna parte de estos términos, no debes usar nuestros servicios. El uso continuo de Webxpress significa que aceptas estos términos.
-			</p>
-			<p>
-				Nos reservamos el derecho de modificar estos términos en cualquier momento. Te notificaremos de cualquier cambio publicando los nuevos términos en nuestro sitio web. Es tu responsabilidad revisar estos términos periódicamente. El uso continuo del servicio después de cualquier cambio significa que aceptas los nuevos términos.
-			</p>
+	{
+		t.terms.legalNotice && (
+			<div class="container mx-auto px-6">
+				<p class="small border-l-2 border-primary-500 py-2 pl-4">{t.terms.legalNotice}</p>
+			</div>
+		)
+	}
 
-			<h4>Nuestro Compromiso Contigo</h4>
-			<p>
-				En Webxpress, estamos comprometidos a ofrecerte servicios confiables y de alta calidad. Nuestro objetivo es ayudarte a alcanzar tus metas de productividad y organización con facilidad. Trabajamos continuamente para mejorar nuestros servicios y brindarte la mejor experiencia posible.
-			</p>
-			<p>
-				Valoramos tus comentarios y sugerencias. No dudes en contactarnos con cualquier opinión o idea sobre cómo podemos servirte mejor. Tu aporte nos ayuda a mejorar Webxpress y satisfacer tus necesidades.
-			</p>
-		</div>
-	</SidebarContent>
-	<SidebarContent classes="bg-neutral-50 dark:bg-neutral-900">
-		<div slot="sidebar">
-			<h3>Objeto del Servicio</h3>
-			<p>
-				Webxpress ofrece diseño, desarrollo, mantenimiento y soporte técnico para sitios web en Shopify, sitios web estáticos y sitios con gestor de contenido (CMS), así como servicios adicionales de marketing digital según el paquete contratado.
-			</p>
-		</div>
-		<div class="basic-text">
-			<h4>Sitios web estáticos</h4>
-			<p>
-				Desarrollo de páginas web rápidas, seguras y eficientes que utilizan tecnologías modernas para ofrecer contenido estático de alta calidad y gran velocidad de carga.
-			</p>
-
-			<h4>Sitios con gestor de contenido (CMS)</h4>
-			<p>
-				Desarrollo de páginas web rápidas, seguras y eficientes que utilizan tecnologías modernas para ofrecer contenido estático de alta calidad y gran velocidad de carga.
-			</p>
-
-			<h4>Sitios web en Shopify</h4>
-			<p>
-				Creación y personalización de tiendas en línea utilizando la plataforma Shopify, enfocándonos en optimizar la experiencia de compra, rendimiento y escalabilidad.
-			</p>
-
-			<h4>Servicios complementarios</h4>
-			<p>
-				Además, Webxpress ofrece servicios complementarios de marketing digital, diseñados para potenciar la visibilidad, posicionamiento y alcance del sitio web, adaptados a cada paquete contratado. Estos servicios incluyen, pero no se limitan a, estrategias de SEO, campañas en redes sociales, email marketing y análisis de métricas.
-			</p>
-
-		</div>
-	</SidebarContent>
-	<SidebarContent>
-		<div slot="sidebar">
-			<h3>Alcance del servicio</h3>
-			<p>
-				El proceso de desarrollo inicial comprende todas las actividades necesarias para crear y poner en marcha tu sitio web.
-			</p>
-		</div>
-		<div class="basic-text">
-			<h4>Planeación y análisis</h4>
-			<p>
-				Evaluación de las necesidades específicas del cliente, definición de objetivos, selección de funcionalidades y tecnologías adecuadas según el paquete contratado.
-			</p>
-
-			<h4>Diseño personalizado</h4>
-			<p>
-				Creación de una propuesta visual única que refleje la identidad de marca y brinde una experiencia intuitiva para los usuarios.
-			</p>
-
-			<h4>Construcción técnica</h4>
-			<p>
-				Implementación del sitio web utilizando tecnologías modernas y eficientes, ya sea en Shopify, como sitio estático o con un gestor de contenido (CMS).
-			</p>
-
-			<h4>Pruebas y control de calidad</h4>
-			<p>
-				Revisión exhaustiva para garantizar que el sitio funcione correctamente en distintos dispositivos y navegadores, sin errores ni problemas de rendimiento.
-			</p>
-			<h4>Publicación</h4>
-			<p>
-				Lanzamiento del sitio en el entorno de producción, incluyendo la configuración de dominios, certificados SSL y otros aspectos técnicos necesarios para su correcto funcionamiento.
-			</p>
-		</div>
-	</SidebarContent>
-	<SidebarContent classes="bg-neutral-50 dark:bg-neutral-900">
-		<div slot="sidebar">
-			<h3>Pagos y condiciones</h3>
-			<p>
-				Cómo funciona el precio, qué incluye, los plazos de entrega y las opciones de pago disponibles, para que tengas total transparencia desde el primer día.
-			</p>
-		</div>
-		<div class="basic-text">
-			<h4>Precio cerrado</h4>
-			<p>
-				El precio de cada paquete es un pago único y cerrado, acordado por escrito antes de iniciar el proyecto. Cubre la planificación, el diseño, el desarrollo, las pruebas y la publicación del sitio, así como la configuración técnica necesaria para su puesta en marcha. Cualquier trabajo fuera del alcance acordado se cotiza por separado y requiere tu autorización previa.
-			</p>
-
-			<h4>Sin mensualidades</h4>
-			<p>
-				Webxpress no cobra mensualidades ni suscripciones por el sitio contratado. Una vez liquidado el precio acordado, no existen pagos recurrentes obligatorios.
-			</p>
-
-			<h4>Plazos de entrega</h4>
-			<p>
-				Los plazos de entrega son de 5 días hábiles para el paquete de sitio estático, 10 para el gestor de contenido y 20 para eCommerce. El plazo comienza a correr a partir de la recepción completa del material del cliente (textos, logotipo e imágenes) y de la aprobación del brief. Los retrasos en la entrega de material o en las revisiones por parte del cliente extienden el plazo en la misma medida.
-			</p>
-
-			<h4>Servicios incluidos el primer año</h4>
-			<p>
-				El precio incluye hosting, certificado SSL, soporte técnico y mantenimiento durante los primeros 12 meses contados a partir de la publicación del sitio, conforme al alcance del paquete contratado.
-			</p>
-
-			<h4>Renovación anual opcional</h4>
-			<p>
-				Al concluir los primeros 12 meses, la renovación de hosting, soporte y mantenimiento es opcional. Webxpress informará al cliente el costo de renovación con anticipación. Si el cliente decide no renovar, se le entregarán los archivos del sitio para que pueda alojarlo con el proveedor de su elección.
-			</p>
-			<h4>Impuestos</h4>
-			<p>
-				Los precios publicados no incluyen el Impuesto al Valor Agregado (IVA) u otros impuestos aplicables. El cliente es responsable de cubrir los impuestos conforme a la legislación vigente.
-			</p>
-		</div>
-	</SidebarContent>
-	<SidebarContent>
-		<div slot="sidebar">
-			<h3>Mantenimiento</h3>
-			<p>
-				Durante los primeros 12 meses, y en cada renovación que el cliente decida contratar, Webxpress ofrece un servicio continuo de mantenimiento para asegurar que tu sitio esté siempre actualizado y funcione de manera óptima. Esto incluye:
-			</p>
-		</div>
-		<div class="basic-text">
-			<h4>Actualizaciones regulares</h4>
-			<p>
-				Aplicación de mejoras, parches de seguridad y actualizaciones de software para mantener el sitio protegido y eficiente.
-			</p>
-
-			<h4>Optimización constante</h4>
-			<p>
-				Mejoras en la velocidad de carga, SEO, accesibilidad y experiencia de usuario.
-			</p>
-
-			<h4>Cambios solicitados</h4>
-			<p>
-				Implementación de modificaciones y ajustes menores que el cliente requiera, siempre dentro del límite establecido en el paquete contratado.
-			</p>
-
-			<h4>Soporte técnico</h4>
-			<p>
-				Atención a consultas, resolución de incidencias y asesoría para el correcto uso del sitio web y sus funcionalidades.
-			</p>
-			<p>
-				Lanzamiento del sitio en el entorno de producción, incluyendo la configuración de dominios, certificados SSL y otros aspectos técnicos necesarios para su correcto funcionamiento.
-			</p>
-		</div>
-	</SidebarContent>
-	<SidebarContent classes="bg-neutral-50 dark:bg-neutral-900">
-		<div slot="sidebar">
-			<h3>Disposiciones Finales</h3>
-			<p>
-				Estos Términos y Condiciones constituyen el acuerdo completo entre Webxpress y el cliente, reemplazando cualquier comunicación, propuesta o acuerdo previo, ya sea oral o escrito, relacionado con los servicios contratados.
-			</p>
-		</div>
-		<div class="basic-text">
-			<h4>Uso de los servicios</h4>
-			<p>
-				El uso continuo de los servicios implica la aceptación plena y sin reservas de las disposiciones aquí descritas.
-				En caso de que alguna cláusula de este documento sea declarada inválida o inaplicable, las demás disposiciones permanecerán vigentes y en pleno efecto.
-				El cliente reconoce que ha leído, entendido y aceptado estos términos en su totalidad antes de iniciar cualquier servicio con Webxpress.
-			</p>
-		</div>
-	</SidebarContent>
+	{
+		sections.map((section) => (
+			<SidebarContent classes={section.alt ? 'bg-neutral-50 dark:bg-neutral-900' : undefined}>
+				<div slot="sidebar">
+					<h3>{section.sidebarTitle}</h3>
+					<p>{section.sidebarText}</p>
+				</div>
+				<div class="basic-text">
+					{section.blocks.map((block) => (
+						<Fragment>
+							<h4>{block.heading}</h4>
+							{block.paragraphs.map((paragraph) => (
+								<p>{paragraph}</p>
+							))}
+						</Fragment>
+					))}
+				</div>
+			</SidebarContent>
+		))
+	}
 </Layout>

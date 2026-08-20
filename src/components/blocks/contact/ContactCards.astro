@@ -13,6 +13,13 @@ import Col from '../../ui/Col.astro'
 // - UI
 import Card from '../../ui/cards/BasicCard.astro'
 
+// i18n
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 // 	Props
 type Props = {
 	classes?: string
@@ -23,20 +30,15 @@ const { classes } = Astro.props
 <Section id="requests" classes={classes}>
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-balance">¿Tienes una solicitud especial? ¡Estamos aquí para <strong>ayudarte!</strong></h2>
-			<p class="pb-0 text-lg">
-				Elige una de las opciones a continuación para recibir la ayuda específica que necesitas. 
-				Ya sea soporte al cliente, consultas de ventas, solicitudes de funciones o comentarios generales, 
-				estamos aquí para ofrecerte la mejor asistencia posible.
-
-			</p>
+			<h2 class="text-balance" set:html={t.contactBlocks.title} />
+			<p class="pb-0 text-lg">{t.contactBlocks.text}</p>
 		</Col>
 	</Row>
 	<Row>
 		<Col span="3">
 			<Card
-				title="Soporte al cliente"
-				subtitle="Necesitas ayuda con algún proyecto con nosotros. No dudes en ponerte en contactoo."
+				title={t.contactBlocks.cards[0].title}
+				subtitle={t.contactBlocks.cards[0].subtitle}
 				icon="rocket"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contacto"
@@ -44,8 +46,8 @@ const { classes } = Astro.props
 		</Col>
 		<Col span="3">
 			<Card
-				title="Ventas"
-				subtitle="¿Interesado en nuestros planes o deseas una solución personalizada? "
+				title={t.contactBlocks.cards[1].title}
+				subtitle={t.contactBlocks.cards[1].subtitle}
 				icon="document-text"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contacto"
@@ -53,8 +55,8 @@ const { classes } = Astro.props
 		</Col>
 		<Col span="3">
 			<Card
-				title="Solicitudes de funciones"
-				subtitle="Quieres agregar alguna función a tu sitio web? Nosotros podemos ayudarte a hacerlo."
+				title={t.contactBlocks.cards[2].title}
+				subtitle={t.contactBlocks.cards[2].subtitle}
 				icon="bolt"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contacto"
@@ -62,8 +64,8 @@ const { classes } = Astro.props
 		</Col>
 		<Col span="3" classes="flex flex-col gap-6">
 			<Card
-				title="Retroalimentación General"
-				subtitle="Tus comentarios son muy valiosos. Cuéntanos cómo podemos mejorar. "
+				title={t.contactBlocks.cards[3].title}
+				subtitle={t.contactBlocks.cards[3].subtitle}
 				icon="chat-bubble-left-ellipsis"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contacto"

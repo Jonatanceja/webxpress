@@ -11,6 +11,13 @@ import Col from '../../ui/Col.astro'
 // - UI
 import Testimonial from '../../ui/Testimonial.astro'
 
+// i18n
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 // Props
 type Props = {
 	blockquote?: string
@@ -20,9 +27,9 @@ type Props = {
 	bgPosition?: 'left' | 'right' | 'center'
 }
 const {
-	blockquote = 'El equipo entendió perfectamente la visión de Addapp BI y la plasmó en un sitio web moderno, claro y funcional. Superaron nuestras expectativas al crear una plataforma que refleja innovación y genera confianza en nuestros clientes.',
-	figcaption = 'Luis Almanza',
-	cite = 'CEO en Addapp BI AI Straight Foreward for Finance & Operations',
+	blockquote = t.blocks.testimonialQuote,
+	figcaption = t.blocks.testimonialName,
+	cite = t.blocks.testimonialRole,
 	bg,
 	bgPosition = 'center'
 } = Astro.props

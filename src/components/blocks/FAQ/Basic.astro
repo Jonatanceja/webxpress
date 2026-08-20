@@ -12,6 +12,13 @@ import Col from '../../ui/Col.astro'
 import Accordion from '../../ui/Accordion.astro'
 import Card from '../../ui/cards/partials/Card.astro'
 
+// i18n
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 // Props
 type Props = {
 	classes?: string
@@ -22,36 +29,17 @@ const { classes } = Astro.props
 <Section id="FAQ" classes={classes}>
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-pretty">
-				Todo lo que <strong>necesitas saber</strong> antes de dar el siguiente paso.
-			</h2>
-			<p class="text-lg leading-relaxed">
-				Respondemos tus dudas más comunes sobre nuestros paquetes web, el proceso, los tiempos y los costos.
-			</p>
+			<h2 class="text-pretty" set:html={t.faqShort.title} />
+			<p class="text-lg leading-relaxed">{t.faqShort.text}</p>
 		</Col>
 		<Col span="2" />
 		<Col span="8">
 			<Card classes="divide-y divide-neutral-100 dark:divide-neutral-800">
-				<Accordion
-					title="¿Qué incluye el costo del sitio?"
-					text="Incluye el diseño, desarrollo, optimización continua, gestor de contenido, hosting de alta velocidad con SSL, actualizaciones, mantenimiento técnico por 1 año y soporte."
-				/>
-				<Accordion
-					title="¿Cuál es la diferencia entre un sitio estático, un CMS y un Ecommerce?"
-					text="Un sitio estático es ideal para mostrar información fija con máxima velocidad. Un CMS (como el que incluimos) te permite editar textos e imágenes tú mismo. Un Ecommerce es una tienda completa con catálogo, carrito y pagos en línea."
-				/>
-				<Accordion
-					title="¿Podré actualizar el contenido de mi página yo mismo?"
-					text="Sí, mediante el CMS (Sistema de Gestión de Contenidos). Es una interfaz amigable donde puedes cambiar fotos, blogs o servicios sin tocar código. Si prefieres un sitio estático por su alto rendimiento y seguridad, nosotros nos encargamos de los cambios por ti."
-				/>
-				<Accordion
-					title="¿Puedo vender productos en mi sitio web?"
-					text="¡Claro! Para eso desarrollamos un Ecommerce. Incluye gestión de inventario, pasarelas de pago (Stripe, PayPal) y cálculo de envíos. Es una solución más robusta diseñada específicamente para convertir visitantes en clientes."
-				/>
-				<Accordion
-					title="¿Qué opción me conviene más?"
-					text="Si solo quieres presencia y rapidez, un sitio estático es perfecto. Si publicas contenido seguido, necesitas un CMS. Si tu objetivo es vender productos físicos o digitales, lo tuyo es un Ecommerce. Nosotros te asesoramos para elegir la mejor arquitectura."
-				/>
+				{
+					t.faqShort.items.map((item) => (
+						<Accordion title={item.q} text={item.a} />
+					))
+				}
 			</Card>
 		</Col>
 		<Col span="2" />

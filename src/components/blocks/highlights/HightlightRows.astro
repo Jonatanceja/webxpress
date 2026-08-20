@@ -17,6 +17,13 @@ import highlight03mobile from '../../../assets/highlights/highlight-03-mobile.sv
 import highlight04 from '../../../assets/highlights/highlight-04.svg'
 import highlight04mobile from '../../../assets/highlights/highlight-04-mobile.svg'
 
+// i18n
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 type HighlightBlock = {
 	title: string
 	text: string
@@ -28,8 +35,8 @@ type HighlightBlock = {
 }
 const highlightBlocks: HighlightBlock[] = [
 	{
-		title: 'Ponemos tu marca en línea desde <strong>el día uno</strong>',
-		text: 'En solo 48 horas publicamos una pantalla temporal con tu logo, mensaje personalizado y datos de contacto. Esto te da presencia inmediata mientras trabajamos en el diseño completo de tu sitio.',
+		title: t.steps[0].title,
+		text: t.steps[0].text,
 		image: highlight01,
 		imageWidth: highlight01.width,
 		imageHeight: highlight01.height,
@@ -37,8 +44,8 @@ const highlightBlocks: HighlightBlock[] = [
 		imagePosition: 'right'
 	},
 	{
-		title: 'Diseño <strong>personalizado</strong>',
-		text: 'Creamos una propuesta visual basada en tu marca, tus objetivos y el tipo de contenido que vas a mostrar.Podrás revisar y dar retroalimentación antes de continuar con el desarrollo. El diseño es moderno, funcional y pensado para crecer contigo.',
+		title: t.steps[1].title,
+		text: t.steps[1].text,
 		image: highlight02,
 		mobileImage: highlight02mobile,
 		imageWidth: highlight02.width,
@@ -46,8 +53,8 @@ const highlightBlocks: HighlightBlock[] = [
 		imagePosition: 'left'
 	},
 	{
-		title: '<strong>Desarrollo</strong> del sitio',
-		text: 'Con el diseño aprobado, construimos tu sitio web en una plataforma ágil y optimizada. El código es limpio, el sitio es rápido, seguro, responsive y escalable. ',
+		title: t.steps[2].title,
+		text: t.steps[2].text,
 		image: highlight03,
 		mobileImage: highlight03mobile,
 		imageWidth: highlight03.width,
@@ -55,8 +62,8 @@ const highlightBlocks: HighlightBlock[] = [
 		imagePosition: 'right'
 	},
 	{
-		title: 'Entrega y <strong>lanzamiento</strong>',
-		text: 'Tu sitio se publica en el dominio oficial.Hacemos pruebas, optimizaciones finales y aseguramos que todo funcione correctamente. A partir de aquí, tu sitio ya está completamente en órbita.',
+		title: t.steps[3].title,
+		text: t.steps[3].text,
 		image: highlight04,
 		mobileImage: highlight04mobile,
 		imageWidth: highlight04.width,

@@ -18,6 +18,13 @@ import Highlight from '../../ui/Highlight.astro'
 // Content
 import ctaImage from '../../../assets/cta-dark-bg.webp'
 import badge from '../../../assets/rocket.svg'
+
+// i18n
+import { getLangFromUrl, getRoute } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <Section>
@@ -25,18 +32,18 @@ import badge from '../../../assets/rocket.svg'
 		<Col span="1" />
 		<Col span="10">
 			<CTA
-				title="Lleva tu sitio al espacio. Comienza hoy."
-				text="Tu sitio listo para despegar en días, no semanas. Sin complicaciones, sin costos ocultos."
+				title={t.blocks.ctaTitle}
+				text={t.blocks.ctaText}
 				mode="dark"
 				bg={ctaImage}
 			>
 				<ChipNotification radius="rounded-full" classes="mb-6 box">
 					<Image src={badge} alt="Product of the Year" class="h-12 w-12 animate-bounce" slot="button" />
-					<span class="hidden md:block">Despega tu sitio con</span>
+					<span class="hidden md:block">{t.blocks.ctaTagline}</span>
 					<Highlight classes="md:ml-2"> Webxpress </Highlight>
 				</ChipNotification>
 				<a href="/contacto" aria-label="Comienza ya">
-				<Button size="lg" style="primary"> ¡Comienza ya! </Button>
+				<Button size="lg" style="primary" link={getRoute('contact', lang)}>{t.blocks.ctaButton}</Button>
 				</a>
 			</CTA>
 		</Col>

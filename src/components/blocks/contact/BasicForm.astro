@@ -15,6 +15,13 @@ import FormField from '../../ui/forms/partials/FormField.astro'
 import InputField from '../../ui/forms/form-elements/InputField.astro'
 import Button from '../../ui/Button.astro'
 
+// i18n
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 // Props
 type Props = {
 	classes?: string
@@ -30,27 +37,27 @@ const { classes } = Astro.props
     target="_self" 
     novalidate
   >
-  <h2 class="text-2xl">Contáctanos</h2>
+  <h2 class="text-2xl">{t.contactBlocks.formTitle}</h2>
   
   <FormField>
-    <InputField type="text" id="mce-FNAME" name="FNAME" label="Nombre" />
-    <InputField type="text" id="mce-LNAME" name="LNAME" label="Apellido" />
+    <InputField type="text" id="mce-FNAME" name="FNAME" label={t.contactBlocks.firstName} />
+    <InputField type="text" id="mce-LNAME" name="LNAME" label={t.contactBlocks.lastName} />
   </FormField>
 
   <FormField>
-    <InputField type="email" id="mce-EMAIL" name="EMAIL" label="Email" required value="nombre@tucorreo.com" />
+    <InputField type="email" id="mce-EMAIL" name="EMAIL" label={t.contactBlocks.email} required value={t.contactBlocks.emailPlaceholder} />
   </FormField>
 
   <FormField>
-    <InputField type="tel" id="mce-PHONE" name="PHONE" label="Teléfono" />
+    <InputField type="tel" id="mce-PHONE" name="PHONE" label={t.contactBlocks.phone} />
   </FormField>
 
   <FormField>
-    <InputField type="text" id="mce-COMPANY" name="COMPANY" label="Compañía" />
+    <InputField type="text" id="mce-COMPANY" name="COMPANY" label={t.contactBlocks.company} />
   </FormField>
 
   <FormField>
-    <label class="block w-full" for="mce-PLAN">Tipo de plan que necesitas</label>
+    <label class="block w-full" for="mce-PLAN">{t.contactBlocks.plan}</label>
     <select 
 	class="block relative h-12 w-full rounded-sm border border-neutral-200 px-4 text-neutral-500 placeholder-transparent outline-hidden transition-all autofill:bg-white invalid:border-red-500 invalid:text-red-500 focus:border-primary-500 focus:outline-hidden invalid:focus:border-red-500 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600" id="mce-PLAN" name="PLAN">
       <option value=""></option>
@@ -65,7 +72,7 @@ const { classes } = Astro.props
     <input type="text" name="b_2af389eb99f58a1cb65fda16a_bd02499e98" tabindex="-1" value="" />
   </div>
 
-  <Button style="primary" type="submit">Enviar</Button>
+  <Button style="primary" type="submit">{t.contactBlocks.submit}</Button>
 </Form>
 
 	</CardBody>

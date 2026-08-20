@@ -41,13 +41,13 @@ const header = {
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<FAQ
-		title="Precios y formas de pago."
-		text="Conoce qué incluye el precio, por qué no hay mensualidades, cómo puedes diferir el pago y qué pasa al cumplirse el primer año."
+		title={t.faqPage.pricingTitle}
+		text={t.faqPage.pricingText}
 		data={faqPricing}
 	/>
 	<TextImage
-		title="Más valor por cada peso invertido"
-		text="Con Webxpress pagas una sola vez y sabes el total desde el inicio: diseño, desarrollo, hosting, SSL y soporte el primer año, sin mensualidades ni gastos ocultos. Y como entregamos en días y no en meses, tu sitio empieza a trabajar para ti mucho antes: mejor SEO, más conversiones y menos preocupaciones técnicas."
+		title={t.faqPage.valueTitle}
+		text={t.faqPage.valueText}
 		image={faqImage1}
 		mobileImage={faqImage1}
 		imagePosition="left"
@@ -55,13 +55,13 @@ const header = {
 		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
 	/>
 	<FAQ
-		title="Diseño y tiempos de entrega"
-		text="Cómo trabajamos para publicar en días sin sacrificar el diseño, qué necesitamos de ti para cumplir el plazo, y cómo tienes presencia en línea desde las primeras 48 horas."
+		title={t.faqPage.designTitle}
+		text={t.faqPage.designText}
 		data={faqDesign}
 	/>
 	<TextImage
-		title="Diseño que impulsa resultados"
-		text="Un buen diseño no solo hace que tu sitio se vea bien, sino que impulsa ventas, mejora la experiencia del usuario y refuerza la identidad de tu marca. En Webxpress entendemos que el diseño es una herramienta estratégica para atraer, convencer y retener clientes, maximizando el valor de cada visita. "
+		title={t.faqPage.resultsTitle}
+		text={t.faqPage.resultsText}
 		image={faqImage1}
 		mobileImage={faqImage1}
 		imagePosition="right"
@@ -69,8 +69,8 @@ const header = {
 		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
 	/>
 	<FAQ
-		title="Conexiones que potencian tu sitio"
-		text="Explora cómo integramos tu sitio con las herramientas y plataformas que necesitas para vender, comunicar y crecer sin límites."
+		title={t.faqPage.integrationsTitle}
+		text={t.faqPage.integrationsText}
 		data={faqIntegrations}
 	/>
 	<CTA />
