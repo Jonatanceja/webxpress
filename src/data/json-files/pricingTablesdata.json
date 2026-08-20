@@ -5,21 +5,20 @@
 			"subtitle": "Ideal para sitios pequeños, personales o informativos.",
 			"currency": "$",
 			"price": "6,490",
-			"priceLabel": "desde",
-			"priceMontly": "650",
-			"priceLabelMontly": "mensual",
-			"buttonName": "Hasta 12 meses sin intereses",
-			"buttonLink": "/contactoo"
+			"priceLabel": "Pago único",
+			"buttonName": "Lo quiero en 5 días",
+			"buttonLink": "/contacto"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "1 a 3 secciones (Inicio, Nosotros, contactoo, etc.)" },
+				{ "listItem": "Entrega en 5 días hábiles" },
+				{ "listItem": "Precio cerrado, sin mensualidades" },
+				{ "listItem": "1 a 3 secciones (Inicio, Nosotros, Contacto, etc.)" },
 				{ "listItem": "Diseño responsivo y optimizado" },
-				{ "listItem": "Hosting y dominio incluidos" },
-				{ "listItem": "Certificado SSL" },
+				{ "listItem": "Hosting, dominio y SSL incluidos el primer año" },
 				{ "listItem": "1 correo personalizado" },
-				{ "listItem": "Soporte técnico básico" },
-				{ "listItem": "Tiempo de entrega: 10 días hábiles" }
+				{ "listItem": "Soporte técnico básico durante 12 meses" },
+				{ "listItem": "Hasta 12 meses sin intereses" }
 			]
 		},
 		"footer": {
@@ -34,21 +33,22 @@
 			"subtitle": "Para negocios con más necesidades.",
 			"currency": "$",
 			"price": "9,490",
-			"priceLabel": "desde",
-			"priceMontly": "950",
-			"priceLabelMontly": "mensual",
-			"buttonName": "Hasta 12 meses sin intereses",
+			"priceLabel": "Pago único",
+			"buttonName": "Lo quiero en 10 días",
 			"buttonLink": "/contacto"
 		},
 		"body": {
 			"listItems": [
+				{ "listItem": "Entrega en 10 días hábiles" },
+				{ "listItem": "Precio cerrado, sin mensualidades" },
 				{ "listItem": "Hasta 7 secciones" },
-				{ "listItem": "Integración con formularios, mapas, calendarios, etc." },
 				{ "listItem": "Blog o portafolio autogestionable" },
+				{ "listItem": "Integración con formularios, mapas, calendarios, etc." },
 				{ "listItem": "Diseño personalizado con animaciones" },
 				{ "listItem": "Optimización SEO básica" },
-				{ "listItem": "Tiempo de entrega: 15 días hábiles" },
-				{ "listItem": "Soporte técnico prioritario" }
+				{ "listItem": "Hosting, dominio y SSL incluidos el primer año" },
+				{ "listItem": "Soporte técnico prioritario durante 12 meses" },
+				{ "listItem": "Hasta 12 meses sin intereses" }
 			]
 		},
 		"footer": {
@@ -63,21 +63,21 @@
 			"subtitle": "Tu tienda en línea en Shopify.",
 			"currency": "$",
 			"price": "11,490",
-			"priceLabel": "desde",
-			"priceMontly": "1500",
-			"priceLabelMontly": "mes",
-			"buttonName": "Hasta 12 meses sin intereses",
+			"priceLabel": "Pago único",
+			"buttonName": "Lo quiero en 15 días",
 			"buttonLink": "/contacto"
 		},
 		"body": {
 			"listItems": [
+				{ "listItem": "Entrega en 15 días hábiles" },
+				{ "listItem": "Precio cerrado, sin mensualidades" },
 				{ "listItem": "Catálogo de productos (hasta 50)" },
 				{ "listItem": "Pasarelas de pago (Stripe, PayPal, Mercado Pago, etc.)" },
 				{ "listItem": "SEO para productos" },
 				{ "listItem": "Estadísticas de ventas" },
 				{ "listItem": "Capacitación para que administres tu tienda" },
-				{ "listItem": "Soporte técnico prioritario" },
-				{ "listItem": "Tiempo de entrega: 21 días hábiles" }
+				{ "listItem": "Soporte técnico prioritario durante 12 meses" },
+				{ "listItem": "Hasta 12 meses sin intereses" }
 			]
 		},
 		"footer": {

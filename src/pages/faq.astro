@@ -21,25 +21,25 @@ import faqImage1 from '../assets/faq/faq-01.png'
 const SEO = {
 	title: 'Webxpress | Resolvemos tus dudas antes de que las tengas',
 	description:
-		'Encuentra respuestas claras sobre precios, diseño, cancelación e integraciones.'
+		'Encuentra respuestas claras sobre precios, plazos de entrega, diseño e integraciones.'
 }
 // - Page Header
 const header = {
 	title: 'Resolvemos <strong>tus dudas</strong> antes de que las tengas',
-	text: 'Encuentra respuestas claras sobre precios, diseño, cancelación e integraciones.'
+	text: 'Encuentra respuestas claras sobre precios, plazos de entrega, diseño e integraciones.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<FAQ
-		title="Precios, pagos y cancelaciones."
-		text="Conoce cómo funcionan nuestros costos, métodos de pago, el setup inicial y qué sucede si decides cancelar tu servicio."
+		title="Precios y formas de pago."
+		text="Conoce qué incluye el precio, por qué no hay mensualidades, cómo puedes diferir el pago y qué pasa al cumplirse el primer año."
 		data={faqPricing}
 	/>
 	<TextImage
 		title="Más valor por cada peso invertido"
-		text="Con Webxpress obtienes un sitio rápido, seguro y siempre optimizado, sin gastos ocultos ni mantenimientos costosos. Pagas una tarifa mensual fija que incluye diseño, desarrollo, soporte y actualizaciones constantes. Esto significa que tu inversión se traduce en resultados medibles: mejor SEO, más conversiones y menos preocupaciones técnicas. "
+		text="Con Webxpress pagas una sola vez y sabes el total desde el inicio: diseño, desarrollo, hosting, SSL y soporte el primer año, sin mensualidades ni gastos ocultos. Y como entregamos en días y no en meses, tu sitio empieza a trabajar para ti mucho antes: mejor SEO, más conversiones y menos preocupaciones técnicas."
 		image={faqImage1}
 		mobileImage={faqImage1}
 		imagePosition="left"
@@ -47,8 +47,8 @@ const header = {
 		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
 	/>
 	<FAQ
-		title="Diseño pensado para ti"
-		text="Desde el primer día trabajamos en un diseño que refleje tu marca y conecte con tus clientes. Comenzamos con un splash screen rápido para que tu sitio esté visible en 48 horas"
+		title="Diseño y tiempos de entrega"
+		text="Cómo trabajamos para publicar en días sin sacrificar el diseño, qué necesitamos de ti para cumplir el plazo, y cómo tienes presencia en línea desde las primeras 48 horas."
 		data={faqDesign}
 	/>
 	<TextImage

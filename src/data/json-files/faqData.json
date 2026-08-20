@@ -1,61 +1,55 @@
 [
 	{
-		"question": "¿Qué incluye el costo inicial (setup)?",
-		"reply": "El setup cubre la planeación, diseño personalizado, desarrollo, pruebas y publicación del sitio. También incluye la configuración del dominio y correo si aplica.",
+		"question": "¿Qué incluye el precio?",
+		"reply": "Todo lo necesario para tener tu sitio publicado y funcionando: planeación, diseño personalizado, desarrollo, pruebas y lanzamiento. También la configuración del dominio y del correo, más hosting, SSL y soporte durante los primeros 12 meses.",
 		"category": "pricing",
 		"open": true
 	},
 	{
-		"question": "¿Hay algún pago adicional después del setup?",
-		"reply": "Sí. Una vez terminado el setup, se inicia el pago mensual de tu plan, que cubre hosting, mantenimiento, soporte e integraciones según el paquete elegido.",
+		"question": "¿Hay mensualidades o pagos recurrentes?",
+		"reply": "No. El precio publicado es un pago único y cerrado: es lo que cuesta tu sitio. No cobramos mensualidades ni suscripciones.",
+		"category": "pricing",
+		"open": true
+	},
+	{
+		"question": "¿Qué pasa después de los primeros 12 meses?",
+		"reply": "Tu sitio sigue siendo tuyo y sigue funcionando. Al cumplirse el año puedes renovar hosting y soporte si quieres que sigamos encargándonos, o llevarte el sitio a otro proveedor. La renovación es opcional y te avisamos con anticipación cuánto cuesta.",
 		"category": "pricing",
 		"open": false
 	},
 	{
 		"question": "¿Qué métodos de pago aceptan?",
-		"reply": "Aceptamos tarjeta de crédito/débito, transferencias bancarias y pagos vía plataformas como Stripe o MercadoPago, dependiendo del país.",
+		"reply": "Aceptamos tarjeta de crédito/débito, transferencias bancarias y pagos vía plataformas como Stripe o MercadoPago, dependiendo del país. También puedes diferir el pago hasta 12 meses sin intereses.",
 		"category": "pricing",
 		"open": false
 	},
 	{
-		"question": "¿Puedo cambiar de plan más adelante?",
-		"reply": "Sí, puedes cambiar de plan en cualquier momento. Si pasas a un plan superior, solo se te cobrará la diferencia proporcional.",
+		"question": "¿Puedo pagar en partes?",
+		"reply": "Sí. Puedes diferir el pago a hasta 12 meses sin intereses con tarjeta participante, o acordar un esquema en dos exhibiciones: una al arrancar el proyecto y otra al momento de la entrega.",
 		"category": "pricing",
 		"open": false
 	},
 	{
-		"question": "¿Qué pasa si me atraso en un pago?",
-		"reply": "Te enviaremos recordatorios. Si pasan más de 15 días sin pago, el sitio entra en pausa temporal. Después de 30 días, podríamos suspender el servicio hasta regularizar el pago.",
+		"question": "¿El sitio es mío?",
+		"reply": "Sí. Al entregarte el sitio te entregamos también el código y los archivos. No queda retenido ni depende de que sigas contratando nada con nosotros.",
 		"category": "pricing",
 		"open": false
 	},
 	{
-		"question": "¿Cómo cancelo el servicio?",
-		"reply": "Solo tienes que enviarnos un correo solicitando la cancelación. El sitio se dará de baja al final del periodo pagado.",
+		"question": "¿Puedo ampliar mi sitio más adelante?",
+		"reply": "Claro. Puedes sumar secciones, integraciones o funcionalidades cuando lo necesites. Te cotizamos el trabajo adicional por separado, también con precio cerrado antes de empezar.",
 		"category": "pricing",
 		"open": false
 	},
 	{
-		"question": "¿Qué sucede con mi sitio cuando cancelo?",
-		"reply": "Te entregamos una copia estática (HTML/CSS/JS) del sitio que puedes guardar o migrar si lo deseas. No incluye backend o panel de administración.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "¿Mi dominio y hosting se cancelan también?",
-		"reply": "Sí. Si el dominio está incluido en tu plan, lo damos de baja al cancelar. Pero puedes optar por comprarlo para conservarlo a futuro.",
+		"question": "¿El precio incluye IVA?",
+		"reply": "Los precios publicados no incluyen IVA ni otros impuestos aplicables. Te lo desglosamos en la cotización para que sepas el total exacto desde el inicio.",
 		"category": "pricing",
 		"open": false
 	},
 	{
 		"question": "¿Puedo migrar el sitio a otro proveedor?",
-		"reply": "Sí, con la copia estática puedes alojarlo por tu cuenta en cualquier servicio de hosting compatible con archivos HTML.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "¿Hay algún costo por cancelar?",
-		"reply": "Ofrecemos conexiones con apps de mensajería (WhatsApp, Messenger), herramientas de marketing y mailing, CRMs, ERPs y pasarelas de pago.",
+		"reply": "Sí. Como te entregamos el código, puedes alojarlo por tu cuenta en cualquier servicio de hosting compatible cuando quieras.",
 		"category": "pricing",
 		"open": false
 	},
@@ -66,8 +60,8 @@
 		"open": true
 	},
 	{
-		"question": "¿Todas las integraciones están incluidas en cualquier plan?",
-		"reply": "No. Algunas integraciones avanzadas solo están disponibles en planes medios o avanzados por compatibilidad o requerimientos técnicos.",
+		"question": "¿Todas las integraciones están incluidas en cualquier paquete?",
+		"reply": "No. Algunas integraciones avanzadas solo están disponibles en los paquetes intermedio y avanzado, por compatibilidad o requerimientos técnicos.",
 		"category": "integrations",
 		"open": true
 	},
@@ -79,25 +73,37 @@
 	},
 	{
 		"question": "¿Qué pasa si una integración deja de funcionar?",
-		"reply": "Nuestro equipo lo revisa sin costo si es parte de tu plan. Si el problema es externo (por ejemplo, cambios en la API del proveedor), te informaremos las opciones de solución.",
+		"reply": "Durante los primeros 12 meses lo revisamos sin costo si forma parte de tu paquete. Si el problema es externo (por ejemplo, cambios en la API del proveedor), te informaremos las opciones de solución.",
 		"category": "integrations",
 		"open": false
 	},
 	{
+		"question": "¿Cuánto tiempo tarda el desarrollo del sitio?",
+		"reply": "Entre 5 y 15 días hábiles según el paquete: 5 días el sitio estático, 10 el gestor de contenido y 15 el eCommerce. El plazo corre desde que recibimos tu contenido y aprobamos el brief.",
+		"category": "design",
+		"open": true
+	},
+	{
+		"question": "¿Cómo logran entregar tan rápido?",
+		"reply": "Trabajamos sobre una base propia ya probada y optimizada, en lugar de empezar cada sitio desde cero o pelearnos con plugins. Eso elimina semanas de configuración y nos deja concentrarnos en tu diseño y tu contenido.",
+		"category": "design",
+		"open": true
+	},
+	{
+		"question": "¿Qué necesitan de mí para cumplir el plazo?",
+		"reply": "Tus textos, logotipo e imágenes, y una respuesta ágil en los puntos de revisión. El reloj empieza cuando tenemos el material completo: es la parte que más suele retrasar un proyecto.",
+		"category": "design",
+		"open": false
+	},
+	{
 		"question": "¿Cómo funciona el splash screen inicial?",
-		"reply": "Desde el primer pago, publicamos una pantalla temporal con tu logotipo, datos de contacto y redes sociales mientras desarrollamos tu sitio.",
+		"reply": "En 48 horas publicamos una pantalla temporal con tu logotipo, datos de contacto y redes sociales, para que tengas presencia en línea desde el primer momento mientras desarrollamos tu sitio.",
 		"category": "design",
 		"open": false
 	},
 	{
 		"question": "¿El diseño es completamente personalizado?",
 		"reply": "Sí. Todos nuestros sitios son diseñados desde cero para adaptarse a la identidad visual y necesidades de tu marca.",
-		"category": "design",
-		"open": false
-	},
-	{
-		"question": "¿Cuánto tiempo tarda el desarrollo del sitio?",
-		"reply": "Depende del plan y del contenido disponible, pero el promedio es de 3 a 5 semanas desde la entrega del brief completo.",
 		"category": "design",
 		"open": false
 	},

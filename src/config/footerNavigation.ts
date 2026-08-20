@@ -37,7 +37,7 @@ export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Webxpress.',
 		aboutText:
-			'Webxpress es tu plataforma para tener un sitio web moderno, rápido y sin complicaciones. Paga una suscripción mensual y nosotros nos encargamos del diseño, cambios, soporte y actualizaciones.',
+			'Webxpress crea sitios web modernos y rápidos, y los entrega en días. Precio cerrado desde el inicio, sin mensualidades: pagas una vez y el sitio es tuyo.',
 		logo: {
 			src: '/logo.svg',
 			alt: 'Webxpress Logo',

@@ -21,9 +21,9 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Webxpress. Sitios web rápidos y listos para crecer',
+	siteTitle: 'Webxpress. Sitios web rápidos, entregados en días',
 	siteDescription:
-		'Tu sitio web rápido, optimizado y siempre actualizado. Con Webxpress obtienes diseño profesional, soporte continuo y actualizaciones sin complicaciones, todo en un solo servicio.',
+		'Tu sitio web profesional publicado en 5 a 15 días hábiles, con precio cerrado y sin mensualidades. Diseño, desarrollo, hosting y soporte el primer año, en un solo pago.',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/favicon.svg',
