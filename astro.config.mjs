@@ -24,11 +24,7 @@ export default defineConfig({
 		'/precios': '/es/precios',
 		'/funciones': '/es/funciones',
 		'/contacto': '/es/contacto',
-		'/terminos': '/es/terminos',
-		'/blog': '/'
-		// Los posts individuales (/blog/<slug>) no se pueden redirigir desde aquí:
-		// Astro exige que un redirect dinámico conserve sus parámetros. Configurar
-		// en el hosting una regla comodín /blog/* -> / al desplegar.
+		'/terminos': '/es/terminos'
 	},
 
 	integrations: [

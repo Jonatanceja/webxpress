@@ -174,16 +174,16 @@ function isActivePath(currentPath: string): boolean {
 		@apply relative flex items-center gap-1 py-4 transition-colors duration-300 hover:text-primary-500 focus:text-primary-600 focus:outline-hidden focus-visible:outline-hidden lg:px-6 [&.active]:text-primary-500;
 	}
 	.header__menu-chevron {
-		@apply h-4 w-4 transition-transform [.header\_\_menu-item.open_&]:rotate-180;
+		@apply h-4 w-4 transition-transform;
 	}
 	.header__submenu {
-		@apply left-0 top-full hidden animate-dropdown rounded-sm bg-neutral-300/10 px-4 lg:absolute lg:min-w-48 lg:rounded-t-none lg:bg-white/90 lg:p-0 lg:shadow-lg lg:shadow-neutral-700/5 lg:backdrop-blur-xs dark:bg-neutral-500/10 lg:dark:bg-neutral-900/90 lg:dark:shadow-neutral-950/50 [.header\_\_menu-item.open_&]:block;
+		@apply left-0 top-full hidden animate-dropdown rounded-sm bg-neutral-300/10 px-4 lg:absolute lg:min-w-48 lg:rounded-t-none lg:bg-white/90 lg:p-0 lg:shadow-lg lg:shadow-neutral-700/5 lg:backdrop-blur-xs dark:bg-neutral-500/10 lg:dark:bg-neutral-900/90 lg:dark:shadow-neutral-950/50;
 	}
 	.header__submenu-item {
-		@apply hidden [.header\_\_menu-item.open_&]:block;
+		@apply hidden;
 	}
 	.header__submenu-link {
-		@apply px-8 py-4 hover:text-primary-500 [.header\_\_menu-item.open_&]:flex;
+		@apply px-8 py-4 hover:text-primary-500;
 	}
 	.header__toggle {
 		@apply relative order-10 block h-10 w-10 self-center lg:hidden [&.header\_\_toggle--open]:visible [&.header\_\_toggle--open]:opacity-100;
@@ -205,5 +205,20 @@ function isActivePath(currentPath: string): boolean {
 	}
 	.header__actions {
 		@apply fixed bottom-0 left-0 hidden w-full items-center justify-between gap-4 border-t border-neutral-100 bg-white px-6 py-4 lg:relative lg:ml-auto lg:flex lg:w-auto lg:border-none lg:bg-transparent lg:px-0 lg:py-0 dark:border-neutral-800 dark:bg-neutral-950 lg:dark:bg-transparent [.header\_\_menu--open~&]:flex;
+	}
+
+	/* Estado abierto del desplegable.
+	   Va en CSS plano y no como variante arbitraria: Tailwind v4 convierte el
+	   `\_` de `[.header\_\_menu-item.open_&]` en un espacio, y genera
+	   `.header menu-item.open`, un selector que no casa con nada. */
+	.header__menu-item.open .header__menu-chevron {
+		rotate: 180deg;
+	}
+	.header__menu-item.open .header__submenu,
+	.header__menu-item.open .header__submenu-item {
+		display: block;
+	}
+	.header__menu-item.open .header__submenu-link {
+		display: flex;
 	}
 </style>
