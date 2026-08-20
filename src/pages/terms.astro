@@ -43,13 +43,13 @@ const header = {
 		sections.map((section) => (
 			<SidebarContent classes={section.alt ? 'bg-neutral-50 dark:bg-neutral-900' : undefined}>
 				<div slot="sidebar">
-					<h3>{section.sidebarTitle}</h3>
+					<h2>{section.sidebarTitle}</h2>
 					<p>{section.sidebarText}</p>
 				</div>
 				<div class="basic-text">
 					{section.blocks.map((block) => (
 						<Fragment>
-							<h4>{block.heading}</h4>
+							<h3>{block.heading}</h3>
 							{block.paragraphs.map((paragraph) => (
 								<p>{paragraph}</p>
 							))}

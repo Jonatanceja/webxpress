@@ -25,10 +25,10 @@ const { data, classes } = Astro.props
 			<li role="article" class="feed__item">
 				<span class="feed__item-date"> {item.date}</span>
 				<div class="feed__item-container">
-					<h4 class="feed__item-header">
+					<h2 class="feed__item-header">
 						{item.title}
 						<span> - {item.date}</span>
-					</h4>
+					</h2>
 					{item.image && (
 						<div class="feed__item-image">
 							<img src={item.image} alt={item.title} width="1000" height="500" />

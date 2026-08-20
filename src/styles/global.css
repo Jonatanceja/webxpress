@@ -22,6 +22,42 @@
 	}
 }
 
+/* Accesibilidad
+   ------------
+   Foco visible para quien navega con teclado. Varios componentes aplican
+   `outline-hidden` en :focus, que elimina el indicador del navegador sin
+   poner nada en su lugar. Esta regla va deliberadamente fuera de @layer:
+   el CSS sin capa prevalece sobre el de las capas de Tailwind, así que
+   gana a esas utilidades sin depender de la especificidad. */
+:focus-visible {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+}
+
+/* Enlace para saltar directamente al contenido */
+.skip-link {
+	@apply sr-only;
+}
+.skip-link:focus {
+	@apply not-sr-only fixed left-4 top-4 z-50 rounded-sm bg-primary-500 px-4 py-2 font-medium text-white no-underline;
+}
+
+/* Respeta a quien pide menos movimiento en su sistema */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+	.scroll-animation .col {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}
+
 /* Layout rules */
 html {
 	@apply scroll-smooth antialiased;
@@ -40,7 +76,7 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-headings text-neutral-700 last:mb-0 dark:text-neutral-50 [&>strong]:text-primary-500 [.dark_&]:text-neutral-50 [.light_&]:text-neutral-700;
+	@apply font-headings text-neutral-700 last:mb-0 dark:text-neutral-50 [&>strong]:text-primary-700 dark:[&>strong]:text-primary-400 [.dark_&]:text-neutral-50 [.light_&]:text-neutral-700;
 }
 h1 strong,
 h2 strong,
@@ -86,13 +122,13 @@ h6 {
 	@apply text-base lg:text-lg;
 }
 main a {
-	@apply text-primary-500 hover:text-primary-600;
+	@apply text-primary-700 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300;
 }
 .highlight {
-	@apply text-primary-500;
+	@apply text-primary-700 dark:text-primary-400;
 }
 .small {
-	@apply text-sm font-normal text-neutral-400 dark:text-neutral-500;
+	@apply text-sm font-normal text-neutral-500 dark:text-neutral-400;
 }
 /* Global basic styling */
 .basic-text {

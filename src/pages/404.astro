@@ -1,4 +1,11 @@
 ---
+// i18n
+import { getLangFromUrl, getRoute } from '../i18n/routes'
+import { useTranslations } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 // Components
 // - Layout
 import Layout from '../layouts/Layout.astro'
@@ -10,22 +17,16 @@ import Col from '../components/ui/Col.astro'
 import Spacer from '../components/ui/Spacer.astro'
 import Button from '../components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
-
-// Content
-// - SEO
-const SEO = {
-	title: 'Oops! Webxpress perdió el camino - Página no encontrada',
-	description:
-		"Parece que la página que buscas no existe. Puedes volver a la página de inicio o contactarnos si crees que deberíamos crearla."
-}
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout title={t.notFound.seoTitle} description={t.notFound.seoDescription}>
 	<Section>
 		<Row flex classes="text-center">
 			<Col span="2" />
 			<Col span="8">
-				<img src="/404.svg" alt="Error 404" class="h-96" />
+				<img src="/404.svg" alt={t.notFound.imageAlt} class="h-96" />
+				<h1>{t.notFound.title}</h1>
+				<p class="text-lg">{t.notFound.text}</p>
 			</Col>
 			<Col span="2" />
 		</Row>
@@ -33,7 +34,9 @@ const SEO = {
 			<Col span="2" />
 			<Col span="8">
 				<Spacer size="2" desktopSize="4" />
-				<Button link="/"> Volver al inicio <Icon name="long-arrow-right" /> </Button>
+				<Button link={getRoute('home', lang)}>
+					{t.notFound.back} <Icon name="long-arrow-right" aria-hidden="true" />
+				</Button>
 			</Col>
 			<Col span="2" />
 		</Row>

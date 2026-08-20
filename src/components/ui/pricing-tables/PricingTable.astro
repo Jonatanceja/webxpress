@@ -53,7 +53,7 @@ const { type, header, body, footer } = data
 >
     <div class="pricing__container">
         <Header type={type}>
-            <h3
+            <h2
                 class:list={[
                     'pricing__header-title',
                     { [`pricing__header-title--featured`]: type === 'featured' }
@@ -61,10 +61,10 @@ const { type, header, body, footer } = data
             >
                 {header.title}
                 <span class="pricing__header-subtitle">{header.subtitle}</span>
-            </h3>
+            </h2>
 
             <div class="pricing__header-info">
-                <h4
+                <p
                     class:list={[
                         'text-5xl font-bold text-neutral-700 lg:text-6xl dark:text-neutral-50',
                         { [`text-primary-50`]: type === 'featured' }
@@ -74,7 +74,7 @@ const { type, header, body, footer } = data
                     <span class="pricing__header-currency">{header.currency}</span>
                     <span class="pricing__header-price">{header.price}</span>
 					<span class="pricing__header-currency">MXN</span>
-                </h4>
+                </p>
             </div>
 
             <Button
@@ -124,7 +124,7 @@ const { type, header, body, footer } = data
 	@reference '../../../styles/theme.css';
 
     .pricing {
-        @apply mx-auto max-w-sm overflow-hidden rounded-sm border border-neutral-100 bg-white text-neutral-500 shadow-xl shadow-neutral-700/5 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:shadow-neutral-950/50 [&_.pricing\_\_header-subtitle]:text-neutral-400;
+        @apply mx-auto max-w-sm overflow-hidden rounded-sm border border-neutral-100 bg-white text-neutral-500 shadow-xl shadow-neutral-700/5 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:shadow-neutral-950/50 [&_.pricing\_\_header-subtitle]:text-neutral-500 dark:[&_.pricing\_\_header-subtitle]:text-neutral-400;
     }
     .pricing__container {
         @apply flex flex-col;
@@ -148,6 +148,6 @@ const { type, header, body, footer } = data
         @apply mb-4 flex items-baseline; /* Eliminado el overflow-hidden y altura fija */
     }
     .pricing--featured {
-        @apply border-primary-500 bg-primary-500 text-primary-100 shadow-2xl shadow-primary-500/30 [&_.pricing\_\_header-subtitle]:text-primary-200;
+        @apply border-primary-700 bg-primary-700 text-primary-100 shadow-2xl shadow-primary-700/30 [&_.pricing\_\_header-subtitle]:text-primary-100;
     }
 </style>

@@ -47,7 +47,7 @@ const footerColumns = footerStructure.map((column) => ({
 				{
 					footerColumns.map((column) => (
 						<div class="footer__col">
-							<h3>{column.category}</h3>
+							<h2>{column.category}</h2>
 							<ul>
 								{column.subCategories.map((subCategory) => (
 									<li>
@@ -97,11 +97,11 @@ const footerColumns = footerStructure.map((column) => ({
 	.footer__main {
 		@apply border-t border-neutral-100 bg-neutral-50 pb-12 pt-16 text-sm dark:border-neutral-900 dark:bg-neutral-950 [&_li]:mb-2 [&_li]:leading-6;
 	}
-	.footer__main h3 {
+	.footer__main h2 {
 		@apply mb-6 text-base font-medium leading-8 text-neutral-700 dark:text-neutral-50;
 	}
 	.footer__main-brand {
-		@apply mb-6 flex items-center gap-2 whitespace-nowrap font-headings text-xl font-bold leading-6 text-neutral-700 focus:outline-hidden dark:text-neutral-50;
+		@apply mb-6 flex items-center gap-2 whitespace-nowrap font-headings text-xl font-bold leading-6 text-neutral-700 dark:text-neutral-50;
 	}
 	.footer__container {
 		@apply container mx-auto px-6;

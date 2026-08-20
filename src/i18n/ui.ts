@@ -33,7 +33,8 @@ export const ui = {
 		// Selector de idioma
 		lang: {
 			label: 'Change language',
-			switchTo: 'Ver en español'
+			switchTo: 'Ver en español',
+			skipToContent: 'Skip to content'
 		},
 
 		// Footer
@@ -227,6 +228,15 @@ export const ui = {
 			s4Text: 'Your site connects easily with new technologies as your business evolves.',
 			s5Title: 'Your technical team, without being on your payroll',
 			s5Text: 'We answer questions, prevent problems and help you get the most out of your site.'
+		},
+		notFound: {
+			seoTitle: 'Oops! Webxpress lost its way - Page not found',
+			seoDescription:
+				'It looks like the page you are after does not exist. You can head back to the homepage, or get in touch if you think it should be there.',
+			title: 'This page is not in orbit',
+			text: 'The page you are looking for does not exist or has moved. Let us get you back on track.',
+			imageAlt: 'Illustration of a 404 error',
+			back: 'Back to homepage'
 		}
 	},
 
@@ -252,7 +262,8 @@ export const ui = {
 
 		lang: {
 			label: 'Cambiar idioma',
-			switchTo: 'View in English'
+			switchTo: 'View in English',
+			skipToContent: 'Saltar al contenido'
 		},
 
 		footer: {
@@ -439,6 +450,15 @@ export const ui = {
 			s4Text: 'Tu sitio se conecta fácilmente con nuevas tecnologías conforme evoluciona tu negocio.',
 			s5Title: 'Tu equipo técnico, sin ser parte de tu nómina',
 			s5Text: 'Resolvemos dudas, prevenimos errores y te ayudamos a sacarle el máximo provecho a tu sitio.'
+		},
+		notFound: {
+			seoTitle: '¡Ups! Webxpress perdió el camino - Página no encontrada',
+			seoDescription:
+				'Parece que la página que buscas no existe. Puedes volver a la portada o escribirnos si crees que debería estar ahí.',
+			title: 'Esta página no está en órbita',
+			text: 'La página que buscas no existe o ha cambiado de sitio. Te ayudamos a volver al rumbo.',
+			imageAlt: 'Ilustración de un error 404',
+			back: 'Volver al inicio'
 		}
 	}
 } as const

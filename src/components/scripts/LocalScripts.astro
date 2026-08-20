@@ -3,25 +3,43 @@
 	document.addEventListener('astro:page-load', () => {
 		// Menu Dropdown
 		const menuItems = document.querySelectorAll('.header__menu-item')
+
+		const setOpen = (menuItem, open) => {
+			menuItem.classList.toggle('open', open)
+			const trigger = menuItem.querySelector('button.header__menu-link')
+			if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false')
+		}
+
 		menuItems.forEach((menuItem) => {
 			const submenu = menuItem.querySelector('.header__submenu')
-			const link = menuItem.querySelector('.header__menu-link')
+			const trigger = menuItem.querySelector('button.header__menu-link')
 
-			if (submenu && link) {
-				link.addEventListener('click', function (event) {
-					event.preventDefault()
-					menuItem.classList.toggle('open')
+			if (submenu && trigger) {
+				trigger.addEventListener('click', function () {
+					setOpen(menuItem, !menuItem.classList.contains('open'))
 				})
 			}
 		})
+
 		document.addEventListener('click', function (event) {
 			const target = event.target
 
 			menuItems.forEach((menuItem) => {
 				const submenu = menuItem.querySelector('.header__submenu')
 				if (submenu && !menuItem.contains(target)) {
-					menuItem.classList.remove('open')
+					setOpen(menuItem, false)
 				}
+			})
+		})
+
+		// Escape cierra el desplegable y devuelve el foco a su disparador
+		document.addEventListener('keydown', function (event) {
+			if (event.key !== 'Escape') return
+			menuItems.forEach((menuItem) => {
+				if (!menuItem.classList.contains('open')) return
+				setOpen(menuItem, false)
+				const trigger = menuItem.querySelector('button.header__menu-link')
+				if (trigger && menuItem.contains(document.activeElement)) trigger.focus()
 			})
 		})
 
