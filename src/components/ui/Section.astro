@@ -68,6 +68,8 @@ const bgStyle = bg
 	]}
 >
 	<div class="section__bg" style={bgStyle}></div>
+	<!-- Fondos a sangre: hermanos de .container, para que no los limite su max-width -->
+	<slot name="background" />
 	<div class="container">
 		<slot />
 	</div>

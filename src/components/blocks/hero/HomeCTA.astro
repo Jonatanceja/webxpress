@@ -24,9 +24,9 @@ const t = useTranslations(lang)
 const heroAnimation = '/hero.lottie'
 ---
 
-<Section id="intro" padding="both" classes="relative isolate overflow-hidden">
-	<LottieBackground src={heroAnimation} />
-	<Row>
+<Section id="intro" padding="none" classes="hero relative isolate overflow-hidden">
+	<LottieBackground slot="background" src={heroAnimation} />
+	<Row classes="hero__content">
 		<Col span="2" />
 		<Col span="8" align="center">
 			<h1 set:html={t.home.heroTitle} />
@@ -37,3 +37,17 @@ const heroAnimation = '/hero.lottie'
 		<Col span="2" />
 	</Row>
 </Section>
+
+<style>
+	@reference '../../../styles/theme.css';
+
+	/* La animación marca la proporción del hero: al ensancharse, la altura
+	   crece con ella. El min-height evita que se estreche demasiado en móvil
+	   y garantiza sitio para el titular y el botón. */
+	.hero {
+		@apply min-h-[32rem] lg:min-h-0 lg:aspect-[1920/1080] lg:max-h-[80vh];
+	}
+	.hero__content {
+		@apply relative z-10 py-12 lg:py-24;
+	}
+</style>
