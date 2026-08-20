@@ -2,8 +2,11 @@
 
 @plugin '@tailwindcss/typography';
 
-/* Dark mode por clase `.dark` en <html> (equivale a `darkMode: ['selector']` de v3) */
-@custom-variant dark (&:where(.dark, .dark *));
+/* Dark mode por clase `.dark` en <html> (equivale a `darkMode: ['selector']` de v3).
+   Se define con `.dark` como ancestro y no como `&:where(.dark, .dark *)`: esa forma
+   se anexa al final del selector y produce CSS inválido en pseudo-elementos
+   (`.header:before:where()`), además de perder la especificidad que tenía en v3. */
+@custom-variant dark (.dark &);
 
 /* Clases generadas dinámicamente en runtime (equivale al `safelist` de v3) */
 @source inline("{lg:,}col-span-{1,2,3,4,5,6,7,8,9,10,11,12}");

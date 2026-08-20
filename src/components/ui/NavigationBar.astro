@@ -125,7 +125,13 @@ const savedNavActions = navActions.map((action) => ({
 		@apply sticky top-0 z-20 w-full animate-fadeInShadowLight [animation-range:0%_20rem] [animation-timeline:scroll()] before:absolute after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full lg:after:hidden dark:animate-fadeInShadowDark dark:[animation-range:0%_20rem] dark:[animation-timeline:scroll()];
 	}
 	.header:before {
-		@apply block h-full w-full bg-white/90 lg:backdrop-blur-xs dark:bg-neutral-900/90;
+		@apply block h-full w-full bg-white/90 lg:backdrop-blur-xs;
+	}
+	/* El fondo oscuro va en su propia regla: una utilidad `dark:` dentro de un
+	   selector con pseudo-elemento compila a `.dark :is(.header:before)`, y :is()
+	   no admite pseudo-elementos, así que la regla nunca llegaría a aplicarse. */
+	:global(.dark) .header:before {
+		@apply bg-neutral-900/90;
 	}
 	.header__container {
 		@apply container relative mx-auto px-6;
