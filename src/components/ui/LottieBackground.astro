@@ -42,11 +42,23 @@ const { src, fit = 'cover', classes } = Astro.props
 
 		const quiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+		// `fit` decide cómo se escala la animación dentro del lienzo, igual que
+		// object-fit en CSS. Sin esto el reproductor usa "contain" y deja franjas
+		// a los lados cuando el lienzo es más ancho que la animación.
+		const fit = (canvas.dataset.lottieFit || 'cover') as
+			| 'contain'
+			| 'cover'
+			| 'fill'
+			| 'none'
+			| 'fit-width'
+			| 'fit-height'
+
 		const player = new DotLottie({
 			canvas,
 			src,
 			autoplay: !quiet,
 			loop: !quiet,
+			layout: { fit, align: [0.5, 0.5] },
 			renderConfig: { autoResize: true }
 		})
 
