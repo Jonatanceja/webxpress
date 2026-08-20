@@ -4,7 +4,7 @@
 			"title": "Sitio estático",
 			"subtitle": "Ideal para sitios pequeños, personales o informativos.",
 			"currency": "$",
-			"price": "6,490",
+			"price": "7,490",
 			"priceLabel": "Pago único",
 			"buttonName": "Lo quiero en 5 días",
 			"buttonLink": "/contacto"
@@ -32,7 +32,7 @@
 			"title": "Gestor de contenido",
 			"subtitle": "Para negocios con más necesidades.",
 			"currency": "$",
-			"price": "9,490",
+			"price": "12,490",
 			"priceLabel": "Pago único",
 			"buttonName": "Lo quiero en 10 días",
 			"buttonLink": "/contacto"
@@ -62,14 +62,14 @@
 			"title": "eCommerce",
 			"subtitle": "Tu tienda en línea en Shopify.",
 			"currency": "$",
-			"price": "11,490",
+			"price": "14,490",
 			"priceLabel": "Pago único",
-			"buttonName": "Lo quiero en 15 días",
+			"buttonName": "Lo quiero en 20 días",
 			"buttonLink": "/contacto"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "Entrega en 15 días hábiles" },
+				{ "listItem": "Entrega en 20 días hábiles" },
 				{ "listItem": "Precio cerrado, sin mensualidades" },
 				{ "listItem": "Catálogo de productos (hasta 50)" },
 				{ "listItem": "Pasarelas de pago (Stripe, PayPal, Mercado Pago, etc.)" },

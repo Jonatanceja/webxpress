@@ -23,7 +23,7 @@ export interface Config {
 export const configData: Config = {
 	siteTitle: 'Webxpress. Sitios web rápidos, entregados en días',
 	siteDescription:
-		'Tu sitio web profesional publicado en 5 a 15 días hábiles, con precio cerrado y sin mensualidades. Diseño, desarrollo, hosting y soporte el primer año, en un solo pago.',
+		'Tu sitio web profesional publicado en 5 a 20 días hábiles, con precio cerrado y sin mensualidades. Diseño, desarrollo, hosting y soporte el primer año, en un solo pago.',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/favicon.svg',
