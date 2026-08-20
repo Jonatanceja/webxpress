@@ -18,53 +18,58 @@ import feature02 from '../../../assets/cards/feature-02.svg'
 import feature03 from '../../../assets/cards/feature-03.svg'
 import feature04 from '../../../assets/cards/feature-04.svg'
 import feature05 from '../../../assets/cards/feature-05.svg'
+
+// i18n
+import { getLangFromUrl, getRoute } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const featuresLink = getRoute('features', lang)
 ---
 
 <Section id="features">
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-pretty">No más proyectos eternos. <strong>Tu sitio</strong> publicado en días.</h2>
-			<p class="pb-0 text-lg">
-				Webxpress te entrega un sitio web moderno y rápido en 5 a 20 días hábiles, con un precio cerrado
-				que conoces antes de empezar. Un solo pago, sin mensualidades y sin sorpresas.
-			</p>
+			<h2 class="text-pretty" set:html={t.home.featuresTitle} />
+			<p class="pb-0 text-lg">{t.home.featuresText}</p>
 		</Col>
 	</Row>
 	<Row>
 		<Col span="4">
 			<Card
-				title="Publicado en días, no en meses"
-				subtitle="5, 10 o 20 días hábiles según el paquete. Te damos la fecha de entrega antes de empezar y la cumplimos."
+				title={t.home.card1Title}
+				subtitle={t.home.card1Text}
 				image={feature01}
-				link="/funciones"
+				link={featuresLink}
 			/>
 		</Col>
 		<Col span="4" classes="flex flex-col gap-6">
 			<Card
-				title="Velocidad que sí se nota "
-				subtitle="Cargan rápido, fluyen mejor y mejoran la experiencia de tus visitantes desde cualquier dispositivo."
+				title={t.home.card2Title}
+				subtitle={t.home.card2Text}
 				image={feature02}
-				link="/funciones"
+				link={featuresLink}
 			/>
 			<Card
-				title="Precio cerrado"
-				subtitle="Un solo pago, sin mensualidades. Sabes exactamente cuánto cuesta tu sitio desde el primer día."
+				title={t.home.card3Title}
+				subtitle={t.home.card3Text}
 				image={feature03}
-				link="/funciones"
+				link={featuresLink}
 			/>
 		</Col>
 		<Col span="4" classes="flex flex-col gap-6">
 			<Card
-				title="Seguridad incluida"
-				subtitle="HTTPS, protección contra errores comunes y soporte técnico incluido durante el primer año."
+				title={t.home.card4Title}
+				subtitle={t.home.card4Text}
 				image={feature05}
-				link="/funciones"
+				link={featuresLink}
 			/>
 			<Card
-				title="Soporte que responde"
-				subtitle="No estás solo. Te acompañamos con atención personalizada por correo o WhatsApp."
+				title={t.home.card5Title}
+				subtitle={t.home.card5Text}
 				image={feature04}
-				link="/funciones"
+				link={featuresLink}
 			/>
 		</Col>
 	</Row>

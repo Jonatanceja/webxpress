@@ -1,0 +1,44 @@
+---
+// Detección automática de idioma
+// ------------
+// Description: en la primera visita envía al visitante a la versión que coincide con
+// el idioma de su navegador. Si ya eligió idioma con el botón, no interviene nunca más.
+//
+// Va en el <head> y en línea a propósito: debe ejecutarse antes de pintar para que no
+// se vea un parpadeo del idioma equivocado.
+
+import { routes } from '../../i18n/routes'
+
+// El mapa de rutas se serializa para poder traducir la ruta actual en el cliente.
+const routeMap = Object.values(routes).map((byLang) => [byLang.en, byLang.es])
+---
+
+<script is:inline define:vars={{ routeMap }}>
+	;(() => {
+		try {
+			// 1. Una elección explícita del visitante manda por encima de todo.
+			if (localStorage.getItem('lang')) return
+		} catch {
+			// localStorage bloqueado: seguimos con la detección
+		}
+
+		const path = window.location.pathname
+		const current = path.split('/')[1] === 'es' ? 'es' : 'en'
+
+		const browser = (navigator.languages && navigator.languages[0]) || navigator.language || 'en'
+		const preferred = browser.toLowerCase().startsWith('es') ? 'es' : 'en'
+
+		// 2. Ya está en el idioma correcto: nada que hacer. Esto también evita bucles.
+		if (preferred === current) return
+
+		// 3. Traducir la ruta actual. Si no se reconoce, no se toca nada.
+		const strip = (p) => (p.length > 1 ? p.replace(/\/+$/, '') : p)
+		const from = current === 'en' ? 0 : 1
+		const to = preferred === 'en' ? 0 : 1
+
+		const match = routeMap.find((pair) => strip(pair[from]) === strip(path))
+		if (!match) return
+
+		window.location.replace(match[to] + window.location.search + window.location.hash)
+	})()
+</script>

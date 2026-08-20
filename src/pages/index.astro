@@ -12,15 +12,15 @@ import CTA from '../components/blocks/CTA/BasicDark.astro'
 // Content
 // - Testimonial background
 import testimonialBackground from '../assets/testimonial-bg-01.webp'
-// - SEO
-const SEO = {
-	title: 'Webxpress | Tu sitio web en línea en días, no en meses',
-	description:
-		'Publicamos tu sitio en 5 a 20 días hábiles, con precio cerrado y sin mensualidades. Diseño profesional, velocidad y soporte incluido el primer año.'
-}
+// - i18n
+import { getLangFromUrl } from '../i18n/routes'
+import { useTranslations } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout title={t.home.seoTitle} description={t.home.seoDescription}>
 	<Hero />
 	<Features />
 	<Testimonial bg={testimonialBackground} bgPosition="right" />

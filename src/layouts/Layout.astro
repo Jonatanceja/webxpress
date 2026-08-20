@@ -8,6 +8,7 @@ import Modal from '../components/blocks/modal/SignUp.astro'
 import Header from '../components/blocks/head/Header.astro'
 // Scripts
 import Scriprs from '../components/scripts/LocalScripts.astro'
+import LanguageDetector from '../components/scripts/LanguageDetector.astro'
 import MailChimp from '../components/scripts/mailChimp.astro'
 // Styles
 import '../styles/global.css'
@@ -16,6 +17,9 @@ import '@fontsource-variable/inter'
 import '@fontsource-variable/outfit'
 // Data
 import { configData } from '../config/config'
+import { getLangFromUrl } from '../i18n/routes'
+
+const lang = getLangFromUrl(Astro.url)
 
 // Props
 type Props = {
@@ -30,8 +34,9 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-animation mode-auto relative">
+<html lang={lang} class="scroll-animation mode-auto relative">
 	<Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
+	<LanguageDetector />
 	<body
 		class:list={[
 			{ ['mode-' + `${configData.mode}`]: configData.mode },

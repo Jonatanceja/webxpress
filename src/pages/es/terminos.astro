@@ -1,22 +1,28 @@
 ---
+// i18n
+import { getLangFromUrl } from '../../i18n/routes'
+import { useTranslations } from '../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 // Components
 // - Layout
-import Layout from '../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro'
 // - UI
-import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
-import Hero from '../components/blocks/hero/PageHeader.astro'
+import SidebarContent from '../../components/blocks/basic/StickySidebar.astro'
+import Hero from '../../components/blocks/hero/PageHeader.astro'
+
 
 // Content
 // - SEO
 const SEO = {
-	title: 'Webxpress | Términos y condiciones',
-	description:
-		"Webxpress ofrece diseño, desarrollo, mantenimiento y soporte técnico para sitios web."
+	title: t.terms.seoTitle,
+	description: t.terms.seoDescription
 }
 // - Page Header
 const header = {
-	title: 'Términos y condiciones',
-	text: 'Por favor, léelos atentamente para comprender tus derechos y responsabilidades.'
+	title: t.terms.headerTitle,
+	text: t.terms.headerText
 }
 ---
 

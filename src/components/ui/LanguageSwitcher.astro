@@ -1,0 +1,64 @@
+---
+// Language Switcher
+// ------------
+// Description: enlaza a la misma página en el otro idioma. Al pulsarlo guarda la
+// elección, para que la detección automática no vuelva a reenviar al visitante.
+
+import { getLangFromUrl, switchLangPath, type Lang } from '../../i18n/routes'
+import { useTranslations } from '../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const other: Lang = lang === 'en' ? 'es' : 'en'
+const t = useTranslations(lang)
+const href = switchLangPath(Astro.url.pathname, other)
+---
+
+<a
+	id="language-selector"
+	href={href}
+	data-lang={other}
+	hreflang={other}
+	aria-label={t.lang.label}
+	title={t.lang.switchTo}
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		class="size-5"
+		aria-hidden="true"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3 7.5 7.03 7.5 12s2.015 9 4.5 9ZM3.6 9h16.8M3.6 15h16.8"
+		></path>
+	</svg>
+	<span class="language-selector__code">{other.toUpperCase()}</span>
+</a>
+
+<script>
+	// Recuerda la elección explícita del visitante para que la detección
+	// automática deje de intervenir a partir de ese momento.
+	document.getElementById('language-selector')?.addEventListener('click', (event) => {
+		const target = event.currentTarget as HTMLAnchorElement
+		try {
+			localStorage.setItem('lang', target.dataset.lang || '')
+		} catch {
+			// localStorage puede estar bloqueado; el enlace sigue funcionando igual
+		}
+	})
+</script>
+
+<style>
+	@reference '../../styles/theme.css';
+
+	#language-selector {
+		@apply order-3 flex h-full cursor-pointer items-center justify-center gap-1 px-2 text-sm font-semibold text-neutral-700 transition-colors hover:text-primary-500 dark:text-neutral-50 dark:hover:text-primary-400;
+	}
+	.language-selector__code {
+		@apply leading-none;
+	}
+</style>

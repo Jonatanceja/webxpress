@@ -1,14 +1,21 @@
 ---
+// i18n
+import { getLangFromUrl } from '../../i18n/routes'
+import { useTranslations } from '../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 // Components
 // - Layout
-import Layout from '../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro'
 // - UI
-import Feature from '../components/blocks/features/FeatureSticky.astro'
-import Hero from '../components/blocks/hero/PageHeader.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import Feature from '../../components/blocks/features/FeatureSticky.astro'
+import Hero from '../../components/blocks/hero/PageHeader.astro'
+import CTA from '../../components/blocks/CTA/BasicDark.astro'
 
 // Data
-import featuresData from '../data/json-files/featuresData.json'
+import featuresData from '../../data/json-files/featuresData.json'
+
 // - Feature Categories
 const featuresAnalytics = featuresData.filter((feature) => feature.category === 'Analytics')
 const featuresProductivity = featuresData.filter((feature) => feature.category === 'Productivity')
@@ -19,14 +26,13 @@ const featuresSupport = featuresData.filter((feature) => feature.category === 'S
 // Content
 // - SEO
 const SEO = {
-	title: 'Webxpress | Tecnología, diseño y rendimiento incluidos',
-	description:
-		"Descubre todo lo que incluye tu sitio Webxpress: diseño profesional, desarrollo moderno sin WordPress, gestor de contenido, hosting, SEO y velocidad optimizada. Entregado en días y con precio cerrado."
+	title: t.features.seoTitle,
+	description: t.features.seoDescription
 }
 // - Page Header
 const header = {
-	title: 'Una base sólida para tu sitio, sin límites',
-	text: 'Diseñado para destacar, desarrollado para escalar. Sitios rápidos, seguros y preparados para el futuro.'
+	title: t.features.headerTitle,
+	text: t.features.headerText
 }
 ---
 

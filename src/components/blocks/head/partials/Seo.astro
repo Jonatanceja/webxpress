@@ -18,7 +18,22 @@ type Props = {
 	noindex?: boolean
 }
 
+import { getLangFromUrl, switchLangPath, routes, type Lang } from '../../../../i18n/routes'
+import { useTranslations } from '../../../../i18n/ui'
+
 const { title, description, ogImage, canonical = true, noindex = false } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const other: Lang = lang === 'en' ? 'es' : 'en'
+const t = useTranslations(lang)
+
+// Alternativas por idioma para que Google sirva la versión correcta
+const base = Astro.site ?? new URL(Astro.url.origin)
+const alternates: { hreflang: string; href: string }[] = [
+	{ hreflang: 'en', href: new URL(switchLangPath(Astro.url.pathname, 'en'), base).toString() },
+	{ hreflang: 'es', href: new URL(switchLangPath(Astro.url.pathname, 'es'), base).toString() },
+	{ hreflang: 'x-default', href: new URL(routes.home.en, base).toString() }
+]
 
 // Construir URL absoluta para ogImage
 const imageUrl = ogImage 
@@ -27,7 +42,7 @@ const imageUrl = ogImage
 
 // Datos de Facebook (puedes moverlos a tu config)
 const fbAppId = '' // Tu Facebook App ID (opcional)
-const siteName = 'Mayoristas de Integración Electrónica'
+const siteName = t.site.name
 ---
 
 <Fragment>
@@ -49,7 +64,8 @@ const siteName = 'Mayoristas de Integración Electrónica'
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content={title || siteName} />
 	<meta property="og:site_name" content={siteName} />
-	<meta property="og:locale" content="es_MX" />
+	<meta property="og:locale" content={t.site.locale} />
+	<meta property="og:locale:alternate" content={useTranslations(other).site.locale} />
 	{fbAppId && <meta property="fb:app_id" content={fbAppId} />}
 	
 	<!-- Twitter Card -->
@@ -64,6 +80,9 @@ const siteName = 'Mayoristas de Integración Electrónica'
 	
 	<!-- Canonical -->
 	{canonical && <link rel="canonical" href={Astro.url} />}
+
+	<!-- Alternativas de idioma -->
+	{alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
 	
 	<!-- Robots -->
 	{noindex && <meta name="robots" content="noindex,nofollow" />}

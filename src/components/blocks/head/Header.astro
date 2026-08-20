@@ -8,6 +8,11 @@ import GoogleSearchConsole from '../../scripts/googleSearchConsole.astro'
 import Seo from './partials/Seo.astro'
 // Data
 import { configData } from '../../../config/config'
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
 import { googleAnalyticsMeasurementID } from '../../../config/analytics'
 import { googleTagManagerID } from '../../../config/analytics'
@@ -22,8 +27,8 @@ type Props = {
 }
 // Page Metadata
 const {
-	title = configData.siteTitle,
-	description = configData.siteDescription,
+	title = t.site.title,
+	description = t.site.description,
 	ogImage = configData.ogImage,
 	canonical = configData.canonical,
 	noindex = configData.noindex

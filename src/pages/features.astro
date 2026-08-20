@@ -1,0 +1,69 @@
+---
+// i18n
+import { getLangFromUrl } from '../i18n/routes'
+import { useTranslations } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Feature from '../components/blocks/features/FeatureSticky.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import CTA from '../components/blocks/CTA/BasicDark.astro'
+
+// Data
+import featuresData from '../data/json-files/featuresData.json'
+
+// - Feature Categories
+const featuresAnalytics = featuresData.filter((feature) => feature.category === 'Analytics')
+const featuresProductivity = featuresData.filter((feature) => feature.category === 'Productivity')
+const featuresSecurity = featuresData.filter((feature) => feature.category === 'Security')
+const featuresIntegrations = featuresData.filter((feature) => feature.category === 'Integrations')
+const featuresSupport = featuresData.filter((feature) => feature.category === 'Support')
+
+// Content
+// - SEO
+const SEO = {
+	title: t.features.seoTitle,
+	description: t.features.seoDescription
+}
+// - Page Header
+const header = {
+	title: t.features.headerTitle,
+	text: t.features.headerText
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+	<Feature
+		title="Desarrollo web hecho para durar"
+		text="Rendimiento, mantenimiento sencillo y arquitectura escalable desde el día uno."
+		data={featuresAnalytics}
+	/>
+	<Feature
+		title="Velocidad y visibilidad que impulsan tu negocio"
+		text="Sitios optimizados para cargar más rápido y posicionar mejor."
+		data={featuresSecurity}
+		classes="bg-neutral-50 dark:bg-neutral-900"
+	/>
+	<Feature
+		title="Tranquilidad digital para ti y tus usuarios"
+		text="Implementamos estándares de seguridad que previenen ataques y mantienen tu sitio estable."
+		data={featuresProductivity}
+	/>
+	<Feature
+		title="Preparado para hoy, listo para mañana"
+		text="Tu sitio se conecta fácilmente con nuevas tecnologías conforme evoluciona tu negocio."
+		data={featuresIntegrations}
+		classes="bg-neutral-50 dark:bg-neutral-900"
+	/>
+	<Feature
+		title="Tu equipo técnico, sin ser parte de tu nómina"
+		text=" Resolvemos dudas, prevenimos errores y te ayudamos a sacarle el máximo provecho a tu sitio."
+		data={featuresSupport}
+	/>
+	<CTA />
+</Layout>

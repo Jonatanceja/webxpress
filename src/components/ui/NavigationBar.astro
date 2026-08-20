@@ -17,29 +17,51 @@ import { Icon } from 'astro-icon/components'
 import Button from './Button.astro'
 import Switcher from './ModeSwitcher.astro'
 
+import LanguageSwitcher from './LanguageSwitcher.astro'
+
 // Data
 import { navigationBarData } from '../../config/navigationBar'
-const { logo, navItems, navActions } = navigationBarData
+const { logo } = navigationBarData
+
+// i18n
+import { getLangFromUrl, getRoute } from '../../i18n/routes'
+import { useTranslations, navStructure, isGroup } from '../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const homeLink = getRoute('home', lang)
+const ctaLink = getRoute('contact', lang)
+
+// Etiquetas y enlaces del menú, ya resueltos en el idioma actual
+const navItems = navStructure.map((item) =>
+	isGroup(item)
+		? {
+				name: t.nav[item.key as keyof typeof t.nav],
+				link: '#',
+				submenu: item.items.map((sub) => ({
+					name: t.nav[sub.key as keyof typeof t.nav],
+					link: getRoute(sub.route, lang)
+				}))
+			}
+		: {
+				name: t.nav[item.key as keyof typeof t.nav],
+				link: getRoute(item.route, lang),
+				submenu: undefined as { name: string; link: string }[] | undefined
+			}
+)
 
 // Determine current path
 const path = new URL(Astro.request.url).pathname
 function isActivePath(currentPath: string): boolean {
 	return path === currentPath || path === `${currentPath}/`
 }
-
-// Type assertion for navActions to ensure type safety
-const savedNavActions = navActions.map((action) => ({
-	...action,
-	size: action.size as 'base' | 'lg' | 'sm',
-	style: action.style as 'primary' | 'secondary' | 'neutral'
-}))
 ---
 
 <header class="header">
 	<div class="header__container">
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			<!-- Logo -->
-			<a href="/" class="header__logo">
+			<a href={homeLink} class="header__logo">
 				<img class="hidden dark:block" src={logo.light.src} alt={logo.light.alt} width="200" height="68" />
 				<img class="block dark:hidden" src={logo.dark.src} alt={logo.dark.alt} width="200" height="68" />
 				<span>{logo.text}</span>
@@ -101,18 +123,15 @@ const savedNavActions = navActions.map((action) => ({
 				}
 			</ul>
 
-			<!-- Theme Switcher -->
+			<!-- Language & Theme Switchers -->
+			<LanguageSwitcher />
 			<Switcher />
 
 			<!-- Navigation action buttons -->
 			<div class="header__actions">
-				{
-					savedNavActions.map((action) => (
-						<Button classes="flex-auto" size={action.size} style={action.style} link="/contacto">
-							{action.name}
-						</Button>
-					))
-				}
+				<Button classes="flex-auto" size="lg" style="primary" link={ctaLink}>
+					{t.nav.cta}
+				</Button>
 			</div>
 		</nav>
 	</div>

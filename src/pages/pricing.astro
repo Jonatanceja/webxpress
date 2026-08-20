@@ -1,4 +1,10 @@
 ---
+// i18n
+import { getLangFromUrl } from '../i18n/routes'
+import { useTranslations } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 // Components
 // - Layout
 import Layout from '../layouts/Layout.astro'
@@ -14,20 +20,20 @@ import CTA from '../components/blocks/CTA/BasicDark.astro'
 // Content
 // - SEO
 const SEO = {
-	title: 'Webxpress | Precio cerrado y entrega en días',
-	description:
-		'Un solo pago, sin mensualidades. Elige tu paquete y ten tu sitio publicado en 5, 10 o 20 días hábiles.'
+	title: t.pricing.seoTitle,
+	description: t.pricing.seoDescription
 }
 // - Page Header
 const header = {
-	title: 'Precio cerrado y tu sitio publicado en <strong>días</strong>, no en meses.',
-	text: 'Un solo pago, sin mensualidades ni sorpresas. Sabes lo que cuesta y cuándo estará en línea antes de empezar.'
+	title: t.pricing.headerTitle,
+	text: t.pricing.headerText
 }
 // - Testimonial data
 import testimonialBackground from '../assets/testimonial-bg-02.webp'
+
 const testimonialData = {
 	blockquote:
-		"Te decimos el precio y la fecha de entrega antes de empezar, y los cumplimos. Sin mensualidades y sin proyectos que se alargan meses.",
+		t.pricing.quote,
 	figcaption: 'Jonatan Ceja',
 	cite: 'Webxpress'
 }

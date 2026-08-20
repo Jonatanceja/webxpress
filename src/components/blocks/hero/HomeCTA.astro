@@ -16,6 +16,13 @@ import Button from '../../ui/Button.astro'
 // Content
 // - Hero Image
 import heroImage from '../../../assets/monkey.webp'
+
+// i18n
+import { getLangFromUrl, getRoute } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <Section
@@ -26,20 +33,17 @@ import heroImage from '../../../assets/monkey.webp'
 	<Row>
 		<Col span="2" />
 		<Col span="8" align="center">
-			<h1>Tu <strong>sitio web</strong> en línea en días</h1>
+			<h1 set:html={t.home.heroTitle} />
 
-			<p class="pb-0 text-lg">
-				<strong>De la contratación al lanzamiento en 5 a 20 días hábiles.</strong> Precio cerrado desde el
-				inicio, sin mensualidades.
-			</p>
-			<Button size="lg" link="/precios">Ver precios y plazos</Button>
+			<p class="pb-0 text-lg" set:html={t.home.heroText} />
+			<Button size="lg" link={getRoute('pricing', lang)}>{t.home.heroCta}</Button>
 		</Col>
 		<Col span="2" />
 		<Col span="2" />
 		<Col span="8" classes='-mt-8 lg:-mt-20'>
 			<Image
 				src={heroImage}
-				alt="Tu sitio web en órbita"
+				alt={t.home.heroImageAlt}
 				class=""
 				format="webp"
 			/>

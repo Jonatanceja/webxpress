@@ -10,11 +10,24 @@ import { Icon } from 'astro-icon/components'
 
 // Data
 import { socialLinks } from '../../config/socialLinks'
-import { footerNavigationData } from '../../config/footerNavigation'
 import { navigationBarData } from '../../config/navigationBar'
-const { logo, navItems, navActions } = navigationBarData
+const { logo } = navigationBarData
 
-const { footerAbout, footerColumns, subFooter } = footerNavigationData
+// i18n
+import { getLangFromUrl, getRoute } from '../../i18n/routes'
+import { useTranslations, footerStructure } from '../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const homeLink = getRoute('home', lang)
+
+const footerColumns = footerStructure.map((column) => ({
+	category: t.footer[column.key as keyof typeof t.footer],
+	subCategories: column.items.map((item) => ({
+		subCategory: t.nav[item.key as keyof typeof t.nav],
+		subCategoryLink: getRoute(item.route, lang)
+	}))
+}))
 ---
 
 <footer class="footer">
@@ -23,12 +36,12 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		<div class="footer__container">
 			<div class="footer__cols">
 				<div class="footer__col">
-					<a href="/" class="header__logo">
+					<a href={homeLink} class="header__logo">
 						<img class="hidden dark:block" src={logo.light.src} alt={logo.light.alt} width="150" height="48" />
 						<img class="block dark:hidden" src={logo.dark.src} alt={logo.dark.alt} width="150" height="48" />
 					</a>
 					<p class="mt-2">
-						{footerAbout.aboutText}
+						{t.footer.about}
 					</p>
 				</div>
 				{
@@ -52,7 +65,7 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 	<div class="footer__sub">
 		<div class="footer__container">
 			<div class="footer__sub-cols">
-				<div class="footer__sub-col">{subFooter.copywriteText}</div>
+				<div class="footer__sub-col">{t.footer.copyright}</div>
 				<nav aria-labelledby="footer-social-links-dark" class="footer__sub-col text-right">
 					<h2 class="sr-only" id="footer-social-links-dark">Social Media Links</h2>
 					<ul>
