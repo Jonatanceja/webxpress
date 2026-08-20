@@ -41,13 +41,13 @@ const heroAnimation = '/hero.lottie'
 <style>
 	@reference '../../../styles/theme.css';
 
-	/* La animación marca la proporción del hero: al ensancharse, la altura
-	   crece con ella. El min-height evita que se estreche demasiado en móvil
-	   y garantiza sitio para el titular y el botón. */
+	/* La altura la marca el contenido más su padding, no una relación de
+	   aspecto fija: con aspect-ratio el alto salía del ancho y comprimía el
+	   titular contra los bordes. La animación cubre igual, porque usa `cover`. */
 	.hero {
-		@apply min-h-[32rem] lg:min-h-0 lg:aspect-[1920/1080] lg:max-h-[80vh];
+		@apply min-h-[28rem];
 	}
 	.hero__content {
-		@apply relative z-10 py-12 lg:py-24;
+		@apply relative z-10 py-24 lg:py-40;
 	}
 </style>
