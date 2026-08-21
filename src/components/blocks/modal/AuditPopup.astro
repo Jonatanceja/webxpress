@@ -46,11 +46,11 @@ const MAILCHIMP_ACTION =
 			action={MAILCHIMP_ACTION}
 			method="post"
 			target="_blank"
-			novalidate
 			class="audit__form"
 			data-audit-form
 		>
 			<InputField type="email" id="audit-email" name="EMAIL" label={t.audit.emailLabel} required />
+			<InputField type="url" id="audit-url" name="URL" label={t.audit.urlLabel} required />
 
 			{/* Campo trampa anti-bots que pide Mailchimp: nadie debe rellenarlo */}
 			<div aria-hidden="true" class="audit__honeypot">
