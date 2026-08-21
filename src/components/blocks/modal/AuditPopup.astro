@@ -65,7 +65,10 @@ const MAILCHIMP_ACTION =
 	</div>
 </dialog>
 
-<script>
+<!-- is:inline a propósito: al renderizarse el componente de forma condicional,
+     Astro no eleva un <script> normal y en desarrollo el popup se quedaba sin
+     abrir. En línea viaja siempre junto al marcado, y sólo donde éste aparece. -->
+<script is:inline>
 	// Se distingue 'submitted' de 'dismissed': quien ya dejó su correo no debe
 	// volver a verlo nunca, y así queda margen para reofrecerlo a quien sólo lo
 	// cerró, si algún día interesa.
@@ -74,7 +77,7 @@ const MAILCHIMP_ACTION =
 	const SCROLL_RATIO = 0.4
 
 	const init = () => {
-		const dialog = document.getElementById('audit-popup') as HTMLDialogElement | null
+		const dialog = document.getElementById('audit-popup')
 		if (!dialog) return
 
 		const seen = () => {
@@ -86,7 +89,7 @@ const MAILCHIMP_ACTION =
 			}
 		}
 
-		const remember = (state: 'submitted' | 'dismissed') => {
+		const remember = (state) => {
 			try {
 				// Un envío nunca se pisa con un descarte posterior
 				if (localStorage.getItem(STORAGE_KEY) === 'submitted') return
