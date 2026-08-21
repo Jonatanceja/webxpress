@@ -1,8 +1,9 @@
-// Google tracking
-// - Google Site Verification: for Google Search Console
-// - Google Analytics Measurement ID: for Google Analytics
-// - Google Tag Manager ID: for Google Tag Manager
+// Google Search Console
+// ------------
+// Verificación del sitio en Search Console mediante meta etiqueta.
+//
+// Hoy la verificación de webxpress.website se hace por DNS (registro TXT en
+// IONOS), así que este valor puede quedarse vacío. Rellénalo sólo si algún día
+// quieres verificar también por meta etiqueta, como respaldo.
 
 export const googleSiteVerification = ''
-export const googleAnalyticsMeasurementID = import.meta.env.PUBLIC_GA_TRACKING_ID // Replace with your Google Analytics Measurement ID (e.g. "G-XXXXXXXXXX")
-export const googleTagManagerID = 'GTM-WH7SNGXJ'

@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config'
-import partytown from '@astrojs/partytown'
 import tailwindcss from '@tailwindcss/vite'
 import icon from 'astro-icon'
 
@@ -33,11 +32,6 @@ export default defineConfig({
 			i18n: {
 				defaultLocale: 'en',
 				locales: { en: 'en', es: 'es-MX' }
-			}
-		}),
-		partytown({
-			config: {
-				forward: ['dataLayer.push']
 			}
 		})
 	],
