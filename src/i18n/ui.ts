@@ -23,6 +23,7 @@ export const ui = {
 			home: 'Home',
 			pricing: 'Pricing',
 			features: 'Features',
+			portfolio: 'Portfolio',
 			help: 'Help',
 			faq: 'FAQ',
 			terms: 'Terms & conditions',
@@ -229,6 +230,19 @@ export const ui = {
 			s5Title: 'Your technical team, without being on your payroll',
 			s5Text: 'We answer questions, prevent problems and help you get the most out of your site.'
 		},
+		portfolioPage: {
+			seoTitle: 'Webxpress | Our work',
+			seoDescription:
+				'Websites we have designed and built: fast, on-brand and made to bring in customers.',
+			headerTitle: 'Sites we have <strong>put in orbit</strong>',
+			headerText:
+				'A selection of the websites we have designed and built. Fast, on-brand and made to bring in customers.',
+			visitSite: 'Visit site',
+			backToList: 'Back to portfolio',
+			whatWeDid: 'What we did',
+			screenshots: 'Screenshots',
+			empty: 'No projects published yet.'
+		},
 		notFound: {
 			seoTitle: 'Oops! Webxpress lost its way - Page not found',
 			seoDescription:
@@ -253,6 +267,7 @@ export const ui = {
 			home: 'Inicio',
 			pricing: 'Precios',
 			features: 'Funciones',
+			portfolio: 'Portafolio',
 			help: 'Ayuda',
 			faq: 'Preguntas frecuentes',
 			terms: 'Términos y condiciones',
@@ -451,6 +466,19 @@ export const ui = {
 			s5Title: 'Tu equipo técnico, sin ser parte de tu nómina',
 			s5Text: 'Resolvemos dudas, prevenimos errores y te ayudamos a sacarle el máximo provecho a tu sitio.'
 		},
+		portfolioPage: {
+			seoTitle: 'Webxpress | Nuestro trabajo',
+			seoDescription:
+				'Sitios web que hemos diseñado y desarrollado: rápidos, fieles a su marca y hechos para atraer clientes.',
+			headerTitle: 'Sitios que hemos <strong>puesto en órbita</strong>',
+			headerText:
+				'Una selección de los sitios que hemos diseñado y desarrollado. Rápidos, fieles a su marca y hechos para atraer clientes.',
+			visitSite: 'Visitar sitio',
+			backToList: 'Volver al portafolio',
+			whatWeDid: 'Qué hicimos',
+			screenshots: 'Capturas',
+			empty: 'Aún no hay proyectos publicados.'
+		},
 		notFound: {
 			seoTitle: '¡Ups! Webxpress perdió el camino - Página no encontrada',
 			seoDescription:
@@ -472,6 +500,7 @@ export const navStructure: (NavItem | NavGroup)[] = [
 	{ key: 'home', route: 'home' },
 	{ key: 'pricing', route: 'pricing' },
 	{ key: 'features', route: 'features' },
+	{ key: 'portfolio', route: 'portfolio' },
 	{
 		key: 'help',
 		items: [
@@ -482,7 +511,14 @@ export const navStructure: (NavItem | NavGroup)[] = [
 ]
 
 export const footerStructure: NavGroup[] = [
-	{ key: 'product', items: [{ key: 'features', route: 'features' }, { key: 'pricing', route: 'pricing' }] },
+	{
+		key: 'product',
+		items: [
+			{ key: 'features', route: 'features' },
+			{ key: 'pricing', route: 'pricing' },
+			{ key: 'portfolio', route: 'portfolio' }
+		]
+	},
 	{ key: 'help', items: [{ key: 'faq', route: 'faq' }, { key: 'terms', route: 'terms' }] },
 	{ key: 'contactUs', items: [{ key: 'contact', route: 'contact' }] }
 ]

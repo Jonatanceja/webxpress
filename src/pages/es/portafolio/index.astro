@@ -1,0 +1,53 @@
+---
+// i18n
+import { getLangFromUrl, getProjectRoute } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+// Components
+// - Layout
+import Layout from '../../../layouts/Layout.astro'
+import Section from '../../../components/ui/Section.astro'
+import Row from '../../../components/ui/Row.astro'
+import Col from '../../../components/ui/Col.astro'
+// - UI
+import Hero from '../../../components/blocks/hero/PageHeader.astro'
+import ProjectCard from '../../../components/blocks/portfolio/ProjectCard.astro'
+import CTA from '../../../components/blocks/CTA/BasicDark.astro'
+
+// Data
+import { getCollection } from 'astro:content'
+const projects = (await getCollection('portfolio')).sort(
+	(a, b) => a.data.order - b.data.order || b.data.year - a.data.year
+)
+---
+
+<Layout title={t.portfolioPage.seoTitle} description={t.portfolioPage.seoDescription}>
+	<Hero title={t.portfolioPage.headerTitle} text={t.portfolioPage.headerText} />
+	<Section>
+		<Row>
+			{
+				projects.length === 0 ? (
+					<Col span="12" align="center">
+						<p>{t.portfolioPage.empty}</p>
+					</Col>
+				) : (
+					projects.map((project) => (
+						<Col span="4" classes="mb-6">
+							<ProjectCard
+								href={getProjectRoute(project.id, lang)}
+								title={project.data.title}
+								summary={project.data.summary[lang]}
+								cover={project.data.cover}
+								tags={project.data.tags.map((tag) => tag[lang])}
+							/>
+						</Col>
+					))
+				)
+			}
+		</Row>
+	</Section>
+	<CTA />
+</Layout>

@@ -12,12 +12,13 @@ export type Lang = keyof typeof languages
 
 export const defaultLang: Lang = 'en'
 
-export type RouteId = 'home' | 'pricing' | 'features' | 'faq' | 'contact' | 'terms'
+export type RouteId = 'home' | 'pricing' | 'features' | 'portfolio' | 'faq' | 'contact' | 'terms'
 
 export const routes: Record<RouteId, Record<Lang, string>> = {
 	home: { en: '/', es: '/es/' },
 	pricing: { en: '/pricing', es: '/es/precios' },
 	features: { en: '/features', es: '/es/funciones' },
+	portfolio: { en: '/portfolio', es: '/es/portafolio' },
 	faq: { en: '/faq', es: '/es/faq' },
 	contact: { en: '/contact', es: '/es/contacto' },
 	terms: { en: '/terms', es: '/es/terminos' }
@@ -57,5 +58,22 @@ export function getRouteId(path: string): RouteId | null {
  */
 export function switchLangPath(currentPath: string, to: Lang): string {
 	const id = getRouteId(currentPath)
-	return id ? routes[id][to] : routes.home[to]
+	if (id) return routes[id][to]
+
+	// Fichas del portafolio: /portfolio/<slug> y /es/portafolio/<slug>.
+	// No están en el mapa porque el slug lo pone el contenido, así que se
+	// traduce el prefijo y se conserva el slug.
+	for (const lang of Object.keys(routes.portfolio) as Lang[]) {
+		const prefix = routes.portfolio[lang] + '/'
+		if (normalize(currentPath).startsWith(prefix)) {
+			return routes.portfolio[to] + '/' + normalize(currentPath).slice(prefix.length)
+		}
+	}
+
+	return routes.home[to]
+}
+
+/** Ruta de la ficha de un proyecto del portafolio. */
+export function getProjectRoute(slug: string, lang: Lang): string {
+	return `${routes.portfolio[lang]}/${slug}`
 }

@@ -1,0 +1,70 @@
+---
+// Project Card
+// ------------
+// Description: tarjeta de un proyecto en el listado del portafolio.
+
+import { Image } from 'astro:assets'
+
+type Props = {
+	href: string
+	title: string
+	summary: string
+	cover: ImageMetadata
+	tags: string[]
+}
+
+const { href, title, summary, cover, tags } = Astro.props
+---
+
+<a class="project" href={href}>
+	<div class="project__media">
+		<Image src={cover} alt="" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 100vw" />
+	</div>
+	<div class="project__body">
+		<h2 class="project__title">{title}</h2>
+		<p class="project__summary">{summary}</p>
+		{
+			tags.length > 0 && (
+				<ul class="project__tags">
+					{tags.map((tag) => (
+						<li>{tag}</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+</a>
+
+<style>
+	@reference '../../../styles/theme.css';
+
+	.project {
+		@apply flex h-full flex-col overflow-hidden rounded-sm border border-neutral-100 bg-white shadow-lg shadow-neutral-700/5 transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900 dark:shadow-neutral-950/50;
+	}
+	/* La captura es una página completa, muy alta: en la tarjeta se muestra
+	   sólo su parte superior, que es la que identifica el sitio. */
+	.project__media {
+		@apply aspect-[16/10] overflow-hidden bg-neutral-50 dark:bg-neutral-950;
+	}
+	.project__media :global(img) {
+		@apply h-full w-full object-cover object-top transition-transform duration-500;
+	}
+	.project:hover .project__media :global(img) {
+		@apply scale-105;
+	}
+	.project__body {
+		@apply flex flex-1 flex-col gap-3 p-6;
+	}
+	.project__title {
+		@apply mb-0 text-xl font-bold text-neutral-700 dark:text-neutral-50;
+	}
+	.project__summary {
+		@apply mb-0 flex-1 text-sm leading-relaxed;
+	}
+	.project__tags {
+		@apply flex flex-wrap gap-2;
+	}
+	.project__tags li {
+		@apply rounded-sm bg-neutral-100 px-2 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300;
+	}
+</style>
