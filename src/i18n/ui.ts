@@ -45,6 +45,8 @@ export const ui = {
 			product: 'Product',
 			help: 'Help',
 			contactUs: 'Contact us',
+			social: 'Social media',
+			newTab: '(opens in a new tab)',
 			copyright: '© Webxpress 2026.'
 		},
 
@@ -300,6 +302,8 @@ export const ui = {
 			product: 'Producto',
 			help: 'Ayuda',
 			contactUs: 'Contáctanos',
+			social: 'Redes sociales',
+			newTab: '(se abre en una pestaña nueva)',
 			copyright: '© Webxpress 2026.'
 		},
 
