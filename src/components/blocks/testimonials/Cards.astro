@@ -21,9 +21,11 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const testimonials = getTestimonials(lang)
 
-// Con pocos testimonios, tarjetas anchas quedan mejor que una fila
-// de columnas estrechas medio vacías.
-const span = testimonials.length === 1 ? '8' : testimonials.length === 2 ? '6' : '4'
+// El ancho se elige para que no quede una tarjeta suelta en la última fila:
+// con 1 una ancha centrada, con 2 y 4 media anchura (2x2), y con el resto
+// tres por fila.
+const count = testimonials.length
+const span = count === 1 ? '8' : count === 2 || count === 4 ? '6' : '4'
 ---
 
 {
