@@ -266,6 +266,10 @@ export const ui = {
 			contactText: 'Write to us on WhatsApp and we will get back to you shortly.',
 			contactButton: 'Chat with us'
 		},
+		testimonials: {
+			title: 'What our <strong>clients</strong> say',
+			text: 'Businesses that trusted us with their website and now have it working for them.'
+		},
 		notFound: {
 			seoTitle: 'Oops! Webxpress lost its way - Page not found',
 			seoDescription:
@@ -524,6 +528,10 @@ export const ui = {
 			contactTitle: '¿Prefieres escribirnos?',
 			contactText: 'Mándanos un mensaje por WhatsApp y te respondemos en breve.',
 			contactButton: 'Escríbenos por WhatsApp'
+		},
+		testimonials: {
+			title: 'Lo que dicen nuestros <strong>clientes</strong>',
+			text: 'Negocios que nos confiaron su sitio web y hoy lo tienen trabajando para ellos.'
 		},
 		notFound: {
 			seoTitle: '¡Ups! Webxpress perdió el camino - Página no encontrada',

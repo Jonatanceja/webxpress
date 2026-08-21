@@ -1,0 +1,91 @@
+---
+// Testimonials — cards
+// ------------
+// Description: sección de testimonios en tarjetas, con título propio.
+// Los textos viven en src/data/json-files/<idioma>/testimonialsData.json:
+// añadir uno ahí lo publica en el sitio sin tocar este componente.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+import { getTestimonials } from '../../../data'
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+type Props = { classes?: string }
+const { classes } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const testimonials = getTestimonials(lang)
+
+// Con pocos testimonios, tarjetas anchas quedan mejor que una fila
+// de columnas estrechas medio vacías.
+const span = testimonials.length === 1 ? '8' : testimonials.length === 2 ? '6' : '4'
+---
+
+{
+	testimonials.length > 0 && (
+		<Section id="testimonials" classes={classes}>
+			<Row>
+				<Col span="12" align="center" classes="mb-12 max-w-3xl mx-auto">
+					<h2 class="text-pretty" set:html={t.testimonials.title} />
+					<p class="pb-0 text-lg">{t.testimonials.text}</p>
+				</Col>
+			</Row>
+			<Row classes={testimonials.length === 1 ? 'justify-center' : undefined}>
+				{testimonials.map((item) => (
+					<Col span={span} classes="mb-6">
+						<figure class="testimonial-card">
+							<Icon name="quotes" class="testimonial-card__mark" aria-hidden="true" />
+
+							{item.rating > 0 && (
+								<div class="testimonial-card__rating" aria-label={`${item.rating} / 5`}>
+									{Array.from({ length: item.rating }).map(() => (
+										<Icon name="filled-star" aria-hidden="true" />
+									))}
+								</div>
+							)}
+
+							<blockquote class="testimonial-card__quote">{item.quote}</blockquote>
+
+							<figcaption class="testimonial-card__author">
+								<span class="testimonial-card__name">{item.name}</span>
+								<span class="testimonial-card__role">{item.role}</span>
+							</figcaption>
+						</figure>
+					</Col>
+				))}
+			</Row>
+		</Section>
+	)
+}
+
+<style>
+	@reference '../../../styles/theme.css';
+
+	.testimonial-card {
+		@apply relative flex h-full flex-col gap-4 overflow-hidden rounded-sm border border-neutral-100 bg-white p-8 shadow-lg shadow-neutral-700/5 dark:border-neutral-800 dark:bg-neutral-900 dark:shadow-neutral-950/50;
+	}
+	/* Comilla decorativa, detrás del texto */
+	.testimonial-card__mark {
+		@apply pointer-events-none absolute -right-2 -top-2 h-24 w-24 text-neutral-100 dark:text-neutral-800;
+	}
+	.testimonial-card__rating {
+		@apply relative flex gap-1 [&_svg]:h-5 [&_svg]:w-5 [&_svg]:text-primary-500;
+	}
+	.testimonial-card__quote {
+		@apply relative mb-0 flex-1 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300;
+	}
+	.testimonial-card__author {
+		@apply relative flex flex-col border-t border-neutral-100 pt-4 dark:border-neutral-800;
+	}
+	.testimonial-card__name {
+		@apply font-bold text-neutral-700 dark:text-neutral-50;
+	}
+	.testimonial-card__role {
+		@apply text-sm text-neutral-500 dark:text-neutral-400;
+	}
+</style>

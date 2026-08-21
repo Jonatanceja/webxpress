@@ -13,7 +13,7 @@ import Hero from '../../components/blocks/hero/PageHeader.astro'
 import Price from '../../components/blocks/pricing/PricingColumns.astro'
 import SocialProof from '../../components/blocks/socialproof/Basic.astro'
 import FAQ from '../../components/blocks/FAQ/Basic.astro'
-import Testimonial from '../../components/blocks/testimonials/BasicDark.astro'
+import Testimonials from '../../components/blocks/testimonials/Cards.astro'
 import Feature from '../../components/blocks/features/FeatureList.astro'
 import CTA from '../../components/blocks/CTA/BasicDark.astro'
 
@@ -28,15 +28,6 @@ const header = {
 	title: t.pricing.headerTitle,
 	text: t.pricing.headerText
 }
-// - Testimonial data
-import testimonialBackground from '../../assets/testimonial-bg-02.webp'
-
-const testimonialData = {
-	blockquote:
-		t.pricing.quote,
-	figcaption: 'Jonatan Ceja',
-	cite: 'Webxpress'
-}
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
@@ -44,13 +35,7 @@ const testimonialData = {
 	<Price />
 	<SocialProof />
 	<Feature />
-	<Testimonial
-		bg={testimonialBackground}
-		bgPosition="left"
-		blockquote={testimonialData.blockquote}
-		figcaption={testimonialData.figcaption}
-		cite={testimonialData.cite}
-	/>
+	<Testimonials classes="bg-neutral-50 dark:bg-neutral-900/40" />
 	<FAQ classes="bg-slate-50 dark:bg-neutral-900/40" />
 	<CTA />
 </Layout>
