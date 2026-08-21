@@ -66,7 +66,10 @@ const MAILCHIMP_ACTION =
 </dialog>
 
 <script>
-	const STORAGE_KEY = 'audit-popup-seen'
+	// Se distingue 'submitted' de 'dismissed': quien ya dejó su correo no debe
+	// volver a verlo nunca, y así queda margen para reofrecerlo a quien sólo lo
+	// cerró, si algún día interesa.
+	const STORAGE_KEY = 'audit-popup'
 	const DELAY_MS = 20000
 	const SCROLL_RATIO = 0.4
 
@@ -76,16 +79,18 @@ const MAILCHIMP_ACTION =
 
 		const seen = () => {
 			try {
-				return localStorage.getItem(STORAGE_KEY) === '1'
+				return localStorage.getItem(STORAGE_KEY) !== null
 			} catch {
 				// Si localStorage está bloqueado, mejor no insistir en cada visita
 				return true
 			}
 		}
 
-		const remember = () => {
+		const remember = (state: 'submitted' | 'dismissed') => {
 			try {
-				localStorage.setItem(STORAGE_KEY, '1')
+				// Un envío nunca se pisa con un descarte posterior
+				if (localStorage.getItem(STORAGE_KEY) === 'submitted') return
+				localStorage.setItem(STORAGE_KEY, state)
 			} catch {
 				// sin almacenamiento no hay nada que recordar
 			}
@@ -117,7 +122,7 @@ const MAILCHIMP_ACTION =
 		window.addEventListener('scroll', onScroll, { passive: true })
 
 		// Cerrar por cualquier vía cuenta como visto: no se vuelve a mostrar
-		dialog.addEventListener('close', remember)
+		dialog.addEventListener('close', () => remember('dismissed'))
 
 		dialog.querySelectorAll('[data-audit-close]').forEach((button) => {
 			button.addEventListener('click', () => dialog.close())
@@ -130,7 +135,7 @@ const MAILCHIMP_ACTION =
 
 		// El envío abre Mailchimp en otra pestaña; aquí sólo se cierra
 		dialog.querySelector('[data-audit-form]')?.addEventListener('submit', () => {
-			remember()
+			remember('submitted')
 			window.setTimeout(() => dialog.close(), 300)
 		})
 	}

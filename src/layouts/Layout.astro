@@ -23,6 +23,11 @@ import { useTranslations } from '../i18n/ui'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
+// El popup de auditoría sólo va en la portada. Al decidirlo aquí, en el resto
+// de páginas Astro no renderiza el componente ni envía su script.
+const path = Astro.url.pathname.replace(/\/+$/, '')
+const isHome = path === '' || path === '/es'
+
 // Props
 type Props = {
 	title?: string
@@ -57,7 +62,7 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 			<slot />
 		</Main>
 		<Footer />
-		<AuditPopup />
+		{isHome && <AuditPopup />}
 		<Scriprs />
 	</body>
 </html>
