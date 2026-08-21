@@ -1,5 +1,6 @@
 ---
 title: Resuldt
+url: https://resuldt.com/
 year: 2026
 order: 3
 
