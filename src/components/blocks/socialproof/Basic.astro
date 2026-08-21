@@ -17,6 +17,15 @@ import resuldt from '../../../assets/logos/resuldt.svg'
 import { getLangFromUrl } from '../../../i18n/routes'
 import { useTranslations } from '../../../i18n/ui'
 
+// Props
+type Props = {
+	classes?: string
+	/** Por defecto lleva margen arriba y abajo: sin el de arriba el título
+	    queda pegado a la sección anterior. */
+	padding?: 'both' | 'top' | 'bottom' | 'none'
+}
+const { classes, padding = 'both' } = Astro.props
+
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
@@ -54,7 +63,7 @@ const images = [
 ]
 ---
 
-<Section padding="bottom">
+<Section padding={padding} classes={classes}>
 	<Row>
 		<Col span="12" align="center">
 			<h2 class="!mb-10 text-base font-normal text-neutral-500 dark:text-neutral-400"><Fragment set:html={t.blocks.socialProof} /></h2>
