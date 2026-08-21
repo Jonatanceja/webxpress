@@ -243,6 +243,18 @@ export const ui = {
 			screenshots: 'Screenshots',
 			empty: 'No projects published yet.'
 		},
+		audit: {
+			title: 'Get a free audit of your website',
+			text: 'Leave us your email and we will send you a review of your site: what to improve in speed, SEO and conversion, plus a quote with no commitment.',
+			point1: 'Concrete points to improve',
+			point2: 'Speed, SEO and conversion',
+			point3: 'A quote with no commitment',
+			emailLabel: 'Your email',
+			submit: 'Send me the audit',
+			dismiss: 'No thanks',
+			close: 'Close',
+			privacy: 'We only use your email to send you the audit. No spam.'
+		},
 		notFound: {
 			seoTitle: 'Oops! Webxpress lost its way - Page not found',
 			seoDescription:
@@ -478,6 +490,18 @@ export const ui = {
 			whatWeDid: 'Qué hicimos',
 			screenshots: 'Capturas',
 			empty: 'Aún no hay proyectos publicados.'
+		},
+		audit: {
+			title: 'Obtén una auditoría gratis de tu sitio web',
+			text: 'Déjanos tu correo y te enviamos una revisión de tu sitio: qué mejorar en velocidad, SEO y conversión, más una cotización sin compromiso.',
+			point1: 'Puntos concretos a mejorar',
+			point2: 'Velocidad, SEO y conversión',
+			point3: 'Una cotización sin compromiso',
+			emailLabel: 'Tu correo',
+			submit: 'Quiero mi auditoría',
+			dismiss: 'Ahora no',
+			close: 'Cerrar',
+			privacy: 'Solo usamos tu correo para enviarte la auditoría. Sin spam.'
 		},
 		notFound: {
 			seoTitle: '¡Ups! Webxpress perdió el camino - Página no encontrada',

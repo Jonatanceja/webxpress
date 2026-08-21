@@ -1,0 +1,181 @@
+---
+// Audit Popup
+// ------------
+// Description: ventana emergente que ofrece una auditoría gratuita del sitio del
+// visitante a cambio de su correo. Envía a Mailchimp.
+//
+// Decisiones que conviene conocer:
+// - Usa <dialog> nativo, que ya trae atrapado del foco, cierre con Escape y
+//   semántica de diálogo. Hacerlo a mano habría sido más código y peor.
+// - Aparece una sola vez: al cerrarlo o enviarlo se recuerda en localStorage.
+// - No aparece de golpe: espera a que el visitante lleve un rato o haya
+//   bajado por la página, para no interrumpir nada más entrar.
+// - El envío abre la confirmación de Mailchimp en otra pestaña, para no
+//   sacar al visitante del sitio.
+
+import InputField from '../../ui/forms/form-elements/InputField.astro'
+import Button from '../../ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const MAILCHIMP_ACTION =
+	'https://website.us22.list-manage.com/subscribe/post?u=2af389eb99f58a1cb65fda16a&id=bd02499e98&f_id=0037c2e1f0'
+---
+
+<dialog id="audit-popup" class="audit" aria-labelledby="audit-title">
+	<div class="audit__panel">
+		<button type="button" class="audit__close" data-audit-close aria-label={t.audit.close}>
+			<Icon name="x-mark" aria-hidden="true" />
+		</button>
+
+		<h2 id="audit-title" class="audit__title">{t.audit.title}</h2>
+		<p class="audit__text">{t.audit.text}</p>
+
+		<ul class="audit__points">
+			<li>{t.audit.point1}</li>
+			<li>{t.audit.point2}</li>
+			<li>{t.audit.point3}</li>
+		</ul>
+
+		<form
+			action={MAILCHIMP_ACTION}
+			method="post"
+			target="_blank"
+			novalidate
+			class="audit__form"
+			data-audit-form
+		>
+			<InputField type="email" id="audit-email" name="EMAIL" label={t.audit.emailLabel} required />
+
+			{/* Campo trampa anti-bots que pide Mailchimp: nadie debe rellenarlo */}
+			<div aria-hidden="true" class="audit__honeypot">
+				<input type="text" name="b_2af389eb99f58a1cb65fda16a_bd02499e98" tabindex="-1" value="" />
+			</div>
+
+			<Button style="primary" type="submit" size="lg" classes="w-full">{t.audit.submit}</Button>
+		</form>
+
+		<p class="audit__privacy">{t.audit.privacy}</p>
+		<button type="button" class="audit__dismiss" data-audit-close>{t.audit.dismiss}</button>
+	</div>
+</dialog>
+
+<script>
+	const STORAGE_KEY = 'audit-popup-seen'
+	const DELAY_MS = 20000
+	const SCROLL_RATIO = 0.4
+
+	const init = () => {
+		const dialog = document.getElementById('audit-popup') as HTMLDialogElement | null
+		if (!dialog) return
+
+		const seen = () => {
+			try {
+				return localStorage.getItem(STORAGE_KEY) === '1'
+			} catch {
+				// Si localStorage está bloqueado, mejor no insistir en cada visita
+				return true
+			}
+		}
+
+		const remember = () => {
+			try {
+				localStorage.setItem(STORAGE_KEY, '1')
+			} catch {
+				// sin almacenamiento no hay nada que recordar
+			}
+		}
+
+		if (seen()) return
+
+		let opened = false
+		const open = () => {
+			if (opened || seen() || dialog.open) return
+			opened = true
+			dialog.showModal()
+			cleanup()
+		}
+
+		const onScroll = () => {
+			const scrolled = window.scrollY + window.innerHeight
+			const total = document.documentElement.scrollHeight
+			if (total > 0 && scrolled / total >= SCROLL_RATIO) open()
+		}
+
+		const timer = window.setTimeout(open, DELAY_MS)
+
+		function cleanup() {
+			window.clearTimeout(timer)
+			window.removeEventListener('scroll', onScroll)
+		}
+
+		window.addEventListener('scroll', onScroll, { passive: true })
+
+		// Cerrar por cualquier vía cuenta como visto: no se vuelve a mostrar
+		dialog.addEventListener('close', remember)
+
+		dialog.querySelectorAll('[data-audit-close]').forEach((button) => {
+			button.addEventListener('click', () => dialog.close())
+		})
+
+		// Clic fuera del panel
+		dialog.addEventListener('click', (event) => {
+			if (event.target === dialog) dialog.close()
+		})
+
+		// El envío abre Mailchimp en otra pestaña; aquí sólo se cierra
+		dialog.querySelector('[data-audit-form]')?.addEventListener('submit', () => {
+			remember()
+			window.setTimeout(() => dialog.close(), 300)
+		})
+	}
+
+	init()
+	document.addEventListener('astro:page-load', init)
+</script>
+
+<style>
+	@reference '../../../styles/theme.css';
+
+	.audit {
+		@apply m-auto w-[26rem] max-w-[calc(100%-2rem)] rounded-sm border border-neutral-100 bg-white p-0 text-neutral-500 shadow-2xl shadow-neutral-700/20 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300;
+	}
+	.audit::backdrop {
+		@apply bg-neutral-950/60;
+	}
+	.audit__panel {
+		@apply relative p-8;
+	}
+	.audit__close {
+		@apply absolute right-3 top-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-50;
+	}
+	.audit__title {
+		@apply mb-3 pr-6 text-2xl font-bold text-neutral-700 dark:text-neutral-50;
+	}
+	.audit__text {
+		@apply mb-4 text-sm leading-relaxed;
+	}
+	.audit__points {
+		@apply mb-6 flex flex-col gap-2 text-sm;
+	}
+	.audit__points li {
+		@apply relative pl-6 before:absolute before:left-0 before:top-[0.45em] before:h-2 before:w-2 before:rounded-full before:bg-primary-500;
+	}
+	.audit__form {
+		@apply flex flex-col gap-4;
+	}
+	.audit__honeypot {
+		@apply absolute -left-[5000px];
+	}
+	.audit__privacy {
+		@apply mb-0 mt-4 text-center text-xs text-neutral-500 dark:text-neutral-400;
+	}
+	.audit__dismiss {
+		@apply mx-auto mt-3 block cursor-pointer text-xs text-neutral-500 underline transition-colors hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-50;
+	}
+</style>
