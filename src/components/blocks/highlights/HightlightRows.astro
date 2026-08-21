@@ -8,8 +8,6 @@
 import TextImage from '../basic/TextImage.astro'
 
 // Content
-import highlight04 from '../../../assets/highlights/highlight-04.svg'
-import highlight04mobile from '../../../assets/highlights/highlight-04-mobile.svg'
 
 // i18n
 import { getLangFromUrl } from '../../../i18n/routes'
@@ -59,10 +57,9 @@ const highlightBlocks: HighlightBlock[] = [
 	{
 		title: t.steps[3].title,
 		text: t.steps[3].text,
-		image: highlight04,
-		mobileImage: highlight04mobile,
-		imageWidth: highlight04.width,
-		imageHeight: highlight04.height,
+		lottie: '/rocket-launch.lottie',
+		lottieRatio: '646 / 1023',
+		lottieWidth: '70%',
 		imagePosition: 'left'
 	},
 ]
