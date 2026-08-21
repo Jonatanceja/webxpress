@@ -1,0 +1,54 @@
+---
+// WhatsApp floating button
+// ------------
+// Description: botón flotante de WhatsApp, fijo abajo a la derecha en todas las
+// páginas. Abre el chat en una pestaña nueva.
+
+import { Icon } from 'astro-icon/components'
+import { whatsappLink } from '../../config/whatsapp'
+import { getLangFromUrl } from '../../i18n/routes'
+import { useTranslations } from '../../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<a
+	class="wa-fab"
+	href={whatsappLink(t.whatsapp.greeting)}
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label={`${t.whatsapp.aria} ${t.footer.newTab}`}
+>
+	<Icon name="whatsapp" class="wa-fab__icon" aria-hidden="true" />
+	<span class="wa-fab__label">{t.whatsapp.fab}</span>
+</a>
+
+<style>
+	@reference '../../styles/theme.css';
+
+	/* Verde de marca de WhatsApp. Va como valor literal y no como color del tema
+	   porque es de un tercero: no debe cambiar si cambia la paleta del sitio. */
+	.wa-fab {
+		@apply fixed bottom-5 right-5 z-30 flex items-center gap-0 overflow-hidden rounded-full bg-[#25D366] py-3 pl-3 pr-3 font-bold text-neutral-900 shadow-lg shadow-neutral-950/20 transition-all duration-300 hover:gap-2 hover:bg-[#20BA5A] hover:pr-5 focus-visible:gap-2 focus-visible:pr-5;
+	}
+	.wa-fab__icon {
+		@apply h-7 w-7 shrink-0;
+	}
+	/* La etiqueta se despliega al pasar el ratón o al recibir el foco; en pantallas
+	   pequeñas queda sólo el icono para no tapar contenido. */
+	.wa-fab__label {
+		@apply hidden max-w-0 whitespace-nowrap text-sm opacity-0 transition-all duration-300 lg:block;
+	}
+	.wa-fab:hover .wa-fab__label,
+	.wa-fab:focus-visible .wa-fab__label {
+		@apply max-w-[12rem] opacity-100;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.wa-fab,
+		.wa-fab__label {
+			@apply transition-none;
+		}
+	}
+</style>

@@ -1,0 +1,66 @@
+---
+// WhatsApp CTA
+// ------------
+// Description: bloque de la página de contacto que invita a escribir por
+// WhatsApp, con el número visible por si prefieren guardarlo.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+import { whatsappLink, whatsappDisplay } from '../../../config/whatsapp'
+import { getLangFromUrl } from '../../../i18n/routes'
+import { useTranslations } from '../../../i18n/ui'
+
+type Props = { classes?: string }
+const { classes } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Section classes={classes}>
+	<Row>
+		<Col span="12" align="center">
+			<h2 class="wa-cta__title">{t.whatsapp.contactTitle}</h2>
+			<p class="wa-cta__text">{t.whatsapp.contactText}</p>
+
+			<a
+				class="wa-cta__button"
+				href={whatsappLink(t.whatsapp.greeting)}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label={`${t.whatsapp.contactButton} ${t.footer.newTab}`}
+			>
+				<Icon name="whatsapp" class="wa-cta__icon" aria-hidden="true" />
+				{t.whatsapp.contactButton}
+			</a>
+
+			<p class="wa-cta__number">{whatsappDisplay}</p>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/theme.css';
+
+	.wa-cta__title {
+		@apply mb-3 text-3xl;
+	}
+	.wa-cta__text {
+		@apply mb-8 text-lg;
+	}
+	/* Verde de marca de WhatsApp, como valor literal: es de un tercero y no debe
+	   seguir la paleta del sitio. Texto oscuro, que sobre este verde contrasta
+	   mucho mejor que el blanco. */
+	.wa-cta__button {
+		@apply inline-flex items-center justify-center gap-3 rounded-sm bg-[#25D366] px-8 py-4 text-lg font-bold tracking-wide text-neutral-900 no-underline shadow-lg shadow-neutral-700/10 transition-colors duration-300 hover:bg-[#20BA5A] hover:text-neutral-900;
+	}
+	.wa-cta__icon {
+		@apply h-7 w-7 shrink-0;
+	}
+	.wa-cta__number {
+		@apply mb-0 mt-4 text-sm text-neutral-500 dark:text-neutral-400;
+	}
+</style>

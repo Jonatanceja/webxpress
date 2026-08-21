@@ -14,11 +14,12 @@ import Col from '../../ui/Col.astro'
 import Card from '../../ui/cards/BasicCard.astro'
 
 // i18n
-import { getLangFromUrl } from '../../../i18n/routes'
+import { getLangFromUrl, getRoute } from '../../../i18n/routes'
 import { useTranslations } from '../../../i18n/ui'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const contactLink = getRoute('contact', lang)
 
 // 	Props
 type Props = {
@@ -41,7 +42,7 @@ const { classes } = Astro.props
 				subtitle={t.contactBlocks.cards[0].subtitle}
 				icon="rocket"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contacto"
+				link={contactLink}
 			/>
 		</Col>
 		<Col span="3">
@@ -50,7 +51,7 @@ const { classes } = Astro.props
 				subtitle={t.contactBlocks.cards[1].subtitle}
 				icon="document-text"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contacto"
+				link={contactLink}
 			/>
 		</Col>
 		<Col span="3">
@@ -59,7 +60,7 @@ const { classes } = Astro.props
 				subtitle={t.contactBlocks.cards[2].subtitle}
 				icon="bolt"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contacto"
+				link={contactLink}
 			/>
 		</Col>
 		<Col span="3" classes="flex flex-col gap-6">
@@ -68,7 +69,7 @@ const { classes } = Astro.props
 				subtitle={t.contactBlocks.cards[3].subtitle}
 				icon="chat-bubble-left-ellipsis"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contacto"
+				link={contactLink}
 			/>
 		</Col>
 	</Row>

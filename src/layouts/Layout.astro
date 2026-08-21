@@ -5,6 +5,7 @@ import NavigationBar from '../components/ui/NavigationBar.astro'
 import Main from '../components/ui/Main.astro'
 import Footer from '../components/ui/Footer.astro'
 import AuditPopup from '../components/blocks/modal/AuditPopup.astro'
+import WhatsAppFab from '../components/ui/WhatsAppFab.astro'
 import Header from '../components/blocks/head/Header.astro'
 // Scripts
 import Scriprs from '../components/scripts/LocalScripts.astro'
@@ -57,6 +58,7 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 		</Main>
 		<Footer />
 		{isHome && <AuditPopup />}
+		<WhatsAppFab />
 		<Scriprs />
 	</body>
 </html>

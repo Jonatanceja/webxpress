@@ -258,6 +258,14 @@ export const ui = {
 			close: 'Close',
 			privacy: 'We only use your email to send you the audit. No spam.'
 		},
+		whatsapp: {
+			fab: 'Chat with us',
+			aria: 'Chat with us on WhatsApp',
+			greeting: 'Hi! I would like to know more about your websites.',
+			contactTitle: 'Prefer to chat?',
+			contactText: 'Write to us on WhatsApp and we will get back to you shortly.',
+			contactButton: 'Chat with us'
+		},
 		notFound: {
 			seoTitle: 'Oops! Webxpress lost its way - Page not found',
 			seoDescription:
@@ -508,6 +516,14 @@ export const ui = {
 			dismiss: 'Ahora no',
 			close: 'Cerrar',
 			privacy: 'Solo usamos tu correo para enviarte la auditoría. Sin spam.'
+		},
+		whatsapp: {
+			fab: 'Escríbenos',
+			aria: 'Escríbenos por WhatsApp',
+			greeting: '¡Hola! Quiero saber más sobre sus sitios web.',
+			contactTitle: '¿Prefieres escribirnos?',
+			contactText: 'Mándanos un mensaje por WhatsApp y te respondemos en breve.',
+			contactButton: 'Escríbenos por WhatsApp'
 		},
 		notFound: {
 			seoTitle: '¡Ups! Webxpress perdió el camino - Página no encontrada',
